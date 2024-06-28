@@ -25,27 +25,25 @@ import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
 import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
-Function.openBrowser()
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
+Function.openBrowser() // *** Navigate to Web UI utilities browser *** //
+Function.libraries() //***  Open Libraries dropdown link ***//
 
+// *** Navigating to CARD TOKENIZATION Page ***//
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement CardTokenization = driver.findElement(By.xpath('//h6[normalize-space()=\'Card Tokenization\']'))
-
 CardTokenization.click()
 Function.offset()
+
+// *** Navigating to GENERATE TOKENIZATION Tab ***//
 WebElement GenerateToken = driver.findElement(By.xpath('//a[normalize-space()=\'Generate Token\']'))
 GenerateToken.click()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 
-// --- get the test data from gsheet ---//
+// *** get the test data from gsheet: CARD TAB ***//
 Request = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
 EncryptedCard = WS.getElementPropertyValue(Request, '[0].encryptCard')
 println('EncryptedCard : ' + EncryptedCard)
@@ -53,7 +51,8 @@ expirationMonth = WS.getElementPropertyValue(Request, '[0].expirationMonth')
 println('expirationMonth : ' + expirationMonth)
 expirationYear = WS.getElementPropertyValue(Request, '[0].expirationYear')
 println('expirationYear : ' + expirationYear)
-//--- send the request to text box --- //
+
+//*** send the request to text box ***//
 String Token = 
 """{
     "cardNumber": "${EncryptedCard}",
@@ -62,21 +61,17 @@ String Token =
 }"""
 
 
-def restResponse = new JsonSlurper().parseText(Token)
-def prettyJson = new groovy.json.JsonBuilder(restResponse).toPrettyString()
+def restRequest = new JsonSlurper().parseText(Token)
+def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 println(prettyJson)
 Function.request().sendKeys(Token)
 Function.Submit()
 
-// ---  this is where to get the response and validate the expected response ---//
+// ***  this is where to get the response and validate the expected response from Web ***//
 String response_content = Function.response()
 println('response_content : ' + response_content)
 
-if (response_content.contains('token')) {
-	System.out.println('Passed')
-		} 
-		else {
-				System.out.println('failed')
-			}
+assert response_content.contains('token')
+println(response_content)
 
 Function.closeBrowser()

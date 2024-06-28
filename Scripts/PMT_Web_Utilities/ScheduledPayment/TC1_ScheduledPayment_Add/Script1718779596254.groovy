@@ -26,40 +26,29 @@ import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
-Function.openBrowser()
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
+Function.openBrowser() // *** Navigate to Web UI utilities browser *** //
+Function.libraries() //***  Open Libraries dropdown link ***//
+
+// *** Navigating to SCHEDULED PAYMENT Page ***//
 
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement ScheduledPayment = driver.findElement(By.xpath('//h6[normalize-space()=\'Scheduled Payments\']'))
-
 ScheduledPayment.click()
-
 Function.offset()
+
 WebElement Add = driver.findElement(By.xpath('//a[normalize-space()=\'Add\']'))
 Add.click()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 
-// --- get the test data from gsheet ---//
-Request = WS.sendRequest(findTestObject('TestData/gsheet_Payment'))
-Request2 = WS.sendRequest(findTestObject('TestData/gsheet_ScheduledPayment'))
+// *** get the test data from gsheet: CARD TAB & BOOKING DETAILS TAB ***//
+Request = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
+Request1 = WS.sendRequest(findTestObject('TestData/gsheet_BookingDetails'))
 
-// **Test Data is from Payment tab** //
-bookingId = WS.getElementPropertyValue(Request, '[0].bookingId')
-println('bookingId : ' + bookingId)
-paymentChannel = WS.getElementPropertyValue(Request, '[0].paymentChannel')
-println('paymentChannel : ' + paymentChannel)
-currency = WS.getElementPropertyValue(Request, '[0].currency')
-println('currency : ' + currency)
-token = WS.getElementPropertyValue(Request, '[0].token')
-println('token : ' + token)
+//** CARDS
 expirationYear = WS.getElementPropertyValue(Request, '[0].expirationYear')
 println('expirationYear : ' + expirationYear)
 expirationMonth = WS.getElementPropertyValue(Request, '[0].expirationMonth')
@@ -81,15 +70,21 @@ println('countryCode : ' + countryCode)
 total = WS.getElementPropertyValue(Request, '[0].total')
 println('total : ' + total)
 
-// **Test Data is from Scheduled Payment tab** //
-action = WS.getElementPropertyValue(Request2, '[0].action')
+// ** BOOKING DETAILS
+action = WS.getElementPropertyValue(Request1, '[0].action')
 println('action : ' + action)
-scheduleDate = WS.getElementPropertyValue(Request2, '[0].scheduleDate')
+scheduleDate = WS.getElementPropertyValue(Request1, '[0].scheduleDate')
 println('scheduleDate : ' + scheduleDate)
-amount = WS.getElementPropertyValue(Request2, '[0].amount')
-println('amount : ' + amount)
+bookingId = WS.getElementPropertyValue(Request1, '[0].bookingId')
+println('bookingId : ' + bookingId)
+paymentChannel = WS.getElementPropertyValue(Request1, '[0].paymentChannel')
+println('paymentChannel : ' + paymentChannel)
+currency = WS.getElementPropertyValue(Request1, '[0].currency')
+println('currency : ' + currency)
+token = WS.getElementPropertyValue(Request1, '[0].token')
+println('token : ' + token)
 
-//--- send the request to text box --- //
+//*** send the request to text box ***//
 String AddRequest  = """
 {
   "bookingId": "${bookingId}",
@@ -115,7 +110,7 @@ String AddRequest  = """
         {
           "action": "${action}",
           "scheduleDate": "${scheduleDate}",
-          "totalAmount": "${amount}"
+          "totalAmount": "${total}"
         }
       ]
     }

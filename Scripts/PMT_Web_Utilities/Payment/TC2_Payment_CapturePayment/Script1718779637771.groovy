@@ -25,35 +25,38 @@ import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
 import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
-Function.openBrowser()
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
+Function.openBrowser() // *** Navigate to Web UI utilities browser *** //
 
+Function.libraries() //***  Open Libraries dropdown link ***//
+
+// *** Navigating to PAYMENT Page ***//
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement Payments = driver.findElement(By.xpath('//h6[normalize-space()=\'Payments\']'))
-
 Payments.click()
 Function.offset()
 WebElement CapturePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Capture payment\']'))
 CapturePayment.click()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 
-// --- get the test data from gsheet ---//
-Request = WS.sendRequest(findTestObject('TestData/gsheet_Payment'))
+// *** get the test data from gsheet: CARD TAB & BOOKING DETAILS TAB***//
+Request = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
+Request1 = WS.sendRequest(findTestObject('TestData/gsheet_BookingDetails'))
+
+//** BOOKING DETAILS TAB
 transactionId = WS.getElementPropertyValue(Request, '[0].transactionId')
 println('transactionId : ' + transactionId)
 bookingId = WS.getElementPropertyValue(Request, '[0].bookingId')
 println('bookingId : ' + bookingId)
-amount = WS.getElementPropertyValue(Request, '[0].total')
+
+//** CARD TAB
+amount = WS.getElementPropertyValue(Request1, '[0].total')
 println('amount : ' + amount)
-//--- send the request to text box --- //
+
+//*** send the request to text box ***//
 String AuthorizePayment  = """
 {
    "transactionId": "${transactionId}",
@@ -66,32 +69,33 @@ String AuthorizePayment  = """
 }
 """
 
-
-def restResponse = new JsonSlurper().parseText(AuthorizePayment)
-def prettyJson = new groovy.json.JsonBuilder(restResponse).toPrettyString()
+def restRequest = new JsonSlurper().parseText(AuthorizePayment)
+def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 println(prettyJson)
 Function.request().sendKeys(prettyJson)
 Function.Submit()
 
-// ---  this is where to get the response and validate the expected response ---//
+// ***  this is where to get the response and validate the expected response from Web ***//
 String response_content = Function.response()
 
-if (response_content.contains('orderId')) {
-		} 
-		else if (response_content.contains('status')) {
-			}
-		else if (response_content.contains('transactionId')) {
-			}
-		else if (response_content.contains('bookingIds')) {
-			}
-		else if (response_content.contains('authorizationCode')) {
-			}
-		else if (response_content.contains('controlSequenceNumber')) {
-				System.out.println('Passed')
-			}
-		else {
-				System.out.println('failed')
-			}
-			println(response_content)
+assert response_content.contains('orderId')
+println(response_content)
+//if (response_content.contains('orderId')) {
+//		} 
+//		else if (response_content.contains('status')) {
+//			}
+//		else if (response_content.contains('transactionId')) {
+//			}
+//		else if (response_content.contains('bookingIds')) {
+//			}
+//		else if (response_content.contains('authorizationCode')) {
+//			}
+//		else if (response_content.contains('controlSequenceNumber')) {
+//				System.out.println('Passed')
+//			}
+//		else {
+//				System.out.println('failed')
+//			}
+//			println(response_content)
 
 Function.closeBrowser()

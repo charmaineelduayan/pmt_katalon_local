@@ -26,47 +26,42 @@ import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
-Function.openBrowser()
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
+Function.openBrowser() // *** Navigate to Web UI utilities browser *** //
+Function.libraries() //***  Open Libraries dropdown link ***//
 
+// *** Navigating to WALLET Page ***//
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement Wallet = driver.findElement(By.xpath('//h6[normalize-space()=\'Wallet\']'))
-
 Wallet.click()
-
 Function.offset()
 WebElement Delete = driver.findElement(By.xpath('//a[normalize-space()=\'Delete\']'))
 Delete.click()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 
-// --- get the test data from gsheet ---//
-Request2 = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
+// *** get the test data from gsheet: GUESTACCOUNT & CARDS ***//
+Request = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
 fetchRes = WS.sendRequest(findTestObject('TestData/GuestAccount'))
 
-// **Test Data is from Cards tab** //
+// **CARDS
 
-cardNumber = WS.getElementPropertyValue(Request2, '[0].cardNumber')
+cardNumber = WS.getElementPropertyValue(Request, '[0].cardNumber')
 println('cardNumber : ' + cardNumber)
-expirationYear = WS.getElementPropertyValue(Request2, '[0].expirationYear')
+expirationYear = WS.getElementPropertyValue(Request, '[0].expirationYear')
 println('expirationYear : ' + expirationYear)
-expirationMonth = WS.getElementPropertyValue(Request2, '[0].expirationMonth')
+expirationMonth = WS.getElementPropertyValue(Request, '[0].expirationMonth')
 println('expirationMonth : ' + expirationMonth)
 
-// **Test Data is from GuestAccount ** //
+// **GuestAccount
 accountId = WS.getElementPropertyValue(fetchRes, 'payload.accountId')
 println('accountId : ' + accountId)
 accessToken = WS.getElementPropertyValue(fetchRes, 'payload.accessToken')
 println('accessToken : ' + accessToken)
 
-//--- send the request to text box --- //
+//*** send the request to text box ***//
 String AddRequest  = 
 """{
     "cardNumber": "${cardNumber}",
@@ -84,10 +79,10 @@ println(prettyJson)
 Function.request().sendKeys(prettyJson)
 Function.Submit()
 
-//// ---  this is where to get the response and validate the expected response ---//
+// ***  this is where to get the response and validate the expected response from Web ***//
 String response_content = Function.response()
 
-assert response_content.contains("status": "OK")
+assert response_content.contains('"status": "OK"')
 println(response_content)
 
 Function.closeBrowser()

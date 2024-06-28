@@ -25,26 +25,28 @@ import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
 import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
-Function.openBrowser()
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
+Function.openBrowser() // *** Navigate to Web UI utilities browser *** //
 
+Function.libraries() //***  Open Libraries dropdown link ***//
+
+// *** Navigating to PAYMENT Page ***//
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement Payments = driver.findElement(By.xpath('//h6[normalize-space()=\'Payments\']'))
-
 Payments.click()
 Function.offset()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 
-// --- get the test data from gsheet ---//
-Request = WS.sendRequest(findTestObject('TestData/gsheet_Payment'))
+// *** get the test data from gsheet: CARD TAB & BOOKING DETAILS TAB***//
+Request = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
+Request1 = WS.sendRequest(findTestObject('TestData/gsheet_BookingDetails'))
+
+
+
+// ** BOOKINGDETAILS TAB
 paymentChannel = WS.getElementPropertyValue(Request, '[0].paymentChannel')
 println('paymentChannel : ' + paymentChannel)
 orderId = WS.getElementPropertyValue(Request, '[0].orderId')
@@ -63,29 +65,32 @@ countryCode = WS.getElementPropertyValue(Request, '[0].countryCode')
 println('countryCode : ' + countryCode)
 currency = WS.getElementPropertyValue(Request, '[0].currency')
 println('currency : ' + currency)
-total = WS.getElementPropertyValue(Request, '[0].total')
+
+//** CARD TAB 
+total = WS.getElementPropertyValue(Request1, '[0].total')
 println('total : ' + total)
-paymentMethod_type = WS.getElementPropertyValue(Request, '[0].paymentMethod_type')
+paymentMethod_type = WS.getElementPropertyValue(Request1, '[0].paymentMethod_type')
 println('paymentMethod_type : ' + paymentMethod_type)
-token = WS.getElementPropertyValue(Request, '[0].token')
+token = WS.getElementPropertyValue(Request1, '[0].token')
 println('token : ' + token)
-expirationYear = WS.getElementPropertyValue(Request, '[0].expirationYear')
+expirationYear = WS.getElementPropertyValue(Request1, '[0].expirationYear')
 println('expirationYear : ' + expirationYear)
-expirationMonth = WS.getElementPropertyValue(Request, '[0].expirationMonth')
+expirationMonth = WS.getElementPropertyValue(Request1, '[0].expirationMonth')
 println('expirationMonth : ' + expirationMonth)
-cvv = WS.getElementPropertyValue(Request, '[0].cvv')
+cvv = WS.getElementPropertyValue(Request1, '[0].cvv')
 println('cvv : ' + cvv)
-cardholderName = WS.getElementPropertyValue(Request, '[0].cardholderName')
+cardholderName = WS.getElementPropertyValue(Request1, '[0].cardholderName')
 println('cardholderName : ' + cardholderName)
-addressOne = WS.getElementPropertyValue(Request, '[0].addressOne')
+addressOne = WS.getElementPropertyValue(Request1, '[0].addressOne')
 println('addressOne : ' + addressOne)
-city = WS.getElementPropertyValue(Request, '[0].city')
+city = WS.getElementPropertyValue(Request1, '[0].city')
 println('city : ' + city)
-state = WS.getElementPropertyValue(Request, '[0].state')
+state = WS.getElementPropertyValue(Request1, '[0].state')
 println('state : ' + state)
-zipCode = WS.getElementPropertyValue(Request, '[0].zipCode')
+zipCode = WS.getElementPropertyValue(Request1, '[0].zipCode')
 println('zipCode : ' + zipCode)
-//--- send the request to text box --- //
+
+//*** send the request to text box ***//
 String AuthorizePayment  = """
 {
     "paymentChannel": "${paymentChannel}",
@@ -121,31 +126,34 @@ String AuthorizePayment  = """
 """
 
 
-def restResponse = new JsonSlurper().parseText(AuthorizePayment)
-def prettyJson = new groovy.json.JsonBuilder(restResponse).toPrettyString()
+def restRequest = new JsonSlurper().parseText(AuthorizePayment)
+def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 println(prettyJson)
 Function.request().sendKeys(prettyJson)
 Function.Submit()
 
-// ---  this is where to get the response and validate the expected response ---//
+// ***  this is where to get the response and validate the expected response from Web ***//
 String response_content = Function.response()
 
-if (response_content.contains('orderId')) {
-		} 
-		else if (response_content.contains('status')) {
-			}
-		else if (response_content.contains('transactionId')) {
-			}
-		else if (response_content.contains('bookingIds')) {
-			}
-		else if (response_content.contains('authorizationCode')) {
-			}
-		else if (response_content.contains('controlSequenceNumber')) {
-				System.out.println('Passed')
-			}
-		else {
-				System.out.println('failed')
-			}
-			println(response_content)
+assert response_content.contains('orderId')
+println(response_content)
+
+//if (response_content.contains('orderId')) {
+//		} 
+//		else if (response_content.contains('status')) {
+//			}
+//		else if (response_content.contains('transactionId')) {
+//			}
+//		else if (response_content.contains('bookingIds')) {
+//			}
+//		else if (response_content.contains('authorizationCode')) {
+//			}
+//		else if (response_content.contains('controlSequenceNumber')) {
+//				System.out.println('Passed')
+//			}
+//		else {
+//				System.out.println('failed')
+//			}
+//			println(response_content)
 
 Function.closeBrowser()

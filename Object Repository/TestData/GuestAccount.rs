@@ -12,7 +12,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\t\&quot;uid\&quot;: \&quot;payment1716095@rccl.com\&quot;,\n\t\&quot;password\&quot;: \&quot;password1\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n\t\&quot;uid\&quot;: \&quot;${uid}\&quot;,\n\t\&quot;password\&quot;: \&quot;${password}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -47,6 +47,20 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.uid</defaultValue>
+      <description>UserName for GuestAccount</description>
+      <id>a2ef4506-5d57-409e-a646-754094103b20</id>
+      <masked>false</masked>
+      <name>uid</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.password</defaultValue>
+      <description>Password </description>
+      <id>e407a3cb-90fa-4a98-be85-c4859810723c</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject

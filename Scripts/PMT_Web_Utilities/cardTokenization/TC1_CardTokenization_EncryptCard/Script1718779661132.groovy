@@ -25,47 +25,35 @@ import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
 import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
+// *** Navigate to Web UI utilities browser *** //
 Function.openBrowser()
+Function.libraries() //***  Open Libraries dropdown link ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
-
+// *** Navigating to CARD TOKENIZATION Page ***//
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement CardTokenization = driver.findElement(By.xpath('//h6[normalize-space()=\'Card Tokenization\']'))
-
 CardTokenization.click()
 Function.offset()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 
-// --- get the test data from gsheet ---//
+// *** get the test data from gsheet: CARD TAB ***//
 Request = WS.sendRequest(findTestObject('TestData/gsheet_Cards'))
 EncryptedCard = WS.getElementPropertyValue(Request, '[0].encryptCard')
 println('EncryptedCard : ' + EncryptedCard)
-//--- send the request to text box --- //
+
+//*** send the request to text box ***//
 String encryptedCard  = "${EncryptedCard}"
-
-
-//def restResponse = new JsonSlurper().parseText(encryptedCard)
-//def prettyJson = new groovy.json.JsonBuilder(restResponse).toPrettyString()
-//println(prettyJson)
 Function.request().sendKeys(encryptedCard)
 Function.Submit()
 
-// ---  this is where to get the response and validate the expected response ---//
+// ***  this is where to get the response and validate the expected response from Web ***//
 String response_content = Function.response()
 println('response_content : ' + response_content)
 
-if (response_content.contains('encryptedCard')) {
-	System.out.println('Passed')
-		} 
-		else {
-				System.out.println('failed')
-			}
-
+assert response_content.contains('encryptedCard')
+println(response_content)
+			
 Function.closeBrowser()
