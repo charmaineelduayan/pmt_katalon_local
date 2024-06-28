@@ -3,7 +3,7 @@
    <description></description>
    <name>VacationSearch</name>
    <tag></tag>
-   <elementGuidId>8ae31546-4787-4b3b-bad0-c2f6fbc5dd15</elementGuidId>
+   <elementGuidId>ac749659-b710-4ae3-a4cb-3ad9f3aba765</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
@@ -12,7 +12,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\t\&quot;header\&quot;: {\n\t\t\&quot;brand\&quot;: \&quot;C\&quot;,\n\t\t\&quot;application\&quot;: \&quot;celebritycruises.com\&quot;,\n\t\t\&quot;domainId\&quot;: 1,\n\t\t\&quot;language\&quot;: \&quot;en_US\&quot;\n\t},\n\t\&quot;criteria\&quot;: {\n\t\t\&quot;office\&quot;: \&quot;MIA\&quot;,\n\t\t\&quot;country\&quot;: \&quot;USA\&quot;,\n\t\t\&quot;currency\&quot;: \&quot;USD\&quot;,\n\t\t\&quot;channel\&quot;: \&quot;VP\&quot;,\n\t\t\&quot;bookingType\&quot;: \&quot;FIT\&quot;, \n\t\t\n\t\t\&quot;cruiseType\&quot;: {\n\t\t\t\&quot;value\&quot;: [\n\t\t\t\t\&quot;CO\&quot;,\n\t\t\t\t\&quot;CT\&quot;\n\t\t\t]\n\t\t},\n\t\t\&quot;brand\&quot;: {\n\t\t\t\&quot;value\&quot;: [\n\t\t\t\t\&quot;C\&quot;\n\t\t\t]\n\t\t}\n\t},\n\t\&quot;resultsPreference\&quot;: {\n\t\t\&quot;additionalFacets\&quot;: [],\n\t\t\&quot;groupBy\&quot;: \&quot;SAILING\&quot;,\n\t\t\&quot;guestPricing\&quot;: \&quot;AVERAGE\&quot;,\n\t\t\&quot;includeFacets\&quot;: false,\n\t\t\&quot;includeOnlyIfPriceAvailable\&quot;: false,\n\t\t\&quot;includePrices\&quot;: true,\n\t\t\&quot;includeResults\&quot;: true,\n\t\t\&quot;pagination\&quot;: {\n\t\t\t\&quot;count\&quot;: \&quot;3100\&quot;,\n\t\t\t\&quot;offset\&quot;: 0\n\t\t},\n\t\t\&quot;priceLevel\&quot;: null,\n\t\t\&quot;sortBy\&quot;: \&quot;PRICE\&quot;,\n\t\t\&quot;sortOrder\&quot;: \&quot;ASCENDING\&quot;,\n\t\t\&quot;strictSearch\&quot;: true\n\t}\n}&quot;,
+  &quot;text&quot;: &quot;{\n\t\&quot;header\&quot;: {\n\t\t\&quot;brand\&quot;: \&quot;${Brand}\&quot;,\n\t\t\&quot;application\&quot;: \&quot;${Application}\&quot;,\n\t\t\&quot;domainId\&quot;: 1,\n\t\t\&quot;language\&quot;: \&quot;en_US\&quot;\n\t},\n\t\&quot;criteria\&quot;: {\n\t\t\&quot;office\&quot;: \&quot;${Office}\&quot;,\n\t\t\&quot;country\&quot;: \&quot;${Country}\&quot;,\n\t\t\&quot;currency\&quot;: \&quot;${Currency}\&quot;,\n\t\t\&quot;channel\&quot;: \&quot;VP\&quot;,\n\t\t\&quot;bookingType\&quot;: \&quot;FIT\&quot;, \n\t\t\n\t\t\&quot;cruiseType\&quot;: {\n\t\t\t\&quot;value\&quot;: [\n\t\t\t\t\&quot;CO\&quot;,\n\t\t\t\t\&quot;CT\&quot;\n\t\t\t]\n\t\t},\n\t\t\&quot;brand\&quot;: {\n\t\t\t\&quot;value\&quot;: [\n\t\t\t\t\&quot;C\&quot;\n\t\t\t]\n\t\t}\n\t},\n\t\&quot;resultsPreference\&quot;: {\n\t\t\&quot;additionalFacets\&quot;: [],\n\t\t\&quot;groupBy\&quot;: \&quot;SAILING\&quot;,\n\t\t\&quot;guestPricing\&quot;: \&quot;AVERAGE\&quot;,\n\t\t\&quot;includeFacets\&quot;: false,\n\t\t\&quot;includeOnlyIfPriceAvailable\&quot;: false,\n\t\t\&quot;includePrices\&quot;: true,\n\t\t\&quot;includeResults\&quot;: true,\n\t\t\&quot;pagination\&quot;: {\n\t\t\t\&quot;count\&quot;: \&quot;100\&quot;,\n\t\t\t\&quot;offset\&quot;: 0\n\t\t},\n\t\t\&quot;priceLevel\&quot;: null,\n\t\t\&quot;sortBy\&quot;: \&quot;PRICE\&quot;,\n\t\t\&quot;sortOrder\&quot;: \&quot;ASCENDING\&quot;,\n\t\t\&quot;strictSearch\&quot;: true\n\t}\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -48,25 +48,39 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>''</defaultValue>
+      <defaultValue>GlobalVariable.Application</defaultValue>
       <description></description>
       <id>5c86e4db-983a-45e1-92f3-7e896159052c</id>
       <masked>false</masked>
       <name>Application</name>
    </variables>
    <variables>
-      <defaultValue>''</defaultValue>
+      <defaultValue>GlobalVariable.Office</defaultValue>
       <description></description>
       <id>66d6b713-1430-4a7e-a166-a98bcf212fcb</id>
       <masked>false</masked>
       <name>Office</name>
    </variables>
    <variables>
-      <defaultValue>''</defaultValue>
+      <defaultValue>GlobalVariable.Brand</defaultValue>
       <description></description>
       <id>eb23c6f1-9da6-40fb-9ca5-372d8d144878</id>
       <masked>false</masked>
       <name>Brand</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.Country</defaultValue>
+      <description></description>
+      <id>abd987d3-7077-400a-9fa7-b8c1274d0cda</id>
+      <masked>false</masked>
+      <name>Country</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.Currency</defaultValue>
+      <description></description>
+      <id>4dfa0f46-e197-4984-b344-cd1eaf039720</id>
+      <masked>false</masked>
+      <name>Currency</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

@@ -26,53 +26,37 @@ import keyword.Function as Function
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-// ---  "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ---//
-// ---  Navigate to Web UI utilities browser
-Function.openBrowser()
+// *** "Function" are reusable functionality created in include >> scripts >> groovy >> keyword >> Function ***//
 
-// ---  Open Libraries dropdown link ---//≈
-Function.libraries()
+Function.openBrowser() // *** Navigate to Web UI utilities browser *** //
+Function.libraries() //***  Open Libraries dropdown link ***//
+
+// *** Navigating to VALIDATION Page ***//
 
 WebDriver driver = DriverFactory.getWebDriver()
-
-// ---  Navigating to Gift Cards Page ---//
 WebElement Validations = driver.findElement(By.xpath('//h6[normalize-space()=\'Validations\']'))
-
 Validations.click()
-
 Function.offset()
 WebElement Validation = driver.findElement(By.xpath('//a[normalize-space()=\'Prevalidations and Conf\']'))
 Validation.click()
 
-// --- change the environment depending on the requirements ---//
+// *** change the KATALON environment depending on the requirements ***//
 Function.environment()
 Function.validationBookingId()
 
-// --- get the test data from gsheet ---//
-Request = WS.sendRequest(findTestObject('TestData/gsheet_Payment'))
-
-// **Test Data is from Payment tab** //
+// *** get the test data from gsheet: BOOKING DETAILS TAB ***//
+Request = WS.sendRequest(findTestObject('TestData/gsheet_BookingDetails'))
 bookingId = WS.getElementPropertyValue(Request, '[0].bookingId')
 println('bookingId : ' + bookingId)
 
-//--- send the request to text box --- //
+//*** send the request to text box ***//
 String bookingId  = "${bookingId}"
-
 Function.validationBookingId().sendKeys(bookingId)
 Function.Submit()
 
-// ---  this is where to get the response and validate the expected response ---//
+// ***  this is where to get the response and validate the expected response from Web ***//
 String response_content = Function.response()
-
-if (response_content.contains('cards')) {
-		} 
-		else if (response_content.contains('code')) {
-			}
-		else if (response_content.contains('description')) {
-				System.out.println('Passed')
-			}
-		else {
-				System.out.println('failed')
-			}
+assert response_content.contains('cards')
+println(response_content)
 
 Function.closeBrowser()

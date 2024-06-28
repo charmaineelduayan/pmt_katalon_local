@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>gsheet_ScheduledPayment</name>
+   <name>gsheet_BookingDetails</name>
    <tag></tag>
    <elementGuidId>ef3ac169-4abf-4092-92ba-e56bddb81f84</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
@@ -26,7 +26,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://sheetdb.io/api/v1/pk3ea2d41qsd4?sheet=ScheduledPayment</restUrl>
+   <restUrl>https://sheetdb.io/api/v1/pk3ea2d41qsd4?sheet=BookingDetails</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
