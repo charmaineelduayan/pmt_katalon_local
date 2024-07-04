@@ -21,18 +21,60 @@ import org.openqa.selenium.By as By
 import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
 import org.openqa.selenium.Keys
-import rcclpayment.utils
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import groovy.json.*
 
+import rcclpayment.utils
+import rcclpayment.getdata
+import rcclpayment.CreateAndRetrieveBooking
 
 try {
 	utils.openBrowserAndNavigateToPMT()
 	WebDriver driver = DriverFactory.getWebDriver()
+	
+	final String EXCEL_PATH = "./Data Files/ScheduledPayment.xlsx"
+	final String TAB = "ADD"
+	
 	utils.goToScheduledPayments()
-	
-	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
-	
 	utils.selectEnvironment(GlobalVariable.ENV)
 	
+	WebElement clickADD = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
+	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+	
+	
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
+	
+	for(int TestScenarioNumber = 0; TestScenarioNumber < testdata.size(); TestScenarioNumber++) {		
+		sendRequestTextBox.clear()
+//		sendRequestTextBox.sendKeys("test")
+//		WebUI.delay(2)
+//		sendRequestTextBox.clear()
+		
+		def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+		println(getBookingData["BookingId"])
+		println(getBookingData["BookingAccessToken"])
+		
+		WebUI.delay(5)
+		
+		
+		
+		String ADDRequest = testdata["ADDRequest"][TestScenarioNumber]
+		String BookingId = GlobalVariable.BookingId
+		sendRequestTextBox.sendKeys(ADDRequest)		//problem on BookingId value on ADD request
+		println(ADDRequest)
+		utils.clickSendButton()
+		WebUI.delay(5)
+		
+		RequestObject cancelBookingRequest = findTestObject('CancelBooking')
+		
+		ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
+		def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+		println(cancelBookingJsonResponse)
+		
+		
+	}
+
 }
 catch (AssertionError e) {
 	println("Assertion failed: ${e.message}")

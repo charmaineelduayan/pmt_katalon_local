@@ -55,7 +55,7 @@ import java.sql.Statement
 
 class getdata {
 
-	static List<List<Object>> forValidations(String excelFilePath, String table) {
+	static List<List<Object>> fromExcel(String excelFilePath, String table) {
 		List<List<Object>> excelData = new ArrayList<>()
 
 		// Create an input stream to read the file
@@ -107,7 +107,7 @@ class getdata {
 		return processedData
 	}
 
-	static List<List<Object>> getDataFromE2KDB(String queryVariable, String[] columnNames) {
+	static def fromE2KDB(String queryVariable, String[] columnNames) {
 		// Database connection details
 		final String URL = 'jdbc:as400://augusta.rccl.com;libraries=DTD_RLE;UserID=userId;Password=<password>;'	// connection string for RLE environment
 		final String USER = 'ITINEMR' //change to a valid E2K username
@@ -117,7 +117,7 @@ class getdata {
 		Statement statement = null
 		ResultSet resultSet = null
 
-		def data = []
+		def data = [:]
 
 		Class.forName("com.ibm.as400.access.AS400JDBCDriver")
 		// Establish the connection
@@ -133,7 +133,7 @@ class getdata {
 		// Process the result set
 		if (resultSet.next()) {
 			for(int i = 0; i < columnNames.size();i++) {
-				data.add(resultSet.getString(columnNames[i]))
+				data[columnNames[i]] = resultSet.getString(columnNames[i])
 			}
 		}
 		return data

@@ -28,7 +28,7 @@ import rcclpayment.getdata
 
 final String DATA_PATH = "./Data Files/TestData.xlsx"
 
-List<List<Object>> testdata = getdata.forValidations(DATA_PATH,"GiftCards")
+List<List<Object>> testdata = getdata.fromExcel(DATA_PATH,"GiftCards")
 
 try {
 	utils.openBrowserAndNavigateToPMT()
@@ -72,7 +72,7 @@ try {
 		println validation1
 		String validation2 = testdata["NotContainsValidation"][i]
 		println validation2
-		
+		println(testdata["TCNumber"][i])
 		assert response.contains(validation1) 
 		assert response.contains(validation2) == false
 	}	
