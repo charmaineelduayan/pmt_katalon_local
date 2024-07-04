@@ -101,4 +101,17 @@ class utils {
 		WebElement clickGiftCards = driver.findElement(By.xpath("//h6[normalize-space()='Wallet']")).click()
 		WebElement hideDropDownMenu = driver.findElement(By.xpath("//span[normalize-space()='Response']")).click()
 	}
+	static def sendRequest() {
+		WebDriver driver = DriverFactory.getWebDriver()
+		WebElement request = driver.findElement(By.xpath("//textarea[@name='req']"))
+		request.click()
+		return request
+	}
+	
+	static def getResponse() {
+		WebDriver driver = DriverFactory.getWebDriver()
+		WebElement response = driver.findElement(By.xpath('//textarea[@class=\'text-dark form-control\']'))
+		String responseContent = response.getText()
+		return responseContent
+	}
 }

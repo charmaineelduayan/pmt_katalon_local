@@ -52,6 +52,8 @@ try {
 		
 		String countryData = testdata["Country"][i]
 		String currencyData = testdata["Currency"][i]
+		println countryData
+		println currencyData
 		
 		countryInput.sendKeys(countryData)
 		currencyInput.sendKeys(currencyData)
@@ -63,7 +65,9 @@ try {
 		println response
 		
 		String validation1 = testdata["ContainsValidation"][i]
+		println validation1
 		String validation2 = testdata["NotContainsValidation"][i]
+		println validation2
 		
 		
 		
