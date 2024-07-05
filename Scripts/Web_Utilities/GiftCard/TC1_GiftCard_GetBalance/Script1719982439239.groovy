@@ -26,16 +26,17 @@ import groovy.json.JsonSlurper
 import rcclpayment.utils
 import rcclpayment.getdata
 
-final String DATA_PATH = "./Data Files/TestData.xlsx"
-
-List<List<Object>> testdata = getdata.fromExcel(DATA_PATH,"GiftCards")
-
 try {
 	utils.openBrowserAndNavigateToPMT()
+	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "GiftCards"
+
 	WebDriver driver = DriverFactory.getWebDriver()
 	utils.goToGiftCards()
 	utils.selectEnvironment(GlobalVariable.ENV)
 	
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,"GiftCards")
 
 	for(int i = 0; i < testdata.size(); i++) {
 		WebUI.delay(5)
