@@ -36,11 +36,13 @@ try {
 	utils.goToGiftCards()
 	utils.selectEnvironment(GlobalVariable.ENV)
 	
+	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,"GiftCards")
 
 	for(int i = 0; i < testdata.size(); i++) {
 		WebUI.delay(5)
-		utils.sendRequest().clear()
+		sendRequestTextBox.clear()
 		
 		String cardNumber = testdata["cardNumber"][i]
 		CNumber = cardNumber.replaceAll(/\.0$/,'')
@@ -61,7 +63,7 @@ try {
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 		println(prettyJson)
-		utils.sendRequest().sendKeys(prettyJson)
+		sendRequestTextBox.sendKeys(prettyJson)
 		utils.clickSendButton()
 		
 		

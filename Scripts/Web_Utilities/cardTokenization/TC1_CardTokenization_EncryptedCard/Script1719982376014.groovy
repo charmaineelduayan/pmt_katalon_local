@@ -16,4 +16,70 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import org.openqa.selenium.By as By
+import org.openqa.selenium.WebElement as WebElement
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.Keys
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import rcclpayment.utils
+import rcclpayment.getdata
+
+try {
+	utils.openBrowserAndNavigateToPMT()
+	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "cardTokenization"
+
+	WebDriver driver = DriverFactory.getWebDriver()
+	utils.goToCardTokenization()
+	utils.selectEnvironment(GlobalVariable.ENV)
+	
+	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+	
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,"cardTokenization")
+
+	for(int i = 0; i < testdata.size(); i++) {
+		WebUI.delay(5)
+		sendRequestTextBox.clear()
+		
+		String encryptedCard = testdata["encryptedCard"][i]
+		CNumber = encryptedCard.replaceAll(/\.0$/,'')
+		
+		String request =  "${encryptedCard}"
+		println(request)
+		sendRequestTextBox.sendKeys(request)
+		utils.clickSendButton()
+		
+		
+		WebUI.delay(3)
+		String response = utils.getResponse()
+		println response
+
+		String validation1 = testdata["ContainsValidation"][i]
+		println validation1
+		String validation2 = testdata["NotContainsValidation"][i]
+		println validation2
+		println(testdata["TCNumber"][i])
+		assert response.contains(validation1) 
+		assert response.contains(validation2) == false
+	}	
+}
+catch (AssertionError e) {
+	println("Assertion failed: ${e.message}")
+	e.printStackTrace()
+}
+catch (org.openqa.selenium.NoSuchElementException e) {
+	println("Element not found: ${e.message}")
+	e.printStackTrace()
+}
+catch (Exception e) {
+	println("An unexpected error occurred: ${e.message}")
+	e.printStackTrace()
+}
+finally {
+	utils.closeBrowser()
+}
+
 
