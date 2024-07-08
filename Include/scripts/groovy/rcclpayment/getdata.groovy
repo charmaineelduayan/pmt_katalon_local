@@ -53,6 +53,8 @@ import java.sql.DriverManager
 import java.sql.ResultSet
 import java.sql.Statement
 
+import com.kms.katalon.util.CryptoUtil
+
 class getdata {
 
 	static List<List<Object>> fromExcel(String excelFilePath, String table) {
@@ -110,8 +112,9 @@ class getdata {
 	static def fromE2KDB(String queryVariable, String[] columnNames) {
 		// Database connection details
 		final String URL = 'jdbc:as400://augusta.rccl.com;libraries=DTD_RLE;UserID=userId;Password=<password>;'	// connection string for RLE environment
-		final String USER = 'ITINEMR' //change to a valid E2K username
-		final String PASSWORD = 'Man1la4' //change to a valid E2K password
+
+		final String USER = CryptoUtil.decode(CryptoUtil.getDefault("i+Ymam8KSes="))
+		final String PASSWORD = CryptoUtil.decode(CryptoUtil.getDefault("yx2NQi2swN0="))
 
 		Connection connection = null
 		Statement statement = null

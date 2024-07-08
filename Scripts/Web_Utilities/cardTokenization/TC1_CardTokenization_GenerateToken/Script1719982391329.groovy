@@ -30,7 +30,7 @@ try {
 	utils.openBrowserAndNavigateToPMT()
 	
 	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
-	final String TAB = "cardTokenization"
+	final String TAB = "cardTokenization_Generate"
 
 	WebDriver driver = DriverFactory.getWebDriver()
 	utils.goToCardTokenization()
@@ -39,7 +39,7 @@ try {
 	
 	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
 	
-	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,"cardTokenization_Generate")
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 
 	for(int i = 0; i < testdata.size(); i++) {
 		sendRequestTextBox.clear()

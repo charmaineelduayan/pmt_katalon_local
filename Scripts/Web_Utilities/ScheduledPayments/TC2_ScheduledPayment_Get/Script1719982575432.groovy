@@ -107,7 +107,6 @@ try {
 			println(BookingIdToBePassed)
 			utils.clickSendButton()
 			WebUI.delay(2)
-			sendRequestTextBox.clear()
 			
 			String response = responseTextBox.getText()
 				
