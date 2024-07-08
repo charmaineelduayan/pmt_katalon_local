@@ -24,20 +24,21 @@ import org.openqa.selenium.Keys
 import rcclpayment.utils
 import rcclpayment.getdata
 
-final String DATA_PATH = "./Data Files/Validations.xlsx"
-
-List<List<Object>> testdata = getdata.forValidations(DATA_PATH,"ByCountryAndCurrency")
-
 
 
 try {
 	utils.openBrowserAndNavigateToPMT()
 	WebDriver driver = DriverFactory.getWebDriver()
+	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "Validations_ByCtryOrCurr"
+
+	List<List<Object>> testdataFromExcel = getdata.fromExcel(EXCEL_PATH,TAB)
+	
 	utils.goToValidations()
+	utils.selectEnvironment(GlobalVariable.ENV)
 	
 	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Prevalidations by Ctry/Curr']")).click()
-	
-	utils.selectEnvironment(GlobalVariable.ENV)
 	
 	WebElement countryInput = driver.findElement(By.xpath("//input[@id='country']"))
 	WebElement currencyInput = driver.findElement(By.xpath("//input[@id='currency']"))
@@ -45,13 +46,13 @@ try {
 	WebElement responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
 	
 	
-	for(int i = 0; i < testdata.size(); i++) {
+	for(int TestScenarioNumber = 0; TestScenarioNumber < testdataFromExcel.size() - 1; TestScenarioNumber++) {
 		WebUI.delay(5)
 		countryInput.clear()
 		currencyInput.clear()
 		
-		String countryData = testdata["Country"][i]
-		String currencyData = testdata["Currency"][i]
+		String countryData = testdataFromExcel["Country"][TestScenarioNumber]
+		String currencyData = testdataFromExcel["Currency"][TestScenarioNumber]
 		println countryData
 		println currencyData
 		
@@ -61,18 +62,15 @@ try {
 		utils.clickSendButton()
 		
 		WebUI.delay(5)
+		
 		String response = responseTextBox.getText()
 		println response
 		
-		String validation1 = testdata["ContainsValidation"][i]
-		println validation1
-		String validation2 = testdata["NotContainsValidation"][i]
-		println validation2
+		String validationString = testdataFromExcel["Validation"][TestScenarioNumber]
 		
+		assert response.contains(validationString)
 		
-		
-		assert response.contains(validation1)
-		assert response.contains(validation2) == false
+		println("Test Scenario Number: " + (TestScenarioNumber + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
 	}
 	
 }

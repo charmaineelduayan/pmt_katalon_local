@@ -24,7 +24,6 @@ import org.openqa.selenium.Keys
 import com.kms.katalon.core.testobject.RequestObject
 import com.kms.katalon.core.testobject.ResponseObject
 import groovy.json.*
-
 import rcclpayment.utils
 import rcclpayment.getdata
 import rcclpayment.CreateAndRetrieveBooking
@@ -33,8 +32,8 @@ try {
 	utils.openBrowserAndNavigateToPMT()
 	WebDriver driver = DriverFactory.getWebDriver()
 	
-	final String EXCEL_PATH = "./Data Files/ScheduledPayment.xlsx"
-	final String TAB = "ADD"
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "ScheduledPayment_Add"
 	
 	utils.goToScheduledPayments()
 	utils.selectEnvironment(GlobalVariable.ENV)
@@ -42,36 +41,38 @@ try {
 	WebElement clickADD = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
 	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
 	
-	
+	//List object for storing the data from the excel	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 	
 	for(int TestScenarioNumber = 0; TestScenarioNumber < testdata.size(); TestScenarioNumber++) {		
 		sendRequestTextBox.clear()
-//		sendRequestTextBox.sendKeys("test")
-//		WebUI.delay(2)
-//		sendRequestTextBox.clear()
-		
+	
+		//create and retrieve booking
 		def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
 		println(getBookingData["BookingId"])
 		println(getBookingData["BookingAccessToken"])
 		
 		WebUI.delay(5)
 		
-		
-		
-		String ADDRequest = testdata["ADDRequest"][TestScenarioNumber]
-		String BookingId = GlobalVariable.BookingId
-		sendRequestTextBox.sendKeys(ADDRequest)		//problem on BookingId value on ADD request
+		//retrieve the ADD request from excel and pass it to the request input box in web utilities
+		String ADDRequestRaw = testdata["ADDRequest"][TestScenarioNumber]
+		String BookingId = getBookingData["BookingId"]
+		String ADDRequest = ADDRequestRaw.replace("BookingId",BookingId)	//this replaces the word "BookingId" in ADDRequest with the value from getBookingData["BookingId"]
+		sendRequestTextBox.sendKeys(ADDRequest)
 		println(ADDRequest)
 		utils.clickSendButton()
+		
 		WebUI.delay(5)
 		
+		//cancel booking
 		RequestObject cancelBookingRequest = findTestObject('CancelBooking')
-		
 		ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
 		def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
 		println(cancelBookingJsonResponse)
 		
+		//add assertion (assertion should be after the booking cancellation)
+		
+		println("Test Scenario Number: " + TestScenarioNumber)		//for checking what test scenario number the running stops if failure occurs	
 		
 	}
 

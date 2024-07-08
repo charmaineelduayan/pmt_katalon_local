@@ -52,12 +52,12 @@ class CreateAndRetrieveBooking {
 
 	static def Data(String ExcelPath, String Tab, int TestScenarioNumber) {
 
-		//	this method creates a booking and returns a map list (bookingId, BookingAcccessToken, LastName, Brand, ShipCode, and SailDate)
+		//	this method creates a booking using the ESL createBooking endpoint and returns a map list (bookingId, BookingAcccessToken, LastName, Brand, ShipCode, and SailDate)
 		//	It has 3 parameters:
 		//		- ExcelPath: directory where the test data for each library is stored
-		//		- Tab: which excel table is needed
+		//		- Tab: which excel table you need to access
 		//		- TestScenarioNumber: to iterate through each test scenario in the excel file
-		//	the values passed in brand, shipCode, sailDate, categoryCode, and cabinNumber parameters of ESL createBooking is from the result of the SQL query which is stored in an excel file in Data Files folder
+		//	the values passed in brand, shipCode, sailDate, categoryCode, and cabinNumber parameters of ESL createBooking is from the result of the SQL query which is located in an excel file in Data Files folder
 		//	check the utils groovy script on how the data is gathered from the excel and E2K DB
 
 		def bookingData = [:]
@@ -68,13 +68,7 @@ class CreateAndRetrieveBooking {
 			String query = testdata["Query"][i]
 			def createBookingRequestJSON = testdata["CreateBookingRequest"][i].toString()
 			println(createBookingRequestJSON)
-			String[] columns = [
-				'SMBRND',
-				'SMSHIP',
-				'SMSDDT',
-				'BHPKID',
-				'CBCTCD',
-				'CBCBNO']		//this should match the columns returned in query
+			String[] columns = ['SMBRND', 'SMSHIP', 'SMSDDT', 'BHPKID', 'CBCTCD', 'CBCBNO']		//this should match the columns returned in query
 			def dataFromQuery = getdata.fromE2KDB(query, columns)
 
 			println(dataFromQuery)

@@ -21,17 +21,88 @@ import org.openqa.selenium.By as By
 import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
 import org.openqa.selenium.Keys
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import groovy.json.*
 import rcclpayment.utils
-
+import rcclpayment.getdata
+import rcclpayment.CreateAndRetrieveBooking
 
 try {
 	utils.openBrowserAndNavigateToPMT()
 	WebDriver driver = DriverFactory.getWebDriver()
+	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "ScheduledPayment_GetEligibility"
+	
 	utils.goToScheduledPayments()
-	
-	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Get Eligibility']")).click()
-	
 	utils.selectEnvironment(GlobalVariable.ENV)
+	
+	List<List<Object>> testdataFromExcel = getdata.fromExcel(EXCEL_PATH,TAB)
+	
+	for(int TestScenarioNumber = 0; TestScenarioNumber < testdataFromExcel.size(); TestScenarioNumber++) {
+		
+		String TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+		if(TestScenarioRequiresCreateBooking == "Yes") {
+				
+			WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Get Eligibility']")).click()
+			WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+			WebElement responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+			sendRequestTextBox.clear()
+			
+			def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+			println(getBookingData["BookingId"])
+			println(getBookingData["BookingAccessToken"])
+			
+			WebUI.delay(5)
+			
+			String BookingId = getBookingData["BookingId"]
+			String BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]		//for test scenarios that requires booking. (it gets its value in BookingId column in
+			String BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId",BookingId)		// which is a string "BookingId" and it is replaced with the bookingId from the create booking
+			sendRequestTextBox.sendKeys(BookingIdToBePassed)
+			println(BookingIdToBePassed)
+			utils.clickSendButton()
+			
+			WebUI.delay(5)
+			
+			RequestObject cancelBookingRequest = findTestObject('CancelBooking')
+			ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
+			def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+			println(cancelBookingJsonResponse)
+			
+			String response = responseTextBox.getText()
+				
+			String validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+			
+			assert response.contains(validationString)
+			
+			println("Test Scenario Number: " + (TestScenarioNumber + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+		}
+		else {
+			
+			WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Get Eligibility']")).click()
+			WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+			WebElement responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+			sendRequestTextBox.clear()
+			
+			String BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+			sendRequestTextBox.sendKeys(BookingIdToBePassed)
+			println(BookingIdToBePassed)
+			utils.clickSendButton()
+			WebUI.delay(2)
+			sendRequestTextBox.clear()
+			
+			String response = responseTextBox.getText()
+			
+			String validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+			
+			assert response.contains(validationString)
+						
+			println("Test Scenario Number: " + (TestScenarioNumber + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+		}
+
+	}
 	
 }
 catch (AssertionError e) {
