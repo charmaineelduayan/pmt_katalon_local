@@ -38,7 +38,7 @@ try {
 	
 	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
 	
-	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,"cardTokenization")
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,"cardTokenization_Encrypt")
 
 	for(int i = 0; i < testdata.size(); i++) {
 		WebUI.delay(5)
