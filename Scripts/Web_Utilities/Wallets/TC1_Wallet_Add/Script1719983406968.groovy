@@ -21,18 +21,64 @@ import org.openqa.selenium.By as By
 import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
 import org.openqa.selenium.Keys
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import groovy.json.*
 import rcclpayment.utils
+import rcclpayment.getdata
+import rcclpayment.CreateAndRetrieveBooking
 
 
 try {
 	utils.openBrowserAndNavigateToPMT()
+	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "Wallet_Add"
+
 	WebDriver driver = DriverFactory.getWebDriver()
 	utils.goToWallets()
 	
-	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
+	WebElement clickAdd = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
 	
 	utils.selectEnvironment(GlobalVariable.ENV)
+	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
 	
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
+	for(int i = 0; i < testdata.size(); i++) {
+		sendRequestTextBox.clear()
+		
+		String encryptedCard = testdata["encryptedCard"][i]
+		CNumber = encryptedCard.replaceAll(/\.0$/,'')
+		String expirationMonth = testdata["expirationMonth"][i]
+		xMonth = expirationMonth.replaceAll(/\.0$/,'')
+		String expirationYear = testdata["expirationYear"][i]
+		xYear = expirationYear.replaceAll(/\.0$/,'')
+		
+		String request =
+		"""{
+			"cardNumber": "${encryptedCard}",
+			"expirationMonth": "${expirationMonth}",
+			"expirationYear": "${expirationYear}"
+			}"""
+		def restRequest = new JsonSlurper().parseText(request)
+		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
+		println(prettyJson)
+		sendRequestTextBox.sendKeys(prettyJson)
+		utils.clickSendButton()
+		
+		
+		WebUI.delay(3)
+		String response = utils.getResponse()
+		println response
+
+		String validation1 = testdata["ContainsValidation"][i]
+		println validation1
+		String validation2 = testdata["NotContainsValidation"][i]
+		println validation2
+		println(testdata["TCNumber"][i])
+		assert response.contains(validation1)
+		assert response.contains(validation2) == false
+	}
 }
 catch (AssertionError e) {
 	println("Assertion failed: ${e.message}")
