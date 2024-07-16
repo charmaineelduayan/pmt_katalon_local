@@ -25,6 +25,14 @@
       <value>application/json</value>
       <webElementGuid>7b563569-5ed4-40bf-8dfe-693457fa5e4d</webElementGuid>
    </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>AppKey</name>
+      <type>Main</type>
+      <value>${AppKey}</value>
+      <webElementGuid>c425bec0-a8b2-430b-9a4f-a1d599158be7</webElementGuid>
+   </httpHeaderProperties>
    <katalonVersion>9.5.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
@@ -52,6 +60,13 @@
       <id>12b462f2-261b-4b36-b905-470fade18e47</id>
       <masked>false</masked>
       <name>password</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.AppKey_GA</defaultValue>
+      <description></description>
+      <id>bc4a9430-5ec6-477f-b9c7-7dcabde686b7</id>
+      <masked>false</masked>
+      <name>AppKey</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

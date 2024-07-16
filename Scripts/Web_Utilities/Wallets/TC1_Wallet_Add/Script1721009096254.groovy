@@ -25,29 +25,30 @@ import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
 import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
-
 try {
-    utils.openBrowserAndNavigateToPMT()
+	utils.openBrowserAndNavigateToPMT()
+	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "Wallet_Add"
 
-    String EXCEL_PATH = './Data Files/TestData.xlsx'
-    String TAB = 'Wallet_Update'
-    WebDriver driver = DriverFactory.getWebDriver()
-    utils.goToWallets()
-
-    WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Update\']')).click()
-    utils.selectEnvironment(GlobalVariable.ENV)
-    WebElement sendRequestTextBox = driver.findElement(By.xpath('//textarea[@name=\'req\']'))
+	WebDriver driver = DriverFactory.getWebDriver()
+	utils.goToWallets()
+	
+	WebElement clickAdd = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
+	
+	utils.selectEnvironment(GlobalVariable.ENV)
+	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
 
 	fetchGuestAccount = WS.sendRequest(findTestObject('GuestAccount'))
 	accountId = WS.getElementPropertyValue(fetchGuestAccount,'payload.accountId')
 	accessToken = WS.getElementPropertyValue(fetchGuestAccount,'payload.accessToken')
 	GlobalVariable.accountId = accountId
 	GlobalVariable.accessToken = accessToken
+
+List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
+for(int i = 0; i < testdata.size(); i++) {
+	sendRequestTextBox.clear()
 	
-	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
-	for(int i = 0; i < testdata.size(); i++) {
-		sendRequestTextBox.clear()
-		
 	String paymentMethod = testdata["paymentMethod"][i]
 	String cardNumber = testdata["cardNumber"][i]
 	CNumber = cardNumber.replaceAll(/\.0$/,'')
@@ -64,52 +65,47 @@ try {
     "paymentMethod": {
         "type": "${paymentMethod}",
         "cardNumber": "${cardNumber}",
-        "cardholder": "${cardholderName}",
-        "nickname": "${nickName}",
         "expirationMonth": "${expirationMonth}",
         "expirationYear": "${expirationYear}",
+        "cardholder": "${cardholderName}",
+        "nickname": "${nickName}",
         "defaultPaymentMethod": "${defaultPaymentMethod}"
     },
     "accountId": "${accountId}",
     "accessToken": "${accessToken}"
 }"""
+	def restRequest = new JsonSlurper().parseText(request)
+	def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
+	println(prettyJson)
+	sendRequestTextBox.sendKeys(prettyJson)
+	utils.clickSendButton()
 	
-		def restRequest = new JsonSlurper().parseText(request)
-		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
-		println(prettyJson)
-		sendRequestTextBox.sendKeys(prettyJson)
-		utils.clickSendButton()
-		
-		
-		WebUI.delay(3)
-		String response = utils.getResponse()
-		println response
 	
-		String validation1 = testdata["ContainsValidation"][i]
-		println validation1
-		String validation2 = testdata["NotContainsValidation"][i]
-		println validation2
-		println(testdata["TCNumber"][i])
-		assert response.contains(validation1)
-		assert response.contains(validation2) == false
-	}
+	WebUI.delay(3)
+	String response = utils.getResponse()
+	println response
+
+	String validation1 = testdata["ContainsValidation"][i]
+	println validation1
+	String validation2 = testdata["NotContainsValidation"][i]
+	println validation2
+	println(testdata["TCNumber"][i])
+	assert response.contains(validation1)
+	assert response.contains(validation2) == false
+}
 }
 catch (AssertionError e) {
-    println("Assertion failed: $e.message")
-
-    e.printStackTrace()
-} 
-catch (org.openqa.selenium.NoSuchElementException e) {
-    println("Element not found: $e.message")
-
-    e.printStackTrace()
-} 
-catch (Exception e) {
-    println("An unexpected error occurred: $e.message")
-
-    e.printStackTrace()
-} 
-finally { 
-    utils.closeBrowser()
+println("Assertion failed: ${e.message}")
+e.printStackTrace()
 }
-
+catch (org.openqa.selenium.NoSuchElementException e) {
+println("Element not found: ${e.message}")
+e.printStackTrace()
+}
+catch (Exception e) {
+println("An unexpected error occurred: ${e.message}")
+e.printStackTrace()
+}
+finally {
+utils.closeBrowser()
+}
