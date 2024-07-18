@@ -47,17 +47,20 @@ try {
 		String TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
 
 		if(TestScenarioRequiresCreateBooking == "Yes") {	
-			WebElement clickADD = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
-			WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+			WebElement clickADD = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click() // locate Add Schedule Payment Button
+			WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")) // declare
 			
 			sendRequestTextBox.clear()
 			
+			
+			//createBooking
 			def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
 			println(getBookingData["BookingId"])
 			println(getBookingData["BookingAccessToken"])
 			
 			WebUI.delay(5)
 			
+			//Get Add Request from Execel and execute
 			String ADDRequestRaw = testdataFromExcel["ADDRequest"][TestScenarioNumber]
 			String BookingId = getBookingData["BookingId"]
 			String ADDRequest = ADDRequestRaw.replace("BookingId",BookingId)	//this replaces the word "BookingId" in ADDRequest with the value from getBookingData["BookingId"]
@@ -69,13 +72,14 @@ try {
 			WebUI.refresh()
 			WebUI.delay(3)
 			
+			// proceed to Get Schedule Paymentß
 			WebElement clickGET = driver.findElement(By.xpath("//a[normalize-space()='Get']")).click()
 			WebElement sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']"))
 			sendRequestTextBox2.clear()
 			
 			String BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
 			String BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId",BookingId)
-			sendRequestTextBox2.sendKeys(BookingIdToBePassed)
+			sendRequestTextBox2.sendKeys(BookingIdToBePassed) //send to Get TextBox
 			println(BookingIdToBePassed)
 			utils.clickSendButton()
 			

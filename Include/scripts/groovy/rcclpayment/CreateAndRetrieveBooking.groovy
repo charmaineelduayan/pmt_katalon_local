@@ -68,7 +68,13 @@ class CreateAndRetrieveBooking {
 			String query = testdata["Query"][i]
 			def createBookingRequestJSON = testdata["CreateBookingRequest"][i].toString()
 			println(createBookingRequestJSON)
-			String[] columns = ['SMBRND', 'SMSHIP', 'SMSDDT', 'BHPKID', 'CBCTCD', 'CBCBNO']		//this should match the columns returned in query
+			String[] columns = [
+				'SMBRND',
+				'SMSHIP',
+				'SMSDDT',
+				'BHPKID',
+				'CBCTCD',
+				'CBCBNO']		//this should match the columns returned in query
 			def dataFromQuery = getdata.fromE2KDB(query, columns)
 
 			println(dataFromQuery)
@@ -128,6 +134,7 @@ class CreateAndRetrieveBooking {
 			println(bookingAccessToken)
 
 			bookingData["BookingId"] = bookingId
+			bookingData["PassengerId"] = guestRefNumber1
 			bookingData["BookingAccessToken"] = bookingAccessToken
 			bookingData["LastName"] = lastName
 			bookingData["Brand"] = dataFromQuery["SMBRND"]
