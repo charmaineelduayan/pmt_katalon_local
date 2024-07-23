@@ -43,9 +43,8 @@ try {
 	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 	for(int TestScenarioNumber = 0; TestScenarioNumber < testdata.size(); TestScenarioNumber++) { 
-
-		
-		//createBooking
+		println(testdata.size())
+		//createBooking≈
 		def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
 		println(getBookingData["BookingId"])
 		println(getBookingData["BookingAccessToken"])
@@ -134,10 +133,12 @@ try {
 		String response = utils.getResponse()
 		println response
 		
-//		RequestObject cancelBookingRequest = findTestObject('CancelBooking')
-//		ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
-//		def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
-//		println(cancelBookingJsonResponse)
+		RequestObject cancelBookingRequest = findTestObject('CancelBooking')
+		ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
+		def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+		println(cancelBookingJsonResponse)
+		
+
 	
 		String validation1 = testdata["ContainsValidation"][TestScenarioNumber]
 		println validation1
@@ -146,8 +147,9 @@ try {
 		println(testdata["TCNumber"][TestScenarioNumber])
 		assert response.contains(validation1)
 		assert response.contains(validation2) == false
+		
+		println("Test Scenario Number: " + TestScenarioNumber)		//for checking what test scenario number the running stops if failure occurs
 	}
-	
 		
 }
 catch (AssertionError e) {

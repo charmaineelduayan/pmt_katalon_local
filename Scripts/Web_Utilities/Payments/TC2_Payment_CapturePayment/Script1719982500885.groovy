@@ -32,7 +32,8 @@ try {
 	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Capture payment']")).click()
 	
 	utils.selectEnvironment(GlobalVariable.ENV)
-	
+	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+	final String TAB = "Payment_Capture"
 }
 catch (AssertionError e) {
 	println("Assertion failed: ${e.message}")

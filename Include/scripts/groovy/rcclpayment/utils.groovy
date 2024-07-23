@@ -94,28 +94,28 @@ class utils {
 		WebElement clickEndpoint = driver.findElement(By.xpath("//a[@href='/payment/utilities/scheduled-payments']")).click()
 		WebElement hideDropDownMenu = driver.findElement(By.xpath("//span[normalize-space()='Response']")).click()
 	}
-	
+
 	static def goToCardTokenization() {
 		WebDriver driver = DriverFactory.getWebDriver()
 		WebElement clickLibraries = driver.findElement(By.xpath("//span[normalize-space()='Libraries']")).click()
 		WebElement clickEndpoint = driver.findElement(By.xpath("//h6[normalize-space()='Card Tokenization']")).click()
 		WebElement hideDropDownMenu = driver.findElement(By.xpath("//span[normalize-space()='Response']")).click()
 	}
-	
+
 	static def goToWallets() {
 		WebDriver driver = DriverFactory.getWebDriver()
 		WebElement clickLibraries = driver.findElement(By.xpath("//span[normalize-space()='Libraries']")).click()
 		WebElement clickEndpoint = driver.findElement(By.xpath("//h6[normalize-space()='Wallet']")).click()
 		WebElement hideDropDownMenu = driver.findElement(By.xpath("//span[normalize-space()='Response']")).click()
 	}
-	
+
 	static def goToValidations() {
 		WebDriver driver = DriverFactory.getWebDriver()
 		WebElement clickLibraries = driver.findElement(By.xpath("//span[normalize-space()='Libraries']")).click()
 		WebElement clickEndpoint = driver.findElement(By.xpath("//h6[normalize-space()='Validations']")).click()
 		WebElement hideDropDownMenu = driver.findElement(By.xpath("//span[normalize-space()='Response']")).click()
 	}
-	
+
 	static def sendRequest() {
 		WebDriver driver = DriverFactory.getWebDriver()≈
 		WebElement request = driver.findElement(By.xpath("//textarea[@name='req']"))
