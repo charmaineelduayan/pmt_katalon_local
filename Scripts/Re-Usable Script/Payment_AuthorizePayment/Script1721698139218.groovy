@@ -29,13 +29,12 @@ import rcclpayment.getdata
 import rcclpayment.CreateAndRetrieveBooking
 
 
-try {
-	utils.openBrowserAndNavigateToPMT()
-	WebDriver driver = DriverFactory.getWebDriver()
-	utils.goToPayments()
-	
-	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Authorize payment']")).click()
-	
+
+WebDriver driver = DriverFactory.getWebDriver()
+utils.goToPayments()
+WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Authorize payment\']')).click()
+
+
 	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
 	final String TAB = "Payment_Authorize"
 	
@@ -44,24 +43,24 @@ try {
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 	for(int TestScenarioNumber = 0; TestScenarioNumber < testdata.size(); TestScenarioNumber++) { 
 		println(testdata.size())
-		//createBooking≈
+
+		//createBooking to get the bookingId and passengerId
 		def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
 		println(getBookingData["BookingId"])
 		println(getBookingData["BookingAccessToken"])
 		
 		WebUI.delay(5)
 		
-		//Get Add Request from Execel and execute
+		//Replace "BookingId" value from bookingId column in excel sheet
 		String bookingIdCol = testdata["bookingId"][TestScenarioNumber]
 		String BookingId = getBookingData["BookingId"]
-		String replaceBookingId = bookingIdCol.replace("BookingId",BookingId)	//this replaces the word "BookingId" in ADDRequest with the value from getBookingData["BookingId"]
-		//sendRequestTextBox.sendKeys(replaceBookingId)
+		String replaceBookingId = bookingIdCol.replace("BookingId",BookingId)
 		println(replaceBookingId)
 		
+		//Replace "PassengerId" value from passengerId in excel sheet
 		String passengerIdCol = testdata["passengerId"][TestScenarioNumber]
 		String PassengerId = getBookingData["PassengerId"]
 		String replacePassengerId = passengerIdCol.replace("PassengerId",PassengerId)
-		
 		println(replacePassengerId)
 		
 		WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
@@ -133,12 +132,18 @@ try {
 		String response = utils.getResponse()
 		println response
 		
-		RequestObject cancelBookingRequest = findTestObject('CancelBooking')
-		ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
-		def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
-		println(cancelBookingJsonResponse)
+		def res = new JsonSlurper().parseText(response)
+		def resJson = new groovy.json.JsonBuilder(res).toPrettyString()
+		println(resJson)
 		
-
+		GlobalVariable.AuthorizePaymentResponse = res
+		String transactionId = res.transactionId
+		println(transactionId)
+		String BKID = res.bookingIds[0]
+		
+		GlobalVariable.transactionId = transactionId
+		GlobalVariable.BKID = BKID
+		
 	
 		String validation1 = testdata["ContainsValidation"][TestScenarioNumber]
 		println validation1
@@ -148,26 +153,9 @@ try {
 		assert response.contains(validation1)
 		assert response.contains(validation2) == false
 		
-		println("Test Scenario Number: " + TestScenarioNumber)		//for checking what test scenario number the running stops if failure occurs
-	}
+		println("Test Scenario Number: " + TestScenarioNumber) //for checking what test scenario number the running stops if failure occurs
 		
-}
-catch (AssertionError e) {
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
-}
-catch (org.openqa.selenium.NoSuchElementException e) {
-	println("Element not found: ${e.message}")
-	e.printStackTrace()
-}
-catch (Exception e) {
-	println("An unexpected error occurred: ${e.message}")
-	e.printStackTrace()
-}
-finally {
-	utils.closeBrowser()
-}
-
+		}
 
 
 

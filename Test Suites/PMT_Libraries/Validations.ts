@@ -15,14 +15,14 @@
       <guid>9505235f-90e2-4bb5-8d08-bfa2649db1b8</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Web_Utilities/Validations/TC1_PrevalidationsAndConf</testCaseId>
+      <testCaseId>Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>fe676b0a-4e27-4465-9e5e-c9995eea8ce2</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Web_Utilities/Validations/TC2_PrevalidationsByCtryOrCurr</testCaseId>
+      <testCaseId>Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

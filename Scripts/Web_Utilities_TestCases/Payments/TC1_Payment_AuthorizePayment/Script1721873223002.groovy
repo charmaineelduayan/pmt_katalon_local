@@ -20,37 +20,41 @@ import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import org.openqa.selenium.By as By
 import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
-import org.openqa.selenium.Keys
-import rcclpayment.utils
+import com.kms.katalon.core.testobject.RequestObject as RequestObject
+import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
+import groovy.json.*
+import rcclpayment.utils as utils
+import rcclpayment.getdata as getdata
+import rcclpayment.CreateAndRetrieveBooking as CreateAndRetrieveBooking
 
-
+utils.openBrowserAndNavigateToPMT()
 try {
-	utils.openBrowserAndNavigateToPMT()
-	WebDriver driver = DriverFactory.getWebDriver()
-	utils.goToPayments()
-	
-	WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Capture payment']")).click()
-	
-	utils.selectEnvironment(GlobalVariable.ENV)
-	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
-	final String TAB = "Payment_Capture"
+WebUI.callTestCase(findTestCase('Re-Usable Script/Payment_AuthorizePayment'), [:], FailureHandling.STOP_ON_FAILURE)
+
+    //to cancel the bookingId after it runs
+    RequestObject cancelBookingRequest = findTestObject('CancelBooking')
+    ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
+    def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+    println(cancelBookingJsonResponse)
 }
 catch (AssertionError e) {
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
-}
-catch (org.openqa.selenium.NoSuchElementException e) {
-	println("Element not found: ${e.message}")
-	e.printStackTrace()
-}
-catch (Exception e) {
-	println("An unexpected error occurred: ${e.message}")
-	e.printStackTrace()
-}
-finally {
-	utils.closeBrowser()
-}
+    println("Assertion failed: $e.message")
 
+    e.printStackTrace()
+} 
+catch (org.openqa.selenium.NoSuchElementException e) {
+    println("Element not found: $e.message")
+
+    e.printStackTrace()
+} 
+catch (Exception e) {
+    println("An unexpected error occurred: $e.message")
+
+    e.printStackTrace()
+} 
+finally { 
+    utils.closeBrowser()
+}
 
 
 

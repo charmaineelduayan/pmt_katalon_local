@@ -15,7 +15,7 @@
       <guid>bb562dfd-03ad-4d8d-b36c-24b8fc791695</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Web_Utilities/GiftCard/TC1_GiftCard_GetBalance</testCaseId>
+      <testCaseId>Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

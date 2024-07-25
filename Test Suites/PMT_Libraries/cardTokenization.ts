@@ -15,14 +15,14 @@
       <guid>68653883-5438-45cf-9939-7cda3f95d9f2</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Web_Utilities/cardTokenization/TC2_CardTokenization_GenerateToken</testCaseId>
+      <testCaseId>Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>709c419c-a511-4773-b4c2-1c555b1f8bc8</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Web_Utilities/cardTokenization/TC1_CardTokenization_EncryptedCard</testCaseId>
+      <testCaseId>Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>
