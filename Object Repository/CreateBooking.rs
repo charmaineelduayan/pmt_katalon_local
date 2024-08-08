@@ -3,7 +3,7 @@
    <description></description>
    <name>CreateBooking</name>
    <tag></tag>
-   <elementGuidId>0201f5a0-c75f-4a92-b964-23ac2a9b024d</elementGuidId>
+   <elementGuidId>7220fb5d-4d09-4721-8082-633b147c2fb9</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>

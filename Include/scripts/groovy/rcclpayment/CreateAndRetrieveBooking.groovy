@@ -134,7 +134,8 @@ class CreateAndRetrieveBooking {
 			println(bookingAccessToken)
 
 			bookingData["BookingId"] = bookingId
-			bookingData["PassengerId"] = guestRefNumber1
+			bookingData["PassengerId1"] = guestRefNumber1
+			bookingData["PassengerId2"] = guestRefNumber2
 			bookingData["BookingAccessToken"] = bookingAccessToken
 			bookingData["LastName"] = lastName
 			bookingData["Brand"] = dataFromQuery["SMBRND"]
