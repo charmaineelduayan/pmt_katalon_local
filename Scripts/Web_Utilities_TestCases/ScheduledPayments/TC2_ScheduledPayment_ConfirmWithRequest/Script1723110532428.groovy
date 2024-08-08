@@ -94,7 +94,7 @@ try {
 				              "amount": $amount1
 				            },
 				            {
-				              "passengerId": "$GlobalVariable.GuestRefNumber1",
+				              "passengerId": "$GlobalVariable.GuestRefNumber2",
 				              "amount": $amount2
 				            }
 				          ]
