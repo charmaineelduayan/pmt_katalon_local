@@ -1,0 +1,26 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+ScheduledPayments,Chrome 129.0.0.0,,,04-10-2024 10:14:18,04-10-2024 10:20:36,6m - 17.645s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility,Chrome 129.0.0.0,,,04-10-2024 10:14:18,04-10-2024 10:16:17,1m - 58.267s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 129.0.0.0,,,04-10-2024 10:14:26,04-10-2024 10:14:43,16.862s,PASSED
+try,Chrome 129.0.0.0,,,04-10-2024 10:14:43,04-10-2024 10:16:11,1m - 28.734s,PASSED
+Finally,Chrome 129.0.0.0,,,04-10-2024 10:16:11,04-10-2024 10:16:15,3.128s,PASSED
+Video,Chrome 129.0.0.0,,,04-10-2024 10:16:17,04-10-2024 10:16:17,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add,Chrome 129.0.0.0,,,04-10-2024 10:16:17,04-10-2024 10:16:52,35.152s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 129.0.0.0,,,04-10-2024 10:16:19,04-10-2024 10:16:37,18.090s,PASSED
+try,Chrome 129.0.0.0,,,04-10-2024 10:16:37,04-10-2024 10:16:47,9.925s,FAILED
+catch (Exception e),Chrome 129.0.0.0,,,04-10-2024 10:16:47,04-10-2024 10:16:47,0.268s,PASSED
+Finally,Chrome 129.0.0.0,,,04-10-2024 10:16:47,04-10-2024 10:16:50,2.400s,PASSED
+Video,Chrome 129.0.0.0,,,04-10-2024 10:16:52,04-10-2024 10:16:52,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest,Chrome 129.0.0.0,,,04-10-2024 10:16:52,04-10-2024 10:18:27,1m - 35.007s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 129.0.0.0,,,04-10-2024 10:16:52,04-10-2024 10:17:01,8.456s,PASSED
+try,Chrome 129.0.0.0,,,04-10-2024 10:17:01,04-10-2024 10:18:23,1m - 21.792s,PASSED
+Finally,Chrome 129.0.0.0,,,04-10-2024 10:18:23,04-10-2024 10:18:25,2.241s,PASSED
+Video,Chrome 129.0.0.0,,,04-10-2024 10:18:27,04-10-2024 10:18:27,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get,Chrome 129.0.0.0,,,04-10-2024 10:18:27,04-10-2024 10:20:36,2m - 8.872s,PASSED
+try,Chrome 129.0.0.0,,,04-10-2024 10:18:27,04-10-2024 10:20:31,2m - 4.072s,PASSED
+Finally,Chrome 129.0.0.0,,,04-10-2024 10:20:31,04-10-2024 10:20:34,2.211s,PASSED
+Video,Chrome 129.0.0.0,,,04-10-2024 10:20:36,04-10-2024 10:20:36,0.001s,PASSED

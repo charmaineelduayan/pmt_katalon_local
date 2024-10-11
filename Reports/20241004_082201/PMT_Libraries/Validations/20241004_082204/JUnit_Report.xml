@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Validations" time="196.503" tests="2" failures="0" errors="0">
+   <testsuite name="Validations" tests="2" failures="0" errors="0" time="196.503" skipped="0" timestamp="04-10-2024T08:22:17" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/Validations">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/execution0.log"/>
+         <property name="attachments" value="keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png, keyes/keyes-Sample Visual Screenshot.png"/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 129.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="c5d9e920e591a59644d2e6a13dfec8df"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf" time="162.802" classname="Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf" status="PASSED">
+         <system-out><![CDATA[04-10-2024T08:22:18 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf: Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf
+
+04-10-2024T08:22:26 - [TEST_STEP][PASSED] - try: Taking screenshot successfully
+
+04-10-2024T08:22:26 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T08:22:26 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+04-10-2024T08:22:26 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+04-10-2024T08:22:37 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+04-10-2024T08:22:37 - [MESSAGE][PASSED] - Current window maximized
+
+04-10-2024T08:22:42 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T08:22:42 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+04-10-2024T08:22:42 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+04-10-2024T08:22:42 - [TEST_STEP][PASSED] - TAB = "Validations_Prevalidations&Conf": null
+
+04-10-2024T08:22:42 - [TEST_STEP][PASSED] - utils.goToValidations(): null
+
+04-10-2024T08:22:43 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+04-10-2024T08:22:44 - [TEST_STEP][PASSED] - testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+04-10-2024T08:22:46 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click(): null
+
+04-10-2024T08:22:46 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)]): Taking screenshot successfully
+
+04-10-2024T08:22:46 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:22:46 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): Taking screenshot successfully
+
+04-10-2024T08:22:46 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:22:46 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:22:47 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:22:47 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:22:52 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:22:52 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+04-10-2024T08:23:05 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/requests/main/0.har
+
+04-10-2024T08:23:05 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T08:23:15 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+04-10-2024T08:23:17 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/requests/main/1.har
+
+04-10-2024T08:23:17 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T08:23:22 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId): null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:23:22 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:23:23 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:23:28 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+04-10-2024T08:23:28 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/requests/main/2.har
+
+04-10-2024T08:23:28 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:23:28 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:23:34 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:23:36 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:23:36 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:23:36 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): Taking screenshot successfully
+
+04-10-2024T08:23:36 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:23:36 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:23:36 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:23:36 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:23:41 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:23:41 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+04-10-2024T08:23:47 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/requests/main/3.har
+
+04-10-2024T08:23:47 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T08:23:57 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+04-10-2024T08:23:59 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/requests/main/4.har
+
+04-10-2024T08:23:59 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T08:24:04 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId): null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:04 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:24:09 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:24:09 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+04-10-2024T08:24:09 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+04-10-2024T08:24:11 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_082201/PMT_Libraries/Validations/20241004_082204/requests/main/5.har
+
+04-10-2024T08:24:11 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:11 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:17 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:18 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:18 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:18 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:18 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:18 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:19 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:19 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:19 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:19 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:19 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:19 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:20 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:22 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:22 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:22 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:22 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:22 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:22 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:25 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:25 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:25 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:25 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:25 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:25 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:26 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:26 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:26 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:26 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:26 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:26 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:27 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:29 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:29 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:29 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:29 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:29 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:29 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:32 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:32 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:32 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:32 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:32 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:32 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:32 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:33 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:33 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:33 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:33 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:33 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:33 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:35 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:35 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:35 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:35 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:35 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:35 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:37 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:37 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:37 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:37 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:37 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:37 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:38 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:40 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:40 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:40 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:40 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:40 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:40 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:42 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:43 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:43 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:45 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:45 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:46 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:46 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:46 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:46 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:47 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:47 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:47 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:47 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:47 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:47 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:48 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:50 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:50 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:50 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:50 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:50 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:50 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:52 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:52 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - else: Taking screenshot successfully
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+04-10-2024T08:24:52 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:24:53 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+04-10-2024T08:24:55 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:55 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:24:55 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:24:55 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:24:55 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:24:55 - [TEST_STEP][PASSED] - takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot"): Taking screenshot successfully
+
+04-10-2024T08:24:56 - [MESSAGE][INFO] - 0 hidden object(s)
+
+04-10-2024T08:24:56 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|keyes/keyes-Sample Visual Screenshot.png]]
+
+04-10-2024T08:24:56 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+04-10-2024T08:24:56 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+04-10-2024T08:24:58 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:24:58 - [MESSAGE][PASSED] - Browser is closed
+
+04-10-2024T08:25:00 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf' .
+
+04-10-2024T08:25:00 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr" time="33.245" classname="Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr" status="PASSED">
+         <system-out><![CDATA[04-10-2024T08:25:00 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr: Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr
+
+04-10-2024T08:25:01 - [TEST_STEP][PASSED] - try: null
+
+04-10-2024T08:25:01 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T08:25:01 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+04-10-2024T08:25:01 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+04-10-2024T08:25:02 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+04-10-2024T08:25:02 - [MESSAGE][PASSED] - Current window maximized
+
+04-10-2024T08:25:04 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T08:25:04 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+04-10-2024T08:25:04 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+04-10-2024T08:25:04 - [TEST_STEP][PASSED] - TAB = "Validations_ByCtryOrCurr": null
+
+04-10-2024T08:25:04 - [TEST_STEP][PASSED] - testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+04-10-2024T08:25:05 - [TEST_STEP][PASSED] - utils.goToValidations(): null
+
+04-10-2024T08:25:06 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+04-10-2024T08:25:07 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations by Ctry/Curr']")).click(): null
+
+04-10-2024T08:25:07 - [TEST_STEP][PASSED] - countryInput = driver.findElement(By.xpath("//input[@id='country']")): null
+
+04-10-2024T08:25:07 - [TEST_STEP][PASSED] - currencyInput = driver.findElement(By.xpath("//input[@id='currency']")): null
+
+04-10-2024T08:25:07 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T08:25:08 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size() - 1, (TestScenarioNumber++)]): null
+
+04-10-2024T08:25:08 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:25:13 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - countryData = testdataFromExcel["Country"][TestScenarioNumber]: null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - currencyData = testdataFromExcel["Currency"][TestScenarioNumber]: null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - println(countryData): null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - println(currencyData): null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+04-10-2024T08:25:13 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:25:14 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:25:19 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:25:19 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:25:19 - [TEST_STEP][PASSED] - println(response): null
+
+04-10-2024T08:25:19 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:25:19 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:25:19 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:25:19 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:25:24 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - countryData = testdataFromExcel["Country"][TestScenarioNumber]: null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - currencyData = testdataFromExcel["Currency"][TestScenarioNumber]: null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - println(countryData): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - println(currencyData): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T08:25:24 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T08:25:29 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - println(response): null
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+04-10-2024T08:25:29 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+04-10-2024T08:25:31 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T08:25:32 - [MESSAGE][PASSED] - Browser is closed
+
+04-10-2024T08:25:34 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr' .
+
+04-10-2024T08:25:34 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[04-10-2024T08:22:17 - [TEST_SUITE][PASSED] - Validations: Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

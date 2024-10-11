@@ -1,0 +1,184 @@
+1
+00:00:00,166 --> 00:00:00,169
+1. try
+
+2
+00:00:00,170 --> 00:00:05,278
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,298 --> 00:00:05,321
+5. driver = getWebDriver()
+
+4
+00:00:05,322 --> 00:00:05,324
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:05,325 --> 00:00:05,327
+13. TAB = "Validations_ByCtryOrCurr"
+
+6
+00:00:05,328 --> 00:00:05,400
+17. testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+
+7
+00:00:05,400 --> 00:00:06,750
+21. utils.goToValidations()
+
+8
+00:00:06,761 --> 00:00:07,423
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:07,424 --> 00:00:07,710
+29. clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations by Ctry/Curr']")).click()
+
+10
+00:00:07,724 --> 00:00:08,190
+33. countryInput = driver.findElement(By.xpath("//input[@id='country']"))
+
+11
+00:00:08,190 --> 00:00:08,416
+37. currencyInput = driver.findElement(By.xpath("//input[@id='currency']"))
+
+12
+00:00:08,417 --> 00:00:08,646
+41. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+13
+00:00:08,646 --> 00:00:08,649
+45. for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size() - 1, (TestScenarioNumber++)])
+
+14
+00:00:08,650 --> 00:00:13,663
+1. delay(5)
+
+15
+00:00:13,702 --> 00:00:13,765
+5. countryInput.clear()
+
+16
+00:00:13,784 --> 00:00:13,841
+9. currencyInput.clear()
+
+17
+00:00:13,842 --> 00:00:13,845
+13. countryData = testdataFromExcel["Country"][TestScenarioNumber]
+
+18
+00:00:13,846 --> 00:00:13,849
+17. currencyData = testdataFromExcel["Currency"][TestScenarioNumber]
+
+19
+00:00:13,849 --> 00:00:13,853
+21. println(countryData)
+
+20
+00:00:13,854 --> 00:00:13,857
+25. println(currencyData)
+
+21
+00:00:13,857 --> 00:00:14,034
+29. countryInput.sendKeys(countryData)
+
+22
+00:00:14,035 --> 00:00:14,126
+33. currencyInput.sendKeys(currencyData)
+
+23
+00:00:14,197 --> 00:00:14,499
+37. utils.clickSendButton()
+
+24
+00:00:14,500 --> 00:00:19,508
+41. delay(5)
+
+25
+00:00:19,509 --> 00:00:19,530
+45. response = responseTextBox.getText()
+
+26
+00:00:19,531 --> 00:00:19,534
+49. println(response)
+
+27
+00:00:19,535 --> 00:00:19,538
+53. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+28
+00:00:19,538 --> 00:00:19,544
+57. assert response.contains(validationString)
+
+29
+00:00:19,544 --> 00:00:19,555
+61. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+30
+00:00:19,555 --> 00:00:24,562
+1. delay(5)
+
+31
+00:00:24,563 --> 00:00:24,614
+5. countryInput.clear()
+
+32
+00:00:24,615 --> 00:00:24,695
+9. currencyInput.clear()
+
+33
+00:00:24,695 --> 00:00:24,697
+13. countryData = testdataFromExcel["Country"][TestScenarioNumber]
+
+34
+00:00:24,698 --> 00:00:24,699
+17. currencyData = testdataFromExcel["Currency"][TestScenarioNumber]
+
+35
+00:00:24,700 --> 00:00:24,701
+21. println(countryData)
+
+36
+00:00:24,701 --> 00:00:24,702
+25. println(currencyData)
+
+37
+00:00:24,702 --> 00:00:24,799
+29. countryInput.sendKeys(countryData)
+
+38
+00:00:24,800 --> 00:00:24,863
+33. currencyInput.sendKeys(currencyData)
+
+39
+00:00:24,863 --> 00:00:25,145
+37. utils.clickSendButton()
+
+40
+00:00:25,146 --> 00:00:30,150
+41. delay(5)
+
+41
+00:00:30,150 --> 00:00:30,162
+45. response = responseTextBox.getText()
+
+42
+00:00:30,163 --> 00:00:30,164
+49. println(response)
+
+43
+00:00:30,164 --> 00:00:30,166
+53. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+44
+00:00:30,166 --> 00:00:30,168
+57. assert response.contains(validationString)
+
+45
+00:00:30,168 --> 00:00:30,172
+61. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+46
+00:00:30,172 --> 00:00:32,349
+1. utils.closeBrowser()
+

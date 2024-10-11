@@ -1,0 +1,609 @@
+1
+00:00:01,424 --> 00:00:01,475
+1. try
+
+2
+00:00:01,502 --> 00:00:17,350
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:17,370 --> 00:00:17,393
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:17,412 --> 00:00:17,418
+9. TAB = "GiftCards"
+
+5
+00:00:17,419 --> 00:00:17,435
+13. driver = getWebDriver()
+
+6
+00:00:17,436 --> 00:00:24,395
+17. utils.goToGiftCards()
+
+7
+00:00:24,397 --> 00:00:26,011
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:26,012 --> 00:00:26,267
+25. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+9
+00:00:26,268 --> 00:00:29,043
+29. testdata = getdata.fromExcel(EXCEL_PATH, "GiftCards")
+
+10
+00:00:29,047 --> 00:00:29,068
+33. for ([i = 0, i < testdata.size(), (i++)])
+
+11
+00:00:29,069 --> 00:00:34,161
+1. delay(5)
+
+12
+00:00:34,162 --> 00:00:34,206
+5. sendRequestTextBox.clear()
+
+13
+00:00:34,207 --> 00:00:34,213
+9. cardNumber = testdata["cardNumber"][i]
+
+14
+00:00:34,213 --> 00:00:34,223
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+15
+00:00:34,224 --> 00:00:34,229
+17. expirationMonth = testdata["expirationMonth"][i]
+
+16
+00:00:34,229 --> 00:00:34,232
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+17
+00:00:34,233 --> 00:00:34,237
+25. expirationYear = testdata["expirationYear"][i]
+
+18
+00:00:34,238 --> 00:00:34,241
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+19
+00:00:34,242 --> 00:00:34,247
+33. securityCode = testdata["securityCode"][i]
+
+20
+00:00:34,247 --> 00:00:34,251
+37. SC = securityCode.replaceAll("\.0$", "")
+
+21
+00:00:34,252 --> 00:00:34,343
+41. request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}
+
+22
+00:00:34,343 --> 00:00:34,373
+45. restRequest = JsonSlurper().parseText(request)
+
+23
+00:00:34,374 --> 00:00:34,419
+49. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+24
+00:00:34,420 --> 00:00:34,432
+53. println(prettyJson)
+
+25
+00:00:34,433 --> 00:00:35,151
+57. sendRequestTextBox.sendKeys(prettyJson)
+
+26
+00:00:35,153 --> 00:00:35,640
+61. utils.clickSendButton()
+
+27
+00:00:35,641 --> 00:00:40,426
+65. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+28
+00:00:40,427 --> 00:00:43,447
+69. delay(3)
+
+29
+00:00:43,453 --> 00:00:49,973
+73. response = utils.getResponse()
+
+30
+00:00:49,996 --> 00:00:50,041
+77. println(response)
+
+31
+00:00:50,094 --> 00:00:50,136
+81. validation1 = testdata["ContainsValidation"][i]
+
+32
+00:00:50,156 --> 00:00:50,235
+85. println(validation1)
+
+33
+00:00:50,253 --> 00:00:50,290
+89. validation2 = testdata["NotContainsValidation"][i]
+
+34
+00:00:50,291 --> 00:00:50,296
+93. println(validation2)
+
+35
+00:00:50,298 --> 00:00:50,318
+97. println(testdata["TCNumber"][i])
+
+36
+00:00:50,318 --> 00:00:50,386
+101. assert response.contains(validation1)
+
+37
+00:00:50,391 --> 00:00:50,405
+105. assert response.contains(validation2) == false
+
+38
+00:00:50,406 --> 00:00:55,430
+1. delay(5)
+
+39
+00:00:55,451 --> 00:00:55,507
+5. sendRequestTextBox.clear()
+
+40
+00:00:55,538 --> 00:00:55,561
+9. cardNumber = testdata["cardNumber"][i]
+
+41
+00:00:55,562 --> 00:00:55,584
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+42
+00:00:55,603 --> 00:00:55,607
+17. expirationMonth = testdata["expirationMonth"][i]
+
+43
+00:00:55,608 --> 00:00:55,611
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+44
+00:00:55,612 --> 00:00:55,615
+25. expirationYear = testdata["expirationYear"][i]
+
+45
+00:00:55,615 --> 00:00:55,617
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+46
+00:00:55,618 --> 00:00:55,623
+33. securityCode = testdata["securityCode"][i]
+
+47
+00:00:55,625 --> 00:00:55,628
+37. SC = securityCode.replaceAll("\.0$", "")
+
+48
+00:00:55,628 --> 00:00:55,631
+41. request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}
+
+49
+00:00:55,632 --> 00:00:55,634
+45. restRequest = JsonSlurper().parseText(request)
+
+50
+00:00:55,635 --> 00:00:55,639
+49. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+51
+00:00:55,640 --> 00:00:55,644
+53. println(prettyJson)
+
+52
+00:00:55,647 --> 00:00:56,029
+57. sendRequestTextBox.sendKeys(prettyJson)
+
+53
+00:00:56,029 --> 00:00:56,462
+61. utils.clickSendButton()
+
+54
+00:00:56,463 --> 00:01:05,512
+65. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+55
+00:01:05,514 --> 00:01:08,522
+69. delay(3)
+
+56
+00:01:08,523 --> 00:01:08,808
+73. response = utils.getResponse()
+
+57
+00:01:08,808 --> 00:01:08,810
+77. println(response)
+
+58
+00:01:08,811 --> 00:01:08,812
+81. validation1 = testdata["ContainsValidation"][i]
+
+59
+00:01:08,813 --> 00:01:08,815
+85. println(validation1)
+
+60
+00:01:08,815 --> 00:01:08,817
+89. validation2 = testdata["NotContainsValidation"][i]
+
+61
+00:01:08,818 --> 00:01:08,820
+93. println(validation2)
+
+62
+00:01:08,821 --> 00:01:08,823
+97. println(testdata["TCNumber"][i])
+
+63
+00:01:08,824 --> 00:01:08,825
+101. assert response.contains(validation1)
+
+64
+00:01:08,826 --> 00:01:08,828
+105. assert response.contains(validation2) == false
+
+65
+00:01:08,829 --> 00:01:13,855
+1. delay(5)
+
+66
+00:01:13,856 --> 00:01:13,953
+5. sendRequestTextBox.clear()
+
+67
+00:01:13,955 --> 00:01:13,958
+9. cardNumber = testdata["cardNumber"][i]
+
+68
+00:01:13,959 --> 00:01:13,966
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+69
+00:01:13,967 --> 00:01:13,969
+17. expirationMonth = testdata["expirationMonth"][i]
+
+70
+00:01:13,969 --> 00:01:13,971
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+71
+00:01:13,972 --> 00:01:13,974
+25. expirationYear = testdata["expirationYear"][i]
+
+72
+00:01:13,975 --> 00:01:13,977
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+73
+00:01:13,978 --> 00:01:13,983
+33. securityCode = testdata["securityCode"][i]
+
+74
+00:01:13,983 --> 00:01:13,985
+37. SC = securityCode.replaceAll("\.0$", "")
+
+75
+00:01:13,986 --> 00:01:13,988
+41. request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}
+
+76
+00:01:13,989 --> 00:01:13,991
+45. restRequest = JsonSlurper().parseText(request)
+
+77
+00:01:13,992 --> 00:01:13,997
+49. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+78
+00:01:13,998 --> 00:01:14,001
+53. println(prettyJson)
+
+79
+00:01:14,002 --> 00:01:14,609
+57. sendRequestTextBox.sendKeys(prettyJson)
+
+80
+00:01:14,611 --> 00:01:14,976
+61. utils.clickSendButton()
+
+81
+00:01:14,977 --> 00:01:20,689
+65. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+82
+00:01:20,691 --> 00:01:23,706
+69. delay(3)
+
+83
+00:01:23,707 --> 00:01:23,983
+73. response = utils.getResponse()
+
+84
+00:01:23,985 --> 00:01:23,990
+77. println(response)
+
+85
+00:01:23,991 --> 00:01:23,994
+81. validation1 = testdata["ContainsValidation"][i]
+
+86
+00:01:23,996 --> 00:01:23,999
+85. println(validation1)
+
+87
+00:01:24,000 --> 00:01:24,004
+89. validation2 = testdata["NotContainsValidation"][i]
+
+88
+00:01:24,005 --> 00:01:24,009
+93. println(validation2)
+
+89
+00:01:24,011 --> 00:01:24,016
+97. println(testdata["TCNumber"][i])
+
+90
+00:01:24,018 --> 00:01:24,021
+101. assert response.contains(validation1)
+
+91
+00:01:24,022 --> 00:01:24,026
+105. assert response.contains(validation2) == false
+
+92
+00:01:24,027 --> 00:01:29,038
+1. delay(5)
+
+93
+00:01:29,039 --> 00:01:29,103
+5. sendRequestTextBox.clear()
+
+94
+00:01:29,104 --> 00:01:29,107
+9. cardNumber = testdata["cardNumber"][i]
+
+95
+00:01:29,108 --> 00:01:29,110
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+96
+00:01:29,113 --> 00:01:29,115
+17. expirationMonth = testdata["expirationMonth"][i]
+
+97
+00:01:29,117 --> 00:01:29,119
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+98
+00:01:29,119 --> 00:01:29,122
+25. expirationYear = testdata["expirationYear"][i]
+
+99
+00:01:29,123 --> 00:01:29,126
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+100
+00:01:29,129 --> 00:01:29,131
+33. securityCode = testdata["securityCode"][i]
+
+101
+00:01:29,132 --> 00:01:29,135
+37. SC = securityCode.replaceAll("\.0$", "")
+
+102
+00:01:29,136 --> 00:01:29,138
+41. request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}
+
+103
+00:01:29,139 --> 00:01:29,144
+45. restRequest = JsonSlurper().parseText(request)
+
+104
+00:01:29,145 --> 00:01:29,151
+49. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+105
+00:01:29,152 --> 00:01:29,154
+53. println(prettyJson)
+
+106
+00:01:29,159 --> 00:01:29,896
+57. sendRequestTextBox.sendKeys(prettyJson)
+
+107
+00:01:29,897 --> 00:01:30,278
+61. utils.clickSendButton()
+
+108
+00:01:30,282 --> 00:01:37,173
+65. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+109
+00:01:37,175 --> 00:01:40,182
+69. delay(3)
+
+110
+00:01:40,184 --> 00:01:40,472
+73. response = utils.getResponse()
+
+111
+00:01:40,474 --> 00:01:40,476
+77. println(response)
+
+112
+00:01:40,477 --> 00:01:40,480
+81. validation1 = testdata["ContainsValidation"][i]
+
+113
+00:01:40,481 --> 00:01:40,484
+85. println(validation1)
+
+114
+00:01:40,485 --> 00:01:40,488
+89. validation2 = testdata["NotContainsValidation"][i]
+
+115
+00:01:40,489 --> 00:01:40,492
+93. println(validation2)
+
+116
+00:01:40,493 --> 00:01:40,497
+97. println(testdata["TCNumber"][i])
+
+117
+00:01:40,499 --> 00:01:40,501
+101. assert response.contains(validation1)
+
+118
+00:01:40,502 --> 00:01:40,505
+105. assert response.contains(validation2) == false
+
+119
+00:01:40,506 --> 00:01:45,515
+1. delay(5)
+
+120
+00:01:45,516 --> 00:01:45,582
+5. sendRequestTextBox.clear()
+
+121
+00:01:45,583 --> 00:01:45,585
+9. cardNumber = testdata["cardNumber"][i]
+
+122
+00:01:45,586 --> 00:01:45,589
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+123
+00:01:45,590 --> 00:01:45,592
+17. expirationMonth = testdata["expirationMonth"][i]
+
+124
+00:01:45,594 --> 00:01:45,597
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+125
+00:01:45,598 --> 00:01:45,599
+25. expirationYear = testdata["expirationYear"][i]
+
+126
+00:01:45,600 --> 00:01:45,602
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+127
+00:01:45,603 --> 00:01:45,605
+33. securityCode = testdata["securityCode"][i]
+
+128
+00:01:45,606 --> 00:01:45,608
+37. SC = securityCode.replaceAll("\.0$", "")
+
+129
+00:01:45,609 --> 00:01:45,611
+41. request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}
+
+130
+00:01:45,612 --> 00:01:45,614
+45. restRequest = JsonSlurper().parseText(request)
+
+131
+00:01:45,615 --> 00:01:45,618
+49. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+132
+00:01:45,619 --> 00:01:45,621
+53. println(prettyJson)
+
+133
+00:01:45,622 --> 00:01:46,256
+57. sendRequestTextBox.sendKeys(prettyJson)
+
+134
+00:01:46,258 --> 00:01:46,743
+61. utils.clickSendButton()
+
+135
+00:01:46,744 --> 00:01:53,849
+65. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+136
+00:01:53,850 --> 00:01:56,861
+69. delay(3)
+
+137
+00:01:56,863 --> 00:01:57,157
+73. response = utils.getResponse()
+
+138
+00:01:57,158 --> 00:01:57,160
+77. println(response)
+
+139
+00:01:57,160 --> 00:01:57,163
+81. validation1 = testdata["ContainsValidation"][i]
+
+140
+00:01:57,164 --> 00:01:57,166
+85. println(validation1)
+
+141
+00:01:57,166 --> 00:01:57,169
+89. validation2 = testdata["NotContainsValidation"][i]
+
+142
+00:01:57,170 --> 00:01:57,172
+93. println(validation2)
+
+143
+00:01:57,175 --> 00:01:57,177
+97. println(testdata["TCNumber"][i])
+
+144
+00:01:57,178 --> 00:01:57,180
+101. assert response.contains(validation1)
+
+145
+00:01:57,184 --> 00:01:57,197
+105. assert response.contains(validation2) == false
+
+146
+00:01:57,198 --> 00:01:59,552
+1. utils.closeBrowser()
+

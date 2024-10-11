@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="test" time="38.674" tests="1" failures="0" errors="0">
+   <testsuite name="test" tests="1" failures="0" errors="0" time="38.674" skipped="0" timestamp="26-09-2024T09:22:54" hostname="manilacel - localhost" id="Test Suites/test">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20240926_092249/test/20240926_092250"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20240926_092249/test/20240926_092250/execution0.log"/>
+         <property name="attachments" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/screenshots/top_desktop_20240926_092258.png, /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/screenshots/top_mobile_20240926_092323.png"/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 129.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="6dfc1596ec288981e2e5acefe69f5f3d"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Test" time="38.514" classname="Test Cases/Test" status="PASSED">
+         <system-out><![CDATA[26-09-2024T09:22:54 - [TEST_CASE][PASSED] - Test Cases/Test: Test Cases/Test
+
+26-09-2024T09:22:55 - [TEST_STEP][PASSED] - projectDir = Paths.get(getProjectDir()): null
+
+26-09-2024T09:22:55 - [TEST_STEP][PASSED] - screenshotsDir = projectDir.resolve("screenshots"): null
+
+26-09-2024T09:22:55 - [TEST_STEP][PASSED] - Files.createDirectories(screenshotsDir): null
+
+26-09-2024T09:22:55 - [TEST_STEP][PASSED] - url = "https://www.carlsjr.com/": null
+
+26-09-2024T09:22:55 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+26-09-2024T09:22:55 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+26-09-2024T09:22:55 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+26-09-2024T09:22:58 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+26-09-2024T09:22:58 - [TEST_STEP][PASSED] - shoot(url, 1200, screenshotsDir, "top", "desktop"): null
+
+26-09-2024T09:22:58 - [TEST_STEP][PASSED] - timestamp = Date().format("yyyyMMdd_HHmmss"): null
+
+26-09-2024T09:22:58 - [TEST_STEP][PASSED] - setViewPortSize(width, width): Viewport is set to new size with width = 1200 and height = 1200
+
+26-09-2024T09:22:58 - [MESSAGE][PASSED] - Viewport is set to new size with width = 1200 and height = 1200
+
+26-09-2024T09:22:58 - [TEST_STEP][PASSED] - enableSmartWait(): null
+
+26-09-2024T09:22:58 - [TEST_STEP][PASSED] - navigateToUrl(url): Navigate to 'https://www.carlsjr.com/' successfully
+
+26-09-2024T09:23:13 - [MESSAGE][PASSED] - Navigate to 'https://www.carlsjr.com/' successfully
+
+26-09-2024T09:23:13 - [TEST_STEP][PASSED] - f = dir.resolve(name + "_" + desc + "_" + timestamp + ".png"): null
+
+26-09-2024T09:23:13 - [TEST_STEP][PASSED] - takeFullPageScreenshot(f.toString()): Taking screenshot successfully
+
+26-09-2024T09:23:21 - [MESSAGE][INFO] - 0 hidden object(s)
+
+26-09-2024T09:23:23 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/screenshots/top_desktop_20240926_092258.png]]
+
+26-09-2024T09:23:23 - [TEST_STEP][PASSED] - disableSmartWait(): null
+
+26-09-2024T09:23:23 - [TEST_STEP][PASSED] - shoot(url, 390, screenshotsDir, "top", "mobile"): null
+
+26-09-2024T09:23:23 - [TEST_STEP][PASSED] - timestamp = Date().format("yyyyMMdd_HHmmss"): null
+
+26-09-2024T09:23:23 - [TEST_STEP][PASSED] - setViewPortSize(width, width): Viewport is set to new size with width = 390 and height = 390
+
+26-09-2024T09:23:23 - [MESSAGE][PASSED] - Viewport is set to new size with width = 390 and height = 390
+
+26-09-2024T09:23:23 - [TEST_STEP][PASSED] - enableSmartWait(): null
+
+26-09-2024T09:23:23 - [TEST_STEP][PASSED] - navigateToUrl(url): Navigate to 'https://www.carlsjr.com/' successfully
+
+26-09-2024T09:23:24 - [MESSAGE][PASSED] - Navigate to 'https://www.carlsjr.com/' successfully
+
+26-09-2024T09:23:24 - [TEST_STEP][PASSED] - f = dir.resolve(name + "_" + desc + "_" + timestamp + ".png"): null
+
+26-09-2024T09:23:24 - [TEST_STEP][PASSED] - takeFullPageScreenshot(f.toString()): Taking screenshot successfully
+
+26-09-2024T09:23:30 - [MESSAGE][INFO] - 0 hidden object(s)
+
+26-09-2024T09:23:30 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/screenshots/top_mobile_20240926_092323.png]]
+
+26-09-2024T09:23:30 - [TEST_STEP][PASSED] - disableSmartWait(): null
+
+26-09-2024T09:23:30 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+26-09-2024T09:23:31 - [MESSAGE][PASSED] - Browser is closed
+
+26-09-2024T09:23:33 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Test' .
+
+26-09-2024T09:23:33 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Test' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[26-09-2024T09:22:54 - [TEST_SUITE][PASSED] - test: Test Cases/Test]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

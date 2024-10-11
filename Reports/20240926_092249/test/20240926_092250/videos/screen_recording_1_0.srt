@@ -1,0 +1,88 @@
+1
+00:00:00,197 --> 00:00:00,217
+1. projectDir = Paths.get(getProjectDir())
+
+2
+00:00:00,222 --> 00:00:00,232
+5. screenshotsDir = projectDir.resolve("screenshots")
+
+3
+00:00:00,233 --> 00:00:00,245
+9. Files.createDirectories(screenshotsDir)
+
+4
+00:00:00,246 --> 00:00:00,249
+13. url = "https://www.carlsjr.com/"
+
+5
+00:00:00,250 --> 00:00:02,914
+17. openBrowser("")
+
+6
+00:00:02,933 --> 00:00:02,966
+21. shoot(url, 1200, screenshotsDir, "top", "desktop")
+
+7
+00:00:02,974 --> 00:00:03,008
+1. timestamp = Date().format("yyyyMMdd_HHmmss")
+
+8
+00:00:03,015 --> 00:00:03,396
+5. setViewPortSize(width, width)
+
+9
+00:00:03,416 --> 00:00:03,462
+9. enableSmartWait()
+
+10
+00:00:03,487 --> 00:00:18,617
+13. navigateToUrl(url)
+
+11
+00:00:18,639 --> 00:00:18,667
+17. f = dir.resolve(name + "_" + desc + "_" + timestamp + ".png")
+
+12
+00:00:18,681 --> 00:00:28,301
+21. takeFullPageScreenshot(f.toString())
+
+13
+00:00:28,302 --> 00:00:28,316
+25. disableSmartWait()
+
+14
+00:00:28,317 --> 00:00:28,321
+25. shoot(url, 390, screenshotsDir, "top", "mobile")
+
+15
+00:00:28,321 --> 00:00:28,323
+1. timestamp = Date().format("yyyyMMdd_HHmmss")
+
+16
+00:00:28,324 --> 00:00:28,695
+5. setViewPortSize(width, width)
+
+17
+00:00:28,695 --> 00:00:28,701
+9. enableSmartWait()
+
+18
+00:00:28,701 --> 00:00:29,383
+13. navigateToUrl(url)
+
+19
+00:00:29,384 --> 00:00:29,385
+17. f = dir.resolve(name + "_" + desc + "_" + timestamp + ".png")
+
+20
+00:00:29,386 --> 00:00:35,743
+21. takeFullPageScreenshot(f.toString())
+
+21
+00:00:35,744 --> 00:00:35,749
+25. disableSmartWait()
+
+22
+00:00:35,750 --> 00:00:35,990
+29. closeBrowser()
+

@@ -1,0 +1,84 @@
+1
+00:00:01,626 --> 00:00:15,877
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:15,918 --> 00:00:15,958
+5. try
+
+3
+00:00:15,976 --> 00:00:16,004
+1. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:16,005 --> 00:00:16,014
+5. TAB = "Payment_Capture"
+
+5
+00:00:16,015 --> 00:00:18,744
+9. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+6
+00:00:18,746 --> 00:00:18,753
+13. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+7
+00:00:18,754 --> 00:00:18,761
+1. println(testdata.size())
+
+8
+00:00:18,761 --> 00:00:19,571
+5. callTestCase(findTestCase("Re-Usable Script/Payment_AuthorizePayment"), [:], STOP_ON_FAILURE)
+
+9
+00:00:19,572 --> 00:00:19,589
+1. driver = getWebDriver()
+
+10
+00:00:19,589 --> 00:00:21,024
+5. utils.goToPayments()
+
+11
+00:00:21,025 --> 00:00:21,533
+9. clickAuthorizePayment = xpath("//a[normalize-space()='Authorize payment']")).click()
+
+12
+00:00:21,534 --> 00:00:21,537
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+13
+00:00:21,538 --> 00:00:21,543
+17. TAB = "Payment_Authorize"
+
+14
+00:00:21,543 --> 00:00:22,934
+21. utils.selectEnvironment(ENV)
+
+15
+00:00:22,934 --> 00:00:23,313
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+16
+00:00:23,314 --> 00:00:23,318
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+17
+00:00:23,319 --> 00:00:23,341
+1. println(testdata.size())
+
+18
+00:00:23,342 --> 00:00:37,110
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+19
+00:00:37,113 --> 00:00:37,344
+2. println(An unexpected error occurred: $e.message)
+
+20
+00:00:37,344 --> 00:00:37,353
+6. e.printStackTrace()
+
+21
+00:00:37,354 --> 00:00:39,531
+1. utils.closeBrowser()
+

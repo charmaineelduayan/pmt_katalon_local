@@ -1,0 +1,664 @@
+1
+00:00:01,369 --> 00:00:01,423
+1. try
+
+2
+00:00:01,431 --> 00:00:18,965
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:18,967 --> 00:00:18,996
+5. driver = getWebDriver()
+
+4
+00:00:18,997 --> 00:00:19,003
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:19,004 --> 00:00:19,010
+13. TAB = "Validations_Prevalidations&Conf"
+
+6
+00:00:19,012 --> 00:00:20,665
+17. utils.goToValidations()
+
+7
+00:00:20,666 --> 00:00:22,953
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:22,954 --> 00:00:26,006
+25. testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:26,008 --> 00:00:26,344
+29. clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click()
+
+10
+00:00:26,354 --> 00:00:26,379
+33. for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)])
+
+11
+00:00:26,380 --> 00:00:26,391
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+12
+00:00:26,407 --> 00:00:26,431
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+13
+00:00:26,432 --> 00:00:26,706
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+14
+00:00:26,707 --> 00:00:26,969
+5. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+15
+00:00:26,970 --> 00:00:27,037
+9. sendRequestTextBox.clear()
+
+16
+00:00:27,049 --> 00:00:32,095
+13. delay(5)
+
+17
+00:00:32,097 --> 00:01:05,809
+17. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+18
+00:01:05,831 --> 00:01:05,859
+21. println(getBookingData["BookingId"])
+
+19
+00:01:05,889 --> 00:01:05,920
+25. println(getBookingData["BookingAccessToken"])
+
+20
+00:01:05,939 --> 00:01:05,963
+29. BookingId = getBookingData["BookingId"]
+
+21
+00:01:05,982 --> 00:01:06,007
+33. BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+22
+00:01:06,026 --> 00:01:06,075
+37. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+23
+00:01:06,090 --> 00:01:06,487
+41. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+24
+00:01:06,538 --> 00:01:06,565
+45. println(BookingIdToBePassed)
+
+25
+00:01:06,582 --> 00:01:07,126
+49. utils.clickSendButton()
+
+26
+00:01:07,127 --> 00:01:12,140
+53. delay(5)
+
+27
+00:01:12,142 --> 00:01:12,199
+57. cancelBookingRequest = findTestObject("CancelBooking")
+
+28
+00:01:12,200 --> 00:01:13,069
+61. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+29
+00:01:13,070 --> 00:01:13,074
+65. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+30
+00:01:13,075 --> 00:01:13,080
+69. println(cancelBookingJsonResponse)
+
+31
+00:01:13,081 --> 00:01:13,119
+73. response = responseTextBox.getText()
+
+32
+00:01:13,120 --> 00:01:13,126
+77. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+33
+00:01:13,126 --> 00:01:13,133
+81. assert response.contains(validationString)
+
+34
+00:01:13,134 --> 00:01:13,150
+85. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+35
+00:01:13,151 --> 00:01:21,698
+89. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+36
+00:01:21,699 --> 00:01:21,703
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+37
+00:01:21,704 --> 00:01:21,706
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+38
+00:01:21,707 --> 00:01:21,973
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+39
+00:01:21,974 --> 00:01:22,238
+5. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+40
+00:01:22,239 --> 00:01:22,393
+9. sendRequestTextBox.clear()
+
+41
+00:01:22,410 --> 00:01:27,418
+13. delay(5)
+
+42
+00:01:27,419 --> 00:01:49,337
+17. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+43
+00:01:49,359 --> 00:01:49,381
+21. println(getBookingData["BookingId"])
+
+44
+00:01:49,401 --> 00:01:49,423
+25. println(getBookingData["BookingAccessToken"])
+
+45
+00:01:49,444 --> 00:01:49,466
+29. BookingId = getBookingData["BookingId"]
+
+46
+00:01:49,467 --> 00:01:49,493
+33. BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+47
+00:01:49,556 --> 00:01:49,572
+37. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+48
+00:01:49,611 --> 00:01:49,818
+41. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+49
+00:01:49,819 --> 00:01:49,821
+45. println(BookingIdToBePassed)
+
+50
+00:01:49,822 --> 00:01:50,187
+49. utils.clickSendButton()
+
+51
+00:01:50,188 --> 00:01:55,199
+53. delay(5)
+
+52
+00:01:55,200 --> 00:01:55,209
+57. cancelBookingRequest = findTestObject("CancelBooking")
+
+53
+00:01:55,210 --> 00:01:56,442
+61. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+54
+00:01:56,443 --> 00:01:56,444
+65. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+55
+00:01:56,445 --> 00:01:56,446
+69. println(cancelBookingJsonResponse)
+
+56
+00:01:56,447 --> 00:01:56,466
+73. response = responseTextBox.getText()
+
+57
+00:01:56,467 --> 00:01:56,468
+77. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+58
+00:01:56,469 --> 00:01:56,470
+81. assert response.contains(validationString)
+
+59
+00:01:56,471 --> 00:01:56,472
+85. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+60
+00:01:56,473 --> 00:02:02,616
+89. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+61
+00:02:02,617 --> 00:02:02,622
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+62
+00:02:02,624 --> 00:02:02,639
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+63
+00:02:02,640 --> 00:02:02,891
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+64
+00:02:02,892 --> 00:02:03,185
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+65
+00:02:03,188 --> 00:02:03,282
+10. sendRequestTextBox.clear()
+
+66
+00:02:03,283 --> 00:02:03,287
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+67
+00:02:03,288 --> 00:02:03,468
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+68
+00:02:03,469 --> 00:02:03,472
+22. println(BookingIdToBePassed)
+
+69
+00:02:03,473 --> 00:02:03,835
+26. utils.clickSendButton()
+
+70
+00:02:03,836 --> 00:02:05,844
+30. delay(2)
+
+71
+00:02:05,845 --> 00:02:05,868
+34. response = responseTextBox.getText()
+
+72
+00:02:05,869 --> 00:02:05,873
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+73
+00:02:05,873 --> 00:02:05,877
+42. assert response.contains(validationString)
+
+74
+00:02:05,878 --> 00:02:05,885
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+75
+00:02:05,885 --> 00:02:10,403
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+76
+00:02:10,404 --> 00:02:10,408
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+77
+00:02:10,409 --> 00:02:10,412
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+78
+00:02:10,413 --> 00:02:10,657
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+79
+00:02:10,657 --> 00:02:10,907
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+80
+00:02:10,908 --> 00:02:11,007
+10. sendRequestTextBox.clear()
+
+81
+00:02:11,008 --> 00:02:11,009
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+82
+00:02:11,010 --> 00:02:11,184
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+83
+00:02:11,185 --> 00:02:11,187
+22. println(BookingIdToBePassed)
+
+84
+00:02:11,188 --> 00:02:11,552
+26. utils.clickSendButton()
+
+85
+00:02:11,552 --> 00:02:13,559
+30. delay(2)
+
+86
+00:02:13,560 --> 00:02:13,578
+34. response = responseTextBox.getText()
+
+87
+00:02:13,579 --> 00:02:13,580
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+88
+00:02:13,583 --> 00:02:13,584
+42. assert response.contains(validationString)
+
+89
+00:02:13,586 --> 00:02:13,588
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+90
+00:02:13,588 --> 00:02:18,252
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+91
+00:02:18,253 --> 00:02:18,255
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+92
+00:02:18,257 --> 00:02:18,260
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+93
+00:02:18,282 --> 00:02:18,541
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+94
+00:02:18,553 --> 00:02:18,834
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+95
+00:02:18,835 --> 00:02:18,927
+10. sendRequestTextBox.clear()
+
+96
+00:02:18,927 --> 00:02:18,929
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+97
+00:02:18,929 --> 00:02:19,142
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+98
+00:02:19,142 --> 00:02:19,144
+22. println(BookingIdToBePassed)
+
+99
+00:02:19,145 --> 00:02:19,525
+26. utils.clickSendButton()
+
+100
+00:02:19,571 --> 00:02:21,597
+30. delay(2)
+
+101
+00:02:21,598 --> 00:02:21,616
+34. response = responseTextBox.getText()
+
+102
+00:02:21,617 --> 00:02:21,618
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+103
+00:02:21,619 --> 00:02:21,620
+42. assert response.contains(validationString)
+
+104
+00:02:21,620 --> 00:02:21,622
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+105
+00:02:21,623 --> 00:02:25,901
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+106
+00:02:25,902 --> 00:02:25,903
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+107
+00:02:25,904 --> 00:02:25,907
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+108
+00:02:25,907 --> 00:02:26,155
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+109
+00:02:26,156 --> 00:02:26,395
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+110
+00:02:26,397 --> 00:02:26,483
+10. sendRequestTextBox.clear()
+
+111
+00:02:26,503 --> 00:02:26,505
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+112
+00:02:26,506 --> 00:02:26,655
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+113
+00:02:26,656 --> 00:02:26,658
+22. println(BookingIdToBePassed)
+
+114
+00:02:26,659 --> 00:02:27,009
+26. utils.clickSendButton()
+
+115
+00:02:27,010 --> 00:02:29,039
+30. delay(2)
+
+116
+00:02:29,060 --> 00:02:29,103
+34. response = responseTextBox.getText()
+
+117
+00:02:29,103 --> 00:02:29,105
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+118
+00:02:29,106 --> 00:02:29,108
+42. assert response.contains(validationString)
+
+119
+00:02:29,108 --> 00:02:29,110
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+120
+00:02:29,111 --> 00:02:34,057
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+121
+00:02:34,060 --> 00:02:34,064
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+122
+00:02:34,066 --> 00:02:34,073
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+123
+00:02:34,074 --> 00:02:34,328
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+124
+00:02:34,329 --> 00:02:34,571
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+125
+00:02:34,572 --> 00:02:34,670
+10. sendRequestTextBox.clear()
+
+126
+00:02:34,671 --> 00:02:34,672
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+127
+00:02:34,673 --> 00:02:34,878
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+128
+00:02:34,879 --> 00:02:34,881
+22. println(BookingIdToBePassed)
+
+129
+00:02:34,882 --> 00:02:35,257
+26. utils.clickSendButton()
+
+130
+00:02:35,258 --> 00:02:37,266
+30. delay(2)
+
+131
+00:02:37,287 --> 00:02:37,313
+34. response = responseTextBox.getText()
+
+132
+00:02:37,314 --> 00:02:37,316
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+133
+00:02:37,317 --> 00:02:37,320
+42. assert response.contains(validationString)
+
+134
+00:02:37,321 --> 00:02:37,324
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+135
+00:02:37,324 --> 00:02:42,276
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+136
+00:02:42,278 --> 00:02:42,280
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+137
+00:02:42,281 --> 00:02:42,284
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+138
+00:02:42,285 --> 00:02:42,535
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+139
+00:02:42,537 --> 00:02:42,786
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+140
+00:02:42,788 --> 00:02:42,943
+10. sendRequestTextBox.clear()
+
+141
+00:02:42,944 --> 00:02:42,946
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+142
+00:02:42,947 --> 00:02:43,105
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+143
+00:02:43,105 --> 00:02:43,107
+22. println(BookingIdToBePassed)
+
+144
+00:02:43,108 --> 00:02:43,490
+26. utils.clickSendButton()
+
+145
+00:02:43,491 --> 00:02:45,497
+30. delay(2)
+
+146
+00:02:45,497 --> 00:02:45,516
+34. response = responseTextBox.getText()
+
+147
+00:02:45,517 --> 00:02:45,518
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+148
+00:02:45,519 --> 00:02:45,520
+42. assert response.contains(validationString)
+
+149
+00:02:45,521 --> 00:02:45,523
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+150
+00:02:45,524 --> 00:02:50,162
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+151
+00:02:50,165 --> 00:02:50,167
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+152
+00:02:50,167 --> 00:02:50,169
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+153
+00:02:50,170 --> 00:02:50,419
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+154
+00:02:50,419 --> 00:02:50,667
+6. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+155
+00:02:50,672 --> 00:02:50,776
+10. sendRequestTextBox.clear()
+
+156
+00:02:50,777 --> 00:02:50,779
+14. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+157
+00:02:50,780 --> 00:02:50,988
+18. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+158
+00:02:50,989 --> 00:02:50,991
+22. println(BookingIdToBePassed)
+
+159
+00:02:50,991 --> 00:02:51,354
+26. utils.clickSendButton()
+
+160
+00:02:51,355 --> 00:02:53,361
+30. delay(2)
+
+161
+00:02:53,362 --> 00:02:53,381
+34. response = responseTextBox.getText()
+
+162
+00:02:53,382 --> 00:02:53,383
+38. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+163
+00:02:53,384 --> 00:02:53,385
+42. assert response.contains(validationString)
+
+164
+00:02:53,386 --> 00:02:53,387
+46. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+165
+00:02:53,388 --> 00:02:57,411
+50. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+166
+00:02:57,413 --> 00:02:59,753
+1. utils.closeBrowser()
+

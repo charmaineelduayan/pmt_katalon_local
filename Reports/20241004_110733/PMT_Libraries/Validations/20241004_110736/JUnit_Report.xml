@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Validations" time="111.584" tests="2" failures="0" errors="0">
+   <testsuite name="Validations" tests="2" failures="0" errors="0" time="111.584" skipped="0" timestamp="04-10-2024T11:07:53" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/Validations">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_110733/PMT_Libraries/Validations/20241004_110736"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_110733/PMT_Libraries/Validations/20241004_110736/execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 129.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="6cb5e76a180d9acb5ea2d109a4798fac"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf" time="61.548" classname="Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf" status="PASSED">
+         <system-out><![CDATA[04-10-2024T11:07:53 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf: Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf
+
+04-10-2024T11:08:02 - [TEST_STEP][PASSED] - try: Send request successfully
+
+04-10-2024T11:08:02 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T11:08:03 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+04-10-2024T11:08:03 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+04-10-2024T11:08:10 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+04-10-2024T11:08:10 - [MESSAGE][PASSED] - Current window maximized
+
+04-10-2024T11:08:20 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T11:08:20 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+04-10-2024T11:08:20 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+04-10-2024T11:08:20 - [TEST_STEP][PASSED] - TAB = "Validations_Prevalidations&Conf": null
+
+04-10-2024T11:08:20 - [TEST_STEP][PASSED] - utils.goToValidations(): null
+
+04-10-2024T11:08:24 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+04-10-2024T11:08:25 - [TEST_STEP][PASSED] - testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+04-10-2024T11:08:28 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click(): null
+
+04-10-2024T11:08:29 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)]): Send request successfully
+
+04-10-2024T11:08:29 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+04-10-2024T11:08:29 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): Send request successfully
+
+04-10-2024T11:08:29 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+04-10-2024T11:08:29 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T11:08:30 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+04-10-2024T11:08:30 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T11:08:35 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T11:08:35 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Send request successfully
+
+04-10-2024T11:08:49 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/RestructuredScript/TestingFolder/Reports/20241004_110733/PMT_Libraries/Validations/20241004_110736/requests/main/0.har
+
+04-10-2024T11:08:49 - [MESSAGE][PASSED] - Send request successfully
+
+04-10-2024T11:08:49 - [TEST_STEP][PASSED] - catch (Exception e): null
+
+04-10-2024T11:08:49 - [TEST_STEP][PASSED] - println(An unexpected error occurred: $e.message): null
+
+04-10-2024T11:08:49 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+04-10-2024T11:08:49 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+04-10-2024T11:08:49 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+04-10-2024T11:08:51 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T11:08:52 - [MESSAGE][PASSED] - Browser is closed
+
+04-10-2024T11:08:55 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf' .
+
+04-10-2024T11:08:55 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr" time="49.627" classname="Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr" status="PASSED">
+         <system-out><![CDATA[04-10-2024T11:08:55 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr: Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr
+
+04-10-2024T11:08:56 - [TEST_STEP][PASSED] - try: null
+
+04-10-2024T11:08:56 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T11:08:56 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+04-10-2024T11:08:56 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+04-10-2024T11:09:06 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+04-10-2024T11:09:06 - [MESSAGE][PASSED] - Current window maximized
+
+04-10-2024T11:09:10 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+04-10-2024T11:09:10 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+04-10-2024T11:09:10 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+04-10-2024T11:09:10 - [TEST_STEP][PASSED] - TAB = "Validations_ByCtryOrCurr": null
+
+04-10-2024T11:09:10 - [TEST_STEP][PASSED] - testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+04-10-2024T11:09:11 - [TEST_STEP][PASSED] - utils.goToValidations(): null
+
+04-10-2024T11:09:14 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+04-10-2024T11:09:16 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations by Ctry/Curr']")).click(): null
+
+04-10-2024T11:09:17 - [TEST_STEP][PASSED] - countryInput = driver.findElement(By.xpath("//input[@id='country']")): null
+
+04-10-2024T11:09:17 - [TEST_STEP][PASSED] - currencyInput = driver.findElement(By.xpath("//input[@id='currency']")): null
+
+04-10-2024T11:09:18 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+04-10-2024T11:09:18 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size() - 1, (TestScenarioNumber++)]): null
+
+04-10-2024T11:09:18 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T11:09:23 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - countryData = testdataFromExcel["Country"][TestScenarioNumber]: null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - currencyData = testdataFromExcel["Currency"][TestScenarioNumber]: null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - println(countryData): null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - println(currencyData): null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+04-10-2024T11:09:23 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T11:09:24 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T11:09:29 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T11:09:29 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T11:09:29 - [TEST_STEP][PASSED] - println(response): null
+
+04-10-2024T11:09:29 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T11:09:29 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T11:09:29 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T11:09:29 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T11:09:34 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - countryData = testdataFromExcel["Country"][TestScenarioNumber]: null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - currencyData = testdataFromExcel["Currency"][TestScenarioNumber]: null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - println(countryData): null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - println(currencyData): null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+04-10-2024T11:09:34 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+04-10-2024T11:09:35 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+04-10-2024T11:09:40 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - println(response): null
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+04-10-2024T11:09:40 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+04-10-2024T11:09:42 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+04-10-2024T11:09:42 - [MESSAGE][PASSED] - Browser is closed
+
+04-10-2024T11:09:44 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr' .
+
+04-10-2024T11:09:44 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[04-10-2024T11:07:53 - [TEST_SUITE][PASSED] - Validations: Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
