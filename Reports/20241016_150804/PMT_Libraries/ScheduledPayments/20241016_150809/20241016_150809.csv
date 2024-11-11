@@ -1,0 +1,27 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+ScheduledPayments,Chrome 129.0.0.0,,,16-10-2024 15:08:24,16-10-2024 15:15:02,6m - 37.649s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility,Chrome 129.0.0.0,,,16-10-2024 15:08:25,16-10-2024 15:09:14,49.316s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 129.0.0.0,,,16-10-2024 15:08:27,16-10-2024 15:08:49,21.995s,PASSED
+try,Chrome 129.0.0.0,,,16-10-2024 15:08:49,16-10-2024 15:09:09,20.635s,FAILED
+catch (Exception e),Chrome 129.0.0.0,,,16-10-2024 15:09:09,16-10-2024 15:09:09,0.173s,PASSED
+Finally,Chrome 129.0.0.0,,,16-10-2024 15:09:09,16-10-2024 15:09:12,2.320s,PASSED
+Video,Chrome 129.0.0.0,,,16-10-2024 15:09:14,16-10-2024 15:09:14,0.002s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add,Chrome 129.0.0.0,,,16-10-2024 15:09:14,16-10-2024 15:11:33,2m - 19.496s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 129.0.0.0,,,16-10-2024 15:09:15,16-10-2024 15:09:23,7.807s,PASSED
+try,Chrome 129.0.0.0,,,16-10-2024 15:09:23,16-10-2024 15:11:26,2m - 3.707s,PASSED
+catch (AssertionError e),Chrome 129.0.0.0,,,16-10-2024 15:11:26,16-10-2024 15:11:29,2.582s,PASSED
+Finally,Chrome 129.0.0.0,,,16-10-2024 15:11:29,16-10-2024 15:11:31,2.292s,PASSED
+Video,Chrome 129.0.0.0,,,16-10-2024 15:11:33,16-10-2024 15:11:33,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest,Chrome 129.0.0.0,,,16-10-2024 15:11:33,16-10-2024 15:12:56,1m - 22.929s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 129.0.0.0,,,16-10-2024 15:11:34,16-10-2024 15:11:39,5.503s,PASSED
+try,Chrome 129.0.0.0,,,16-10-2024 15:11:39,16-10-2024 15:12:52,1m - 12.891s,PASSED
+Finally,Chrome 129.0.0.0,,,16-10-2024 15:12:52,16-10-2024 15:12:54,2.156s,PASSED
+Video,Chrome 129.0.0.0,,,16-10-2024 15:12:56,16-10-2024 15:12:56,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get,Chrome 129.0.0.0,,,16-10-2024 15:12:56,16-10-2024 15:15:02,2m - 5.574s,PASSED
+try,Chrome 129.0.0.0,,,16-10-2024 15:12:57,16-10-2024 15:14:58,2m - 0.982s,PASSED
+Finally,Chrome 129.0.0.0,,,16-10-2024 15:14:58,16-10-2024 15:15:00,2.210s,PASSED
+Video,Chrome 129.0.0.0,,,16-10-2024 15:15:02,16-10-2024 15:15:02,0.000s,PASSED

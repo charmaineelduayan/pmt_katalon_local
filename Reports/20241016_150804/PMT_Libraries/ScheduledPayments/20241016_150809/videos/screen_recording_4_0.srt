@@ -1,0 +1,688 @@
+1
+00:00:00,201 --> 00:00:00,201
+1. try
+
+2
+00:00:00,202 --> 00:00:05,437
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,457 --> 00:00:05,479
+5. driver = getWebDriver()
+
+4
+00:00:05,499 --> 00:00:05,502
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:05,502 --> 00:00:05,506
+13. TAB = "ScheduledPayment_Get"
+
+6
+00:00:05,506 --> 00:00:08,272
+17. utils.goToScheduledPayments()
+
+7
+00:00:08,272 --> 00:00:09,115
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:09,116 --> 00:00:09,144
+25. testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:09,144 --> 00:00:09,145
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)])
+
+10
+00:00:09,146 --> 00:00:09,147
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+11
+00:00:09,148 --> 00:00:09,149
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+12
+00:00:09,149 --> 00:00:09,426
+1. clickADD = xpath("//a[normalize-space()='Add']")).click()
+
+13
+00:00:09,426 --> 00:00:10,468
+5. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+14
+00:00:10,468 --> 00:00:10,489
+9. sendRequestTextBox.clear()
+
+15
+00:00:10,489 --> 00:00:31,146
+13. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+16
+00:00:31,146 --> 00:00:31,148
+17. println(getBookingData["BookingId"])
+
+17
+00:00:31,148 --> 00:00:31,149
+21. println(getBookingData["BookingAccessToken"])
+
+18
+00:00:31,149 --> 00:00:36,160
+25. delay(5)
+
+19
+00:00:36,160 --> 00:00:36,161
+29. ADDRequestRaw = testdataFromExcel["ADDRequest"][TestScenarioNumber]
+
+20
+00:00:36,162 --> 00:00:36,163
+33. BookingId = getBookingData["BookingId"]
+
+21
+00:00:36,163 --> 00:00:36,164
+37. ADDRequest = ADDRequestRaw.replace("BookingId", BookingId)
+
+22
+00:00:36,164 --> 00:00:36,702
+41. sendRequestTextBox.sendKeys(ADDRequest)
+
+23
+00:00:36,703 --> 00:00:36,704
+45. println(ADDRequest)
+
+24
+00:00:36,704 --> 00:00:36,988
+49. utils.clickSendButton()
+
+25
+00:00:36,989 --> 00:00:41,997
+53. delay(5)
+
+26
+00:00:41,998 --> 00:00:43,360
+57. refresh()
+
+27
+00:00:43,360 --> 00:00:46,369
+61. delay(3)
+
+28
+00:00:46,370 --> 00:00:46,636
+65. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+29
+00:00:46,637 --> 00:00:47,274
+69. sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+30
+00:00:47,275 --> 00:00:47,297
+73. sendRequestTextBox2.clear()
+
+31
+00:00:47,297 --> 00:00:47,298
+77. BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+32
+00:00:47,298 --> 00:00:47,299
+81. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+33
+00:00:47,300 --> 00:00:47,348
+85. sendRequestTextBox2.sendKeys(BookingIdToBePassed)
+
+34
+00:00:47,348 --> 00:00:47,350
+89. println(BookingIdToBePassed)
+
+35
+00:00:47,350 --> 00:00:47,612
+93. utils.clickSendButton()
+
+36
+00:00:47,612 --> 00:00:52,620
+97. delay(5)
+
+37
+00:00:52,620 --> 00:00:52,624
+101. cancelBookingRequest = findTestObject("CancelBooking")
+
+38
+00:00:52,624 --> 00:00:53,590
+105. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+39
+00:00:53,590 --> 00:00:53,591
+109. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+40
+00:00:53,592 --> 00:00:53,592
+113. println(cancelBookingJsonResponse)
+
+41
+00:00:53,593 --> 00:00:53,816
+117. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+42
+00:00:53,816 --> 00:00:53,828
+121. response = responseTextBox.getText()
+
+43
+00:00:53,828 --> 00:00:53,829
+125. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+44
+00:00:53,830 --> 00:00:53,830
+129. assert response.contains(validationString)
+
+45
+00:00:53,831 --> 00:00:53,834
+133. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+46
+00:00:53,834 --> 00:00:53,835
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+47
+00:00:53,835 --> 00:00:53,835
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+48
+00:00:53,836 --> 00:00:54,095
+1. clickADD = xpath("//a[normalize-space()='Add']")).click()
+
+49
+00:00:54,096 --> 00:00:54,829
+5. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+50
+00:00:54,829 --> 00:00:54,848
+9. sendRequestTextBox.clear()
+
+51
+00:00:54,848 --> 00:01:15,395
+13. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+52
+00:01:15,396 --> 00:01:15,396
+17. println(getBookingData["BookingId"])
+
+53
+00:01:15,396 --> 00:01:15,397
+21. println(getBookingData["BookingAccessToken"])
+
+54
+00:01:15,397 --> 00:01:20,402
+25. delay(5)
+
+55
+00:01:20,403 --> 00:01:20,403
+29. ADDRequestRaw = testdataFromExcel["ADDRequest"][TestScenarioNumber]
+
+56
+00:01:20,404 --> 00:01:20,404
+33. BookingId = getBookingData["BookingId"]
+
+57
+00:01:20,405 --> 00:01:20,405
+37. ADDRequest = ADDRequestRaw.replace("BookingId", BookingId)
+
+58
+00:01:20,405 --> 00:01:20,950
+41. sendRequestTextBox.sendKeys(ADDRequest)
+
+59
+00:01:20,950 --> 00:01:20,951
+45. println(ADDRequest)
+
+60
+00:01:20,951 --> 00:01:22,328
+49. utils.clickSendButton()
+
+61
+00:01:22,329 --> 00:01:27,340
+53. delay(5)
+
+62
+00:01:27,341 --> 00:01:29,778
+57. refresh()
+
+63
+00:01:29,778 --> 00:01:32,791
+61. delay(3)
+
+64
+00:01:32,792 --> 00:01:33,045
+65. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+65
+00:01:33,046 --> 00:01:33,680
+69. sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+66
+00:01:33,681 --> 00:01:33,701
+73. sendRequestTextBox2.clear()
+
+67
+00:01:33,702 --> 00:01:33,702
+77. BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+68
+00:01:33,703 --> 00:01:33,703
+81. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+69
+00:01:33,703 --> 00:01:33,750
+85. sendRequestTextBox2.sendKeys(BookingIdToBePassed)
+
+70
+00:01:33,751 --> 00:01:33,751
+89. println(BookingIdToBePassed)
+
+71
+00:01:33,752 --> 00:01:34,010
+93. utils.clickSendButton()
+
+72
+00:01:34,010 --> 00:01:39,022
+97. delay(5)
+
+73
+00:01:39,023 --> 00:01:39,026
+101. cancelBookingRequest = findTestObject("CancelBooking")
+
+74
+00:01:39,026 --> 00:01:39,890
+105. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+75
+00:01:39,890 --> 00:01:39,890
+109. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+76
+00:01:39,891 --> 00:01:39,891
+113. println(cancelBookingJsonResponse)
+
+77
+00:01:39,891 --> 00:01:40,117
+117. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+78
+00:01:40,117 --> 00:01:40,126
+121. response = responseTextBox.getText()
+
+79
+00:01:40,142 --> 00:01:40,143
+125. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+80
+00:01:40,143 --> 00:01:40,144
+129. assert response.contains(validationString)
+
+81
+00:01:40,144 --> 00:01:40,145
+133. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+82
+00:01:40,145 --> 00:01:40,148
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+83
+00:01:40,148 --> 00:01:40,150
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+84
+00:01:40,150 --> 00:01:40,404
+2. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+85
+00:01:40,404 --> 00:01:41,138
+6. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+86
+00:01:41,138 --> 00:01:41,363
+10. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+87
+00:01:41,363 --> 00:01:41,381
+14. sendRequestTextBox.clear()
+
+88
+00:01:41,381 --> 00:01:41,382
+18. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+89
+00:01:41,382 --> 00:01:41,417
+22. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+90
+00:01:41,417 --> 00:01:41,418
+26. println(BookingIdToBePassed)
+
+91
+00:01:41,418 --> 00:01:41,678
+30. utils.clickSendButton()
+
+92
+00:01:41,678 --> 00:01:43,689
+34. delay(2)
+
+93
+00:01:43,689 --> 00:01:43,699
+38. response = responseTextBox.getText()
+
+94
+00:01:43,700 --> 00:01:43,701
+42. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+95
+00:01:43,701 --> 00:01:43,703
+46. assert response.contains(validationString)
+
+96
+00:01:43,703 --> 00:01:43,704
+50. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+97
+00:01:43,704 --> 00:01:43,705
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+98
+00:01:43,705 --> 00:01:43,706
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+99
+00:01:43,706 --> 00:01:43,964
+2. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+100
+00:01:43,965 --> 00:01:44,597
+6. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+101
+00:01:44,597 --> 00:01:44,823
+10. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+102
+00:01:44,824 --> 00:01:44,845
+14. sendRequestTextBox.clear()
+
+103
+00:01:44,845 --> 00:01:44,846
+18. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+104
+00:01:44,846 --> 00:01:44,883
+22. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+105
+00:01:44,883 --> 00:01:44,884
+26. println(BookingIdToBePassed)
+
+106
+00:01:44,884 --> 00:01:45,144
+30. utils.clickSendButton()
+
+107
+00:01:45,144 --> 00:01:47,155
+34. delay(2)
+
+108
+00:01:47,156 --> 00:01:47,166
+38. response = responseTextBox.getText()
+
+109
+00:01:47,166 --> 00:01:47,167
+42. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+110
+00:01:47,167 --> 00:01:47,167
+46. assert response.contains(validationString)
+
+111
+00:01:47,168 --> 00:01:47,168
+50. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+112
+00:01:47,168 --> 00:01:47,169
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+113
+00:01:47,169 --> 00:01:47,170
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+114
+00:01:47,170 --> 00:01:47,434
+2. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+115
+00:01:47,435 --> 00:01:48,063
+6. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+116
+00:01:48,063 --> 00:01:48,288
+10. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+117
+00:01:48,289 --> 00:01:48,306
+14. sendRequestTextBox.clear()
+
+118
+00:01:48,306 --> 00:01:48,307
+18. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+119
+00:01:48,308 --> 00:01:48,350
+22. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+120
+00:01:48,351 --> 00:01:48,355
+26. println(BookingIdToBePassed)
+
+121
+00:01:48,355 --> 00:01:48,607
+30. utils.clickSendButton()
+
+122
+00:01:48,608 --> 00:01:50,611
+34. delay(2)
+
+123
+00:01:50,612 --> 00:01:50,622
+38. response = responseTextBox.getText()
+
+124
+00:01:50,622 --> 00:01:50,622
+42. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+125
+00:01:50,623 --> 00:01:50,623
+46. assert response.contains(validationString)
+
+126
+00:01:50,623 --> 00:01:50,623
+50. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+127
+00:01:50,624 --> 00:01:50,624
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+128
+00:01:50,624 --> 00:01:50,625
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+129
+00:01:50,625 --> 00:01:50,877
+2. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+130
+00:01:50,878 --> 00:01:51,602
+6. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+131
+00:01:51,603 --> 00:01:51,822
+10. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+132
+00:01:51,822 --> 00:01:51,838
+14. sendRequestTextBox.clear()
+
+133
+00:01:51,838 --> 00:01:51,839
+18. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+134
+00:01:51,839 --> 00:01:51,879
+22. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+135
+00:01:51,880 --> 00:01:51,880
+26. println(BookingIdToBePassed)
+
+136
+00:01:51,880 --> 00:01:52,140
+30. utils.clickSendButton()
+
+137
+00:01:52,141 --> 00:01:54,150
+34. delay(2)
+
+138
+00:01:54,151 --> 00:01:54,161
+38. response = responseTextBox.getText()
+
+139
+00:01:54,161 --> 00:01:54,161
+42. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+140
+00:01:54,161 --> 00:01:54,162
+46. assert response.contains(validationString)
+
+141
+00:01:54,162 --> 00:01:54,162
+50. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+142
+00:01:54,163 --> 00:01:54,163
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+143
+00:01:54,163 --> 00:01:54,164
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+144
+00:01:54,164 --> 00:01:54,422
+2. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+145
+00:01:54,423 --> 00:01:55,053
+6. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+146
+00:01:55,054 --> 00:01:55,276
+10. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+147
+00:01:55,276 --> 00:01:55,295
+14. sendRequestTextBox.clear()
+
+148
+00:01:55,295 --> 00:01:55,296
+18. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+149
+00:01:55,296 --> 00:01:55,340
+22. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+150
+00:01:55,341 --> 00:01:55,342
+26. println(BookingIdToBePassed)
+
+151
+00:01:55,342 --> 00:01:55,594
+30. utils.clickSendButton()
+
+152
+00:01:55,594 --> 00:01:57,604
+34. delay(2)
+
+153
+00:01:57,604 --> 00:01:57,615
+38. response = responseTextBox.getText()
+
+154
+00:01:57,615 --> 00:01:57,616
+42. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+155
+00:01:57,616 --> 00:01:57,616
+46. assert response.contains(validationString)
+
+156
+00:01:57,617 --> 00:01:57,617
+50. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+157
+00:01:57,617 --> 00:01:57,618
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+158
+00:01:57,618 --> 00:01:57,620
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+159
+00:01:57,620 --> 00:01:57,879
+2. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+160
+00:01:57,880 --> 00:01:58,612
+6. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+161
+00:01:58,612 --> 00:01:58,839
+10. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+162
+00:01:58,839 --> 00:01:58,858
+14. sendRequestTextBox.clear()
+
+163
+00:01:58,858 --> 00:01:58,859
+18. BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+164
+00:01:58,859 --> 00:01:58,904
+22. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+165
+00:01:58,904 --> 00:01:58,905
+26. println(BookingIdToBePassed)
+
+166
+00:01:58,905 --> 00:01:59,158
+30. utils.clickSendButton()
+
+167
+00:01:59,159 --> 00:02:01,170
+34. delay(2)
+
+168
+00:02:01,170 --> 00:02:01,180
+38. response = responseTextBox.getText()
+
+169
+00:02:01,180 --> 00:02:01,181
+42. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+170
+00:02:01,181 --> 00:02:01,181
+46. assert response.contains(validationString)
+
+171
+00:02:01,182 --> 00:02:01,183
+50. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+172
+00:02:01,183 --> 00:02:03,393
+1. utils.closeBrowser()
+

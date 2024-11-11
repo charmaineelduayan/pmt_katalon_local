@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Wallets" time="174.615" tests="4" failures="0" errors="0">
+   <testsuite name="Wallets" tests="4" failures="0" errors="0" time="174.615" skipped="0" timestamp="16-10-2024T15:08:25" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/Wallets">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/Wallets/20241016_150813"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/Wallets/20241016_150813/execution0.log"/>
+         <property name="attachments" value="./screenshots/Failed_Wallet_Update.png, ./screenshots/Failed_Wallet_Add.png, ./screenshots/Failed_Wallet_Delete.png"/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 129.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="2167945349f42f605e4ace5ccfafe074"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Wallets/TC3_Wallet_Update" time="55.18" classname="Test Cases/Web_Utilities_TestCases/Wallets/TC3_Wallet_Update" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:08:26 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Wallets/TC3_Wallet_Update: Test Cases/Web_Utilities_TestCases/Wallets/TC3_Wallet_Update
+
+16-10-2024T15:08:29 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:08:29 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:08:29 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:08:29 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:08:36 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:08:37 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:08:49 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:08:49 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:08:49 - [TEST_STEP][PASSED] - TAB = "Wallet_Update": null
+
+16-10-2024T15:08:49 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:08:49 - [TEST_STEP][PASSED] - utils.goToWallets(): null
+
+16-10-2024T15:08:53 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Update']")).click(): null
+
+16-10-2024T15:08:54 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:08:55 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:08:55 - [TEST_STEP][PASSED] - fetchGuestAccount = sendRequest(findTestObject("GuestAccount")): Send request successfully
+
+16-10-2024T15:09:00 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/Wallets/20241016_150813/requests/main/0.har
+
+16-10-2024T15:09:00 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:09:00 - [TEST_STEP][PASSED] - accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId"): null
+
+16-10-2024T15:09:00 - [TEST_STEP][PASSED] - accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken"): null
+
+16-10-2024T15:09:00 - [TEST_STEP][PASSED] - accountId = accountId: null
+
+16-10-2024T15:09:00 - [TEST_STEP][PASSED] - accessToken = accessToken: null
+
+16-10-2024T15:09:00 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - paymentMethod = testdata["paymentMethod"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - cardholderName = testdata["cardholderName"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - nickName = testdata["nickName"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - defaultPaymentMethod = testdata["defaultPaymentMethod"][i]: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - request = {
+    "paymentMethod": {
+        "type": "$paymentMethod",
+        "cardNumber": "$cardNumber",
+        "cardholder": "$cardholderName",
+        "nickname": "$nickName",
+        "expirationMonth": "$expirationMonth",
+        "expirationYear": "$expirationYear",
+        "defaultPaymentMethod": "$defaultPaymentMethod"
+    },
+    "accountId": "$accountId",
+    "accessToken": "$accessToken"
+}: null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:09:02 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:09:08 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:09:09 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:09:12 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:09:12 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:09:12 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:09:12 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+16-10-2024T15:09:12 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:09:12 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+16-10-2024T15:09:13 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:09:13 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+16-10-2024T15:09:13 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:09:13 - [TEST_STEP][PASSED] - catch (AssertionError e): null
+
+16-10-2024T15:09:13 - [TEST_STEP][PASSED] - takeScreenshot("./screenshots/Failed_Wallet_Update.png"): Taking screenshot successfully
+
+16-10-2024T15:09:15 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|./screenshots/Failed_Wallet_Update.png]]
+
+16-10-2024T15:09:15 - [TEST_STEP][PASSED] - println(Assertion failed: $e.message): null
+
+16-10-2024T15:09:15 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+16-10-2024T15:09:15 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:09:15 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:09:17 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:09:19 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:09:21 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC3_Wallet_Update' .
+
+16-10-2024T15:09:21 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC3_Wallet_Update' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Wallets/TC2__Replace" time="53.746" classname="Test Cases/Web_Utilities_TestCases/Wallets/TC2__Replace" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:09:21 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Wallets/TC2__Replace: Test Cases/Web_Utilities_TestCases/Wallets/TC2__Replace
+
+16-10-2024T15:09:22 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:09:22 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:09:22 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:09:22 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:09:26 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:09:27 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:09:43 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:09:43 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:09:43 - [TEST_STEP][PASSED] - TAB = "Wallet_Replace": null
+
+16-10-2024T15:09:43 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:09:43 - [TEST_STEP][PASSED] - utils.goToWallets(): null
+
+16-10-2024T15:09:46 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Replace']")).click(): null
+
+16-10-2024T15:09:46 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - fetchGuestAccount = sendRequest(findTestObject("GuestAccount")): Send request successfully
+
+16-10-2024T15:09:49 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/Wallets/20241016_150813/requests/main/1.har
+
+16-10-2024T15:09:49 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId"): null
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken"): null
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - accountId = accountId: null
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - accessToken = accessToken: null
+
+16-10-2024T15:09:49 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - idToBeReplaced = testdata["idToBeReplaced"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - paymentMethod = testdata["paymentMethod"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - cardholderName = testdata["cardholderName"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - nickName = testdata["nickName"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - defaultPaymentMethod = testdata["defaultPaymentMethod"][i]: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - request = {
+    "idToBeReplaced": "$idToBeReplaced",
+    "paymentMethod": {
+        "type": "$paymentMethod",
+        "cardNumber": "$cardNumber",
+        "expirationMonth": "$expirationMonth",
+        "expirationYear": "$expirationYear",
+        "cardholder": "$cardholderName",
+        "nickname": "$nickName"
+    },
+    "accountId": "$accountId",
+    "accessToken": "$accessToken"
+}: null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:09:50 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:10:03 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:10:03 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:10:06 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:10:06 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - idToBeReplaced = testdata["idToBeReplaced"][i]: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - paymentMethod = testdata["paymentMethod"][i]: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - catch (Exception e): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - println(An unexpected error occurred: $e.message): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:10:10 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:10:12 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:10:12 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:10:14 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC2__Replace' .
+
+16-10-2024T15:10:14 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC2__Replace' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Wallets/TC1_Wallet_Add" time="37.238" classname="Test Cases/Web_Utilities_TestCases/Wallets/TC1_Wallet_Add" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:10:14 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Wallets/TC1_Wallet_Add: Test Cases/Web_Utilities_TestCases/Wallets/TC1_Wallet_Add
+
+16-10-2024T15:10:15 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:10:15 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:10:15 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:10:15 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:10:18 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:10:18 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:10:22 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:10:22 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:10:22 - [TEST_STEP][PASSED] - TAB = "Wallet_Add": null
+
+16-10-2024T15:10:22 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:10:22 - [TEST_STEP][PASSED] - utils.goToWallets(): null
+
+16-10-2024T15:10:26 - [TEST_STEP][PASSED] - clickAdd = xpath("//a[normalize-space()='Add']")).click(): null
+
+16-10-2024T15:10:27 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:10:29 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:10:29 - [TEST_STEP][PASSED] - fetchGuestAccount = sendRequest(findTestObject("GuestAccount")): Send request successfully
+
+16-10-2024T15:10:30 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/Wallets/20241016_150813/requests/main/2.har
+
+16-10-2024T15:10:30 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId"): null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken"): null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - accountId = accountId: null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - accessToken = accessToken: null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:10:30 - [TEST_STEP][PASSED] - paymentMethod = testdata["paymentMethod"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - cardholderName = testdata["cardholderName"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - nickName = testdata["nickName"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - defaultPaymentMethod = testdata["defaultPaymentMethod"][i]: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - request = {
+    "paymentMethod": {
+        "type": "$paymentMethod",
+        "cardNumber": "$cardNumber",
+        "expirationMonth": "$expirationMonth",
+        "expirationYear": "$expirationYear",
+        "cardholder": "$cardholderName",
+        "nickname": "$nickName",
+        "defaultPaymentMethod": "$defaultPaymentMethod"
+    },
+    "accountId": "$accountId",
+    "accessToken": "$accessToken"
+}: null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:10:39 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:10:39 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - catch (AssertionError e): null
+
+16-10-2024T15:10:46 - [TEST_STEP][PASSED] - takeScreenshot("./screenshots/Failed_Wallet_Add.png"): Taking screenshot successfully
+
+16-10-2024T15:10:47 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|./screenshots/Failed_Wallet_Add.png]]
+
+16-10-2024T15:10:47 - [TEST_STEP][PASSED] - println(Assertion failed: $e.message): null
+
+16-10-2024T15:10:47 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+16-10-2024T15:10:47 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:10:47 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:10:49 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:10:50 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:10:52 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC1_Wallet_Add' .
+
+16-10-2024T15:10:52 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC1_Wallet_Add' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete" time="28.091" classname="Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:10:52 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete: Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete
+
+16-10-2024T15:10:52 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:10:52 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:10:52 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:10:52 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:10:54 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:10:55 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:10:59 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:10:59 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:10:59 - [TEST_STEP][PASSED] - TAB = "Wallet_Delete": null
+
+16-10-2024T15:10:59 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:10:59 - [TEST_STEP][PASSED] - utils.goToWallets(): null
+
+16-10-2024T15:11:02 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Delete']")).click(): null
+
+16-10-2024T15:11:03 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:11:04 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:11:04 - [TEST_STEP][PASSED] - fetchGuestAccount = sendRequest(findTestObject("GuestAccount")): Send request successfully
+
+16-10-2024T15:11:04 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/Wallets/20241016_150813/requests/main/3.har
+
+16-10-2024T15:11:04 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:11:04 - [TEST_STEP][PASSED] - accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId"): null
+
+16-10-2024T15:11:04 - [TEST_STEP][PASSED] - accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken"): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - accountId = accountId: null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - accessToken = accessToken: null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - request = {
+		"cardNumber": "$cardNumber",
+		"expirationMonth": "$expirationMonth",
+		"expirationYear": "$expirationYear",
+		"accessToken": "$accountId",
+		"accountId": "$accessToken"
+		}: null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:11:05 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:11:08 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:11:08 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:11:11 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - catch (AssertionError e): null
+
+16-10-2024T15:11:13 - [TEST_STEP][PASSED] - takeScreenshot("./screenshots/Failed_Wallet_Delete.png"): Taking screenshot successfully
+
+16-10-2024T15:11:15 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|./screenshots/Failed_Wallet_Delete.png]]
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - println(Assertion failed: $e.message): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:11:17 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:11:18 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:11:20 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete' .
+
+16-10-2024T15:11:20 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[16-10-2024T15:08:25 - [TEST_SUITE][PASSED] - Wallets: Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

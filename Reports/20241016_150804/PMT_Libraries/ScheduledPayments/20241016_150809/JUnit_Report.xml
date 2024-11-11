@@ -1,0 +1,1593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="ScheduledPayments" time="397.649" tests="4" failures="0" errors="0">
+   <testsuite name="ScheduledPayments" tests="4" failures="0" errors="0" time="397.649" skipped="0" timestamp="16-10-2024T15:08:24" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/ScheduledPayments">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/execution0.log"/>
+         <property name="attachments" value="./screenshots/Failed_Scheduled_Add.png"/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 129.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="46234462229dbde32baaea5f736eca99"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility" time="49.316" classname="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:08:25 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility: Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility
+
+16-10-2024T15:08:27 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:08:27 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:08:27 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:08:37 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:08:37 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:08:49 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:08:49 - [TEST_STEP][FAILED] - try: Unable to call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' (Root cause: com.kms.katalon.core.exception.StepErrorException: Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' failed because of error(s)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:66)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Caused by: java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	... 25 more
+)
+
+16-10-2024T15:08:49 - [TEST_STEP][FAILED] - callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE): Unable to call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' (Root cause: com.kms.katalon.core.exception.StepErrorException: Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' failed because of error(s)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:66)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Caused by: java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	... 25 more
+)
+
+16-10-2024T15:08:49 - [TEST_CASE][ERROR] - Test Cases/Re-Usable Script/SchedulePayment_GetEligibility: Test Cases/Re-Usable Script/SchedulePayment_GetEligibility FAILED.
+Reason:
+java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+16-10-2024T15:08:50 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:08:50 - [TEST_STEP][PASSED] - utils.goToScheduledPayments(): null
+
+16-10-2024T15:08:53 - [TEST_STEP][PASSED] - clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click(): null
+
+16-10-2024T15:08:54 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:08:54 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_GetEligibility": null
+
+16-10-2024T15:08:54 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:08:55 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:08:57 - [TEST_STEP][ERROR] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)]): Test Cases/Re-Usable Script/SchedulePayment_GetEligibility FAILED.
+Reason:
+java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+16-10-2024T15:08:58 - [TEST_STEP][PASSED] - println(testdata.size()): null
+
+16-10-2024T15:08:58 - [TEST_STEP][ERROR] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Test Cases/Re-Usable Script/SchedulePayment_GetEligibility FAILED.
+Reason:
+java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+16-10-2024T15:09:09 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/0.har
+
+16-10-2024T15:09:09 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:09:09 - [MESSAGE][ERROR] - Test Cases/Re-Usable Script/SchedulePayment_GetEligibility FAILED.
+Reason:
+java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+16-10-2024T15:09:09 - [MESSAGE][FAILED] - Unable to call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' (Root cause: com.kms.katalon.core.exception.StepErrorException: Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' failed because of error(s)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:66)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.call(CallTestCaseKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.callTestCase(CallTestCaseKeyword.groovy:81)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword.execute(CallTestCaseKeyword.groovy:44)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.callTestCase(BuiltinKeywords.groovy:310)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at TC1_ScheduledPayment_GetEligibility.run(TC1_ScheduledPayment_GetEligibility:33)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1729062489682.run(TempTestSuite1729062489682.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Caused by: java.lang.NullPointerException: Cannot get property 'bookingId' on null object
+	at rcclpayment.CreateAndRetrieveBooking.Data(CreateAndRetrieveBooking.groovy:106)
+	at SchedulePayment_GetEligibility.run(SchedulePayment_GetEligibility:45)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:137)
+	at com.kms.katalon.core.keyword.builtin.CallTestCaseKeyword$_callTestCase_closure1.doCall(CallTestCaseKeyword.groovy:59)
+	... 25 more
+)
+
+16-10-2024T15:09:09 - [TEST_STEP][PASSED] - catch (Exception e): null
+
+16-10-2024T15:09:09 - [TEST_STEP][PASSED] - println(An unexpected error occurred: $e.message): null
+
+16-10-2024T15:09:09 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+16-10-2024T15:09:09 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:09:09 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:09:12 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:09:12 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:09:14 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility' .
+
+16-10-2024T15:09:14 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add" time="139.496" classname="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:09:14 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add: Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add
+
+16-10-2024T15:09:15 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:09:15 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:09:15 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:09:18 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:09:19 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:09:23 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:09:23 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:09:23 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:09:23 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_Add": null
+
+16-10-2024T15:09:23 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:09:23 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)]): null
+
+16-10-2024T15:09:23 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Re-Usable Script/SchedulePayment_ConfirmWithRequest"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest' successfully
+
+16-10-2024T15:09:23 - [TEST_CASE][PASSED] - Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest: Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest
+
+16-10-2024T15:09:25 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:09:25 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+16-10-2024T15:09:27 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:09:27 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:09:31 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:09:32 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:10:01 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:10:01 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:10:01 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_ConfirmWithReq": null
+
+16-10-2024T15:10:01 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:10:01 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)]): null
+
+16-10-2024T15:10:01 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' successfully
+
+16-10-2024T15:10:01 - [TEST_CASE][PASSED] - Test Cases/Re-Usable Script/SchedulePayment_GetEligibility: Test Cases/Re-Usable Script/SchedulePayment_GetEligibility
+
+16-10-2024T15:10:02 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:10:02 - [TEST_STEP][PASSED] - utils.goToScheduledPayments(): null
+
+16-10-2024T15:10:05 - [TEST_STEP][PASSED] - clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click(): null
+
+16-10-2024T15:10:05 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:10:05 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_GetEligibility": null
+
+16-10-2024T15:10:05 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:10:07 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:10:07 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)]): null
+
+16-10-2024T15:10:07 - [TEST_STEP][PASSED] - println(testdata.size()): null
+
+16-10-2024T15:10:07 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+16-10-2024T15:10:13 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/1.har
+
+16-10-2024T15:10:13 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:10:23 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+16-10-2024T15:10:26 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/2.har
+
+16-10-2024T15:10:26 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:10:31 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId1"]): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId2"]): null
+
+16-10-2024T15:10:31 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:10:36 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - bookingIdCol = testdata["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - replaceBookingId = bookingIdCol.replace("BookingId", BookingId): null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - println(replaceBookingId): null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:10:36 - [TEST_STEP][PASSED] - request = BookingId: null
+
+16-10-2024T15:10:37 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(request): null
+
+16-10-2024T15:10:37 - [TEST_STEP][PASSED] - println(request): null
+
+16-10-2024T15:10:37 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:10:37 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:10:40 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:10:40 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][TestScenarioNumber]): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - println(testdata.size()): null
+
+16-10-2024T15:10:45 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+16-10-2024T15:10:50 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/3.har
+
+16-10-2024T15:10:50 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:11:00 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+16-10-2024T15:11:01 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/4.har
+
+16-10-2024T15:11:01 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:11:06 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:11:06 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+16-10-2024T15:11:06 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+16-10-2024T15:11:06 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId1"]): null
+
+16-10-2024T15:11:06 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId2"]): null
+
+16-10-2024T15:11:06 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:11:11 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - bookingIdCol = testdata["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - replaceBookingId = bookingIdCol.replace("BookingId", BookingId): null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - println(replaceBookingId): null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - request = BookingId: null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(request): null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - println(request): null
+
+16-10-2024T15:11:11 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:11:12 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:11:15 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][TestScenarioNumber]): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber): null
+
+16-10-2024T15:11:15 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' successfully
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - getConfrimWithReq = xpath("//a[normalize-space()='Confirm with Request']")).click(): null
+
+16-10-2024T15:11:15 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - cardholderName = testdata["cardholderName"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - addressOne = testdata["addressOne"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - addressTwo = testdata["addressTwo"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - city = testdata["city"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - state = testdata["state"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - zipCode = testdata["zipCode"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - countryCode = testdata["countryCode"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - action = testdata["action"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - scheduledDate = testdata["scheduledDate"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - xscheduledDate = scheduledDate.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - totalAmount = testdata["totalAmount"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - amount1 = testdata["amount1"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - amount2 = testdata["amount2"][TestScenarioNumber]: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - request = {
+				  "payments": [
+				    {
+				      "cardInfo": {
+				        "cardNumber": "$cardNumber",
+				        "expirationMonth": "$expirationMonth",
+				        "expirationYear": "$expirationYear",
+				        "cardholderName": "$cardholderName",
+				        "billingAddress": {
+				          "lineOne": "$addressOne",
+				          "lineTwo": "$addressTwo",
+				          "city": "$city",
+				          "state": "$state",
+				          "zipCode": "$zipCode",
+				          "countryCode": "$countryCode"
+				        }
+				      },
+				      "scheduledPayments": [
+				        {
+				          "action": "$action",
+				          "scheduledDate": "$scheduledDate",
+				          "totalAmount": $totalAmount,
+				          "passengerAmountAllocation": [
+				            {
+				              "passengerId": "$GlobalVariable.GuestRefNumber1",
+				              "amount": $amount1
+				            },
+				            {
+				              "passengerId": "$GlobalVariable.GuestRefNumber2",
+				              "amount": $amount2
+				            }
+				          ]
+				        }
+				      ]
+				    }
+				  ]
+				}: null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:11:16 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:11:19 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:11:19 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest' successfully
+
+16-10-2024T15:11:19 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:11:19 - [TEST_STEP][PASSED] - clickADD = xpath("//a[normalize-space()='Add']")).click(): null
+
+16-10-2024T15:11:20 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - cardholderName = testdata["cardholderName"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - addressOne = testdata["addressOne"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - addressTwo = testdata["addressTwo"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - city = testdata["city"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - state = testdata["state"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - zipCode = testdata["zipCode"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - countryCode = testdata["countryCode"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - action = testdata["action"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - scheduledDate = testdata["scheduledDate"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - xscheduledDate = scheduledDate.replaceAll("\.0$", ""): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - totalAmount = testdata["totalAmount"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - amount1 = testdata["amount1"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - amount2 = testdata["amount2"][TestScenarioNumber]: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - request = {
+			    "cardInfo": {
+			        "cardNumber": "$cardNumber",
+			        "expirationMonth": "$expirationMonth",
+			        "expirationYear": "$expirationYear",
+			        "cardholderName": "$cardholderName",
+			        "billingAddress": {
+			            "lineOne": "$addressOne",
+			            "lineTwo": "$addressTwo",
+			            "city": "$city",
+			            "state": "$state",
+			            "zipCode": "$zipCode",
+			            "countryCode": "$countryCode"
+			        }
+			    },
+			    "scheduledPayments": [
+			        {
+			            "scheduledDate": "$scheduledDate",
+			            "totalAmount": $totalAmount,
+			            "passengerAmountAllocation": [
+			                {
+			                    "passengerId": "$GlobalVariable.GuestRefNumber1",
+			                    "amount": $amount1
+			                },
+			                {
+			                    "passengerId": "$GlobalVariable.GuestRefNumber2",
+			                    "amount": $amount2
+			                }
+			            ]
+			        }
+			    ]
+			}: null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:11:21 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:11:23 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:11:23 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:11:26 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - println(testdata["TestScenarioNumber"][TestScenarioNumber]): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - catch (AssertionError e): null
+
+16-10-2024T15:11:26 - [TEST_STEP][PASSED] - takeScreenshot("./screenshots/Failed_Scheduled_Add.png"): Taking screenshot successfully
+
+16-10-2024T15:11:29 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|./screenshots/Failed_Scheduled_Add.png]]
+
+16-10-2024T15:11:29 - [TEST_STEP][PASSED] - println(Assertion failed: $e.message): null
+
+16-10-2024T15:11:29 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+16-10-2024T15:11:29 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:11:29 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:11:31 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:11:31 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:11:33 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add' .
+
+16-10-2024T15:11:33 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest" time="82.929" classname="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:11:33 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest: Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest
+
+16-10-2024T15:11:34 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:11:34 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:11:34 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:11:35 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:11:36 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:11:39 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:11:39 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:11:39 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Re-Usable Script/SchedulePayment_ConfirmWithRequest"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest' successfully
+
+16-10-2024T15:11:39 - [TEST_CASE][PASSED] - Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest: Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest
+
+16-10-2024T15:11:39 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:11:39 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+16-10-2024T15:11:40 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:11:40 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:11:41 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:11:41 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:11:44 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:11:44 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:11:44 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_ConfirmWithReq": null
+
+16-10-2024T15:11:44 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:11:45 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)]): null
+
+16-10-2024T15:11:45 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' successfully
+
+16-10-2024T15:11:45 - [TEST_CASE][PASSED] - Test Cases/Re-Usable Script/SchedulePayment_GetEligibility: Test Cases/Re-Usable Script/SchedulePayment_GetEligibility
+
+16-10-2024T15:11:45 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:11:45 - [TEST_STEP][PASSED] - utils.goToScheduledPayments(): null
+
+16-10-2024T15:11:48 - [TEST_STEP][PASSED] - clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click(): null
+
+16-10-2024T15:11:48 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:11:48 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_GetEligibility": null
+
+16-10-2024T15:11:48 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:11:49 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:11:49 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)]): null
+
+16-10-2024T15:11:49 - [TEST_STEP][PASSED] - println(testdata.size()): null
+
+16-10-2024T15:11:49 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+16-10-2024T15:11:54 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/5.har
+
+16-10-2024T15:11:54 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:12:04 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+16-10-2024T15:12:05 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/6.har
+
+16-10-2024T15:12:05 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:12:10 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:12:10 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+16-10-2024T15:12:10 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+16-10-2024T15:12:10 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId1"]): null
+
+16-10-2024T15:12:10 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId2"]): null
+
+16-10-2024T15:12:10 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:12:15 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:12:15 - [TEST_STEP][PASSED] - bookingIdCol = testdata["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:12:15 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+16-10-2024T15:12:15 - [TEST_STEP][PASSED] - replaceBookingId = bookingIdCol.replace("BookingId", BookingId): null
+
+16-10-2024T15:12:15 - [TEST_STEP][PASSED] - println(replaceBookingId): null
+
+16-10-2024T15:12:15 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:12:16 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:12:16 - [TEST_STEP][PASSED] - request = BookingId: null
+
+16-10-2024T15:12:16 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(request): null
+
+16-10-2024T15:12:16 - [TEST_STEP][PASSED] - println(request): null
+
+16-10-2024T15:12:16 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:12:16 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:12:19 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][TestScenarioNumber]): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - println(testdata.size()): null
+
+16-10-2024T15:12:19 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+16-10-2024T15:12:24 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/7.har
+
+16-10-2024T15:12:24 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:12:34 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+16-10-2024T15:12:35 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/8.har
+
+16-10-2024T15:12:35 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:12:40 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:12:40 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+16-10-2024T15:12:40 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+16-10-2024T15:12:40 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId1"]): null
+
+16-10-2024T15:12:40 - [TEST_STEP][PASSED] - println(getBookingData["PassengerId2"]): null
+
+16-10-2024T15:12:40 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:12:45 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - bookingIdCol = testdata["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - replaceBookingId = bookingIdCol.replace("BookingId", BookingId): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - println(replaceBookingId): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - request = BookingId: null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(request): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - println(request): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:12:45 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:12:48 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:12:48 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - println(response): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - println(validation1): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][TestScenarioNumber]: null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - println(validation2): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][TestScenarioNumber]): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber): null
+
+16-10-2024T15:12:49 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_GetEligibility' successfully
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - getConfrimWithReq = xpath("//a[normalize-space()='Confirm with Request']")).click(): null
+
+16-10-2024T15:12:49 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - CNumber = cardNumber.replaceAll("\.0$", ""): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - cardholderName = testdata["cardholderName"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - addressOne = testdata["addressOne"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - addressTwo = testdata["addressTwo"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - city = testdata["city"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - state = testdata["state"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - zipCode = testdata["zipCode"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - countryCode = testdata["countryCode"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - action = testdata["action"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - scheduledDate = testdata["scheduledDate"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - xscheduledDate = scheduledDate.replaceAll("\.0$", ""): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - totalAmount = testdata["totalAmount"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - amount1 = testdata["amount1"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - amount2 = testdata["amount2"][TestScenarioNumber]: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - request = {
+				  "payments": [
+				    {
+				      "cardInfo": {
+				        "cardNumber": "$cardNumber",
+				        "expirationMonth": "$expirationMonth",
+				        "expirationYear": "$expirationYear",
+				        "cardholderName": "$cardholderName",
+				        "billingAddress": {
+				          "lineOne": "$addressOne",
+				          "lineTwo": "$addressTwo",
+				          "city": "$city",
+				          "state": "$state",
+				          "zipCode": "$zipCode",
+				          "countryCode": "$countryCode"
+				        }
+				      },
+				      "scheduledPayments": [
+				        {
+				          "action": "$action",
+				          "scheduledDate": "$scheduledDate",
+				          "totalAmount": $totalAmount,
+				          "passengerAmountAllocation": [
+				            {
+				              "passengerId": "$GlobalVariable.GuestRefNumber1",
+				              "amount": $amount1
+				            },
+				            {
+				              "passengerId": "$GlobalVariable.GuestRefNumber2",
+				              "amount": $amount2
+				            }
+				          ]
+				        }
+				      ]
+				    }
+				  ]
+				}: null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+16-10-2024T15:12:50 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+16-10-2024T15:12:51 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:12:51 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Re-Usable Script/SchedulePayment_ConfirmWithRequest' successfully
+
+16-10-2024T15:12:51 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+16-10-2024T15:12:51 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+16-10-2024T15:12:52 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/9.har
+
+16-10-2024T15:12:52 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:12:52 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+16-10-2024T15:12:52 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+16-10-2024T15:12:52 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:12:52 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:12:54 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:12:54 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:12:56 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest' .
+
+16-10-2024T15:12:56 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get" time="125.574" classname="Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get" status="PASSED">
+         <system-out><![CDATA[16-10-2024T15:12:56 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get: Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get
+
+16-10-2024T15:12:57 - [TEST_STEP][PASSED] - try: null
+
+16-10-2024T15:12:57 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:12:57 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+16-10-2024T15:12:57 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+16-10-2024T15:12:58 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+16-10-2024T15:12:58 - [MESSAGE][PASSED] - Current window maximized
+
+16-10-2024T15:13:02 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+16-10-2024T15:13:02 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+16-10-2024T15:13:02 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+16-10-2024T15:13:02 - [TEST_STEP][PASSED] - TAB = "ScheduledPayment_Get": null
+
+16-10-2024T15:13:02 - [TEST_STEP][PASSED] - utils.goToScheduledPayments(): null
+
+16-10-2024T15:13:05 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+16-10-2024T15:13:06 - [TEST_STEP][PASSED] - testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+16-10-2024T15:13:06 - [TEST_STEP][PASSED] - for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)]): null
+
+16-10-2024T15:13:06 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:13:06 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:13:06 - [TEST_STEP][PASSED] - clickADD = xpath("//a[normalize-space()='Add']")).click(): null
+
+16-10-2024T15:13:06 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:13:07 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:13:07 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+16-10-2024T15:13:12 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/10.har
+
+16-10-2024T15:13:12 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:13:22 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+16-10-2024T15:13:23 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/11.har
+
+16-10-2024T15:13:23 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:13:28 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:13:28 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+16-10-2024T15:13:28 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+16-10-2024T15:13:28 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:13:33 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - ADDRequestRaw = testdataFromExcel["ADDRequest"][TestScenarioNumber]: null
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - ADDRequest = ADDRequestRaw.replace("BookingId", BookingId): null
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(ADDRequest): null
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - println(ADDRequest): null
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:13:33 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:13:38 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:13:38 - [TEST_STEP][PASSED] - refresh(): Refresh successfully
+
+16-10-2024T15:13:40 - [MESSAGE][PASSED] - Refresh successfully
+
+16-10-2024T15:13:40 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:13:43 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:13:43 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:13:43 - [TEST_STEP][PASSED] - sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - sendRequestTextBox2.clear(): null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId): null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - sendRequestTextBox2.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:13:44 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:13:49 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:13:49 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+16-10-2024T15:13:49 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+16-10-2024T15:13:50 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/12.har
+
+16-10-2024T15:13:50 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:13:50 - [TEST_STEP][PASSED] - clickADD = xpath("//a[normalize-space()='Add']")).click(): null
+
+16-10-2024T15:13:51 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:13:51 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:13:51 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber): Delayed 5 second(s)
+
+16-10-2024T15:13:56 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/13.har
+
+16-10-2024T15:13:56 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:14:06 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+16-10-2024T15:14:07 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/14.har
+
+16-10-2024T15:14:07 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:14:12 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:14:12 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+16-10-2024T15:14:12 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+16-10-2024T15:14:12 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:14:17 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:14:17 - [TEST_STEP][PASSED] - ADDRequestRaw = testdataFromExcel["ADDRequest"][TestScenarioNumber]: null
+
+16-10-2024T15:14:17 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+16-10-2024T15:14:17 - [TEST_STEP][PASSED] - ADDRequest = ADDRequestRaw.replace("BookingId", BookingId): null
+
+16-10-2024T15:14:17 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(ADDRequest): null
+
+16-10-2024T15:14:17 - [TEST_STEP][PASSED] - println(ADDRequest): null
+
+16-10-2024T15:14:17 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:19 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:14:24 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:14:24 - [TEST_STEP][PASSED] - refresh(): Refresh successfully
+
+16-10-2024T15:14:26 - [MESSAGE][PASSED] - Refresh successfully
+
+16-10-2024T15:14:26 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+16-10-2024T15:14:29 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+16-10-2024T15:14:29 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:29 - [TEST_STEP][PASSED] - sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - sendRequestTextBox2.clear(): null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId): null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - sendRequestTextBox2.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:30 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+16-10-2024T15:14:35 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+16-10-2024T15:14:35 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+16-10-2024T15:14:35 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+16-10-2024T15:14:36 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20241016_150804/PMT_Libraries/ScheduledPayments/20241016_150809/requests/main/15.har
+
+16-10-2024T15:14:36 - [MESSAGE][PASSED] - Send request successfully
+
+16-10-2024T15:14:36 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+16-10-2024T15:14:36 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+16-10-2024T15:14:36 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - else: null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:37 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:38 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+16-10-2024T15:14:40 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - else: null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:40 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:41 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:41 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:14:41 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:41 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:41 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:41 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:42 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+16-10-2024T15:14:44 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - else: null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:44 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:45 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:14:45 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:45 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:45 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:45 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:45 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+16-10-2024T15:14:47 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - else: null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:47 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:48 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:48 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:14:48 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:48 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:48 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:48 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:49 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+16-10-2024T15:14:51 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - else: null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:51 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:52 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:14:52 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:52 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:52 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:52 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:52 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+16-10-2024T15:14:54 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]: null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - else: null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - clickGET = xpath("//a[normalize-space()='Get']")).click(): null
+
+16-10-2024T15:14:54 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+16-10-2024T15:14:55 - [TEST_STEP][PASSED] - responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]")): null
+
+16-10-2024T15:14:55 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+16-10-2024T15:14:55 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]: null
+
+16-10-2024T15:14:55 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+16-10-2024T15:14:55 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+16-10-2024T15:14:55 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+16-10-2024T15:14:56 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+16-10-2024T15:14:58 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:14:58 - [TEST_STEP][PASSED] - response = responseTextBox.getText(): null
+
+16-10-2024T15:14:58 - [TEST_STEP][PASSED] - validationString = testdataFromExcel["Validation"][TestScenarioNumber]: null
+
+16-10-2024T15:14:58 - [TEST_STEP][PASSED] - assert response.contains(validationString): null
+
+16-10-2024T15:14:58 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + TestScenarioNumber + 1): null
+
+16-10-2024T15:14:58 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+16-10-2024T15:14:58 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+16-10-2024T15:15:00 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+16-10-2024T15:15:00 - [MESSAGE][PASSED] - Browser is closed
+
+16-10-2024T15:15:02 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get' .
+
+16-10-2024T15:15:02 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[16-10-2024T15:08:24 - [TEST_SUITE][PASSED] - ScheduledPayments: Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
