@@ -77,7 +77,6 @@ try {
 		
 		println("Test Scenario Number: " + (TestScenarioNumber + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
 	
-
 		
 		}
 	

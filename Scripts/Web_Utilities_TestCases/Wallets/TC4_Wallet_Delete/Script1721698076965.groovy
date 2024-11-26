@@ -60,8 +60,8 @@ try {
 		"cardNumber": "${cardNumber}",
 		"expirationMonth": "${expirationMonth}",
 		"expirationYear": "${expirationYear}",
-		"accessToken": "${accountId}",
-		"accountId": "${accessToken}"
+		"accessToken": "${accessToken}",
+		"accountId": "$accountId}"
 		}"""
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
@@ -101,4 +101,3 @@ catch (Exception e) {
 finally { 
     utils.closeBrowser()
 }
-

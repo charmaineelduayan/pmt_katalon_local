@@ -21,7 +21,7 @@
    <testCaseLink>
       <guid>a27a461b-0795-4266-9dad-d5ae2f9300d5</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Web_Utilities_TestCases/Wallets/Wallet_Get</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>

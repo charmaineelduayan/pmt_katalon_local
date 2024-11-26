@@ -128,5 +128,5 @@ class utils {
 		WebElement response = driver.findElement(By.xpath('//textarea[@class=\'text-dark form-control\']'))
 		String responseContent = response.getText()
 		return responseContent
-	}
+	} 
 }

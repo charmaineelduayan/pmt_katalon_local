@@ -28,7 +28,7 @@ import rcclpayment.getdata
 
 try {
 	utils.openBrowserAndNavigateToPMT()
-	
+		
 	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
 	final String TAB = "cardTokenization_Encrypt"
 

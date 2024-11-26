@@ -88,7 +88,7 @@ WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-sp
 		String city = testdata["city"][TestScenarioNumber]
 		String state = testdata["state"][TestScenarioNumber]
 		String zipCode = testdata["zipCode"][TestScenarioNumber]
-		
+	
 		String request =
 		"""{
 		"paymentChannel": "${paymentChannel}",

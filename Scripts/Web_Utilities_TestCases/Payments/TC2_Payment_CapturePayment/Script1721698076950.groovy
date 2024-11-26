@@ -31,7 +31,6 @@ utils.openBrowserAndNavigateToPMT()
 
 try {
 
-
     String EXCEL_PATH = './Data Files/TestData.xlsx'
 
     String TAB = 'Payment_Capture'

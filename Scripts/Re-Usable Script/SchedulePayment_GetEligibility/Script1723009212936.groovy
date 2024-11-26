@@ -34,7 +34,7 @@ WebElement clickGetEligibility = driver.findElement(By.xpath("//a[normalize-spac
 
 	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
 	final String TAB = "ScheduledPayment_GetEligibility"
-	
+
 	utils.selectEnvironment(GlobalVariable.ENV)
 	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)

@@ -111,11 +111,11 @@ try {
         String response = utils.getResponse()
         println(response)
 
-//        //to cancel the bookingId after it runs
-//        RequestObject cancelBookingRequest = findTestObject('CancelBooking')
-//        ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
-//        def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
-//        println(cancelBookingJsonResponse)
+        //to cancel the bookingId after it runs
+        RequestObject cancelBookingRequest = findTestObject('CancelBooking')
+        ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
+        def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+        println(cancelBookingJsonResponse)
 		
 		String validation1 = testdata["ContainsValidation"][TestScenarioNumber]
 		println validation1

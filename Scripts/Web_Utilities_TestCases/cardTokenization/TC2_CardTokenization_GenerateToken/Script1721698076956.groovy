@@ -31,7 +31,7 @@ try {
 	
 	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
 	final String TAB = "cardTokenization_Generate"
-
+	
 	WebDriver driver = DriverFactory.getWebDriver()
 	utils.goToCardTokenization()
 	WebElement clickGenerateToken = driver.findElement(By.xpath("//a[normalize-space()='Generate Token']")).click()

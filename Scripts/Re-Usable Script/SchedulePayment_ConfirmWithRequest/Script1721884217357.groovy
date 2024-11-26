@@ -41,7 +41,7 @@ utils.openBrowserAndNavigateToPMT()
         WebElement getConfrimWithReq = driver.findElement(By.xpath('//a[normalize-space()=\'Confirm with Request\']')).click()
         utils.selectEnvironment(GlobalVariable.ENV)
         WebElement sendRequestTextBox = driver.findElement(By.xpath('//textarea[@name=\'req\']'))
-
+		
         sendRequestTextBox.clear()
 
         //get testData from excel to pass in Request
