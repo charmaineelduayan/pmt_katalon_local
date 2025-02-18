@@ -1,0 +1,174 @@
+1
+00:00:00,229 --> 00:00:00,230
+1. try
+
+2
+00:00:00,231 --> 00:00:04,965
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:04,986 --> 00:00:05,008
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:05,008 --> 00:00:05,009
+9. TAB = "Wallet_Delete"
+
+5
+00:00:05,009 --> 00:00:05,011
+13. driver = getWebDriver()
+
+6
+00:00:05,011 --> 00:00:07,531
+17. utils.goToWallets()
+
+7
+00:00:07,531 --> 00:00:08,205
+21. clickAuthorizePayment = xpath("//a[normalize-space()='Delete']")).click()
+
+8
+00:00:08,219 --> 00:00:09,073
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:09,074 --> 00:00:09,301
+29. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+10
+00:00:09,302 --> 00:00:09,747
+33. fetchGuestAccount = sendRequest(findTestObject("GuestAccount"))
+
+11
+00:00:09,748 --> 00:00:09,765
+37. accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId")
+
+12
+00:00:09,765 --> 00:00:09,780
+41. accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken")
+
+13
+00:00:09,781 --> 00:00:09,781
+45. accountId = accountId
+
+14
+00:00:09,782 --> 00:00:09,782
+49. accessToken = accessToken
+
+15
+00:00:09,783 --> 00:00:09,832
+53. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+16
+00:00:09,832 --> 00:00:09,833
+57. for ([i = 0, i < testdata.size(), (i++)])
+
+17
+00:00:09,833 --> 00:00:09,860
+1. sendRequestTextBox.clear()
+
+18
+00:00:09,860 --> 00:00:09,861
+5. cardNumber = testdata["cardNumber"][i]
+
+19
+00:00:09,861 --> 00:00:09,862
+9. CNumber = cardNumber.replaceAll("\.0$", "")
+
+20
+00:00:09,863 --> 00:00:09,864
+13. expirationMonth = testdata["expirationMonth"][i]
+
+21
+00:00:09,864 --> 00:00:09,865
+17. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+22
+00:00:09,865 --> 00:00:09,866
+21. expirationYear = testdata["expirationYear"][i]
+
+23
+00:00:09,866 --> 00:00:09,867
+25. xYear = expirationYear.replaceAll("\.0$", "")
+
+24
+00:00:09,868 --> 00:00:09,869
+29. request = {
+		"cardNumber": "$cardNumber",
+		"expirationMonth": "$expirationMonth",
+		"expirationYear": "$expirationYear",
+		"accessToken": "$accessToken",
+		"accountId": "$accountId"
+		}
+
+25
+00:00:09,869 --> 00:00:09,870
+33. restRequest = JsonSlurper().parseText(request)
+
+26
+00:00:09,870 --> 00:00:09,871
+37. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+27
+00:00:09,871 --> 00:00:09,872
+41. println(prettyJson)
+
+28
+00:00:09,873 --> 00:00:11,569
+45. sendRequestTextBox.sendKeys(prettyJson)
+
+29
+00:00:11,622 --> 00:00:11,959
+49. utils.clickSendButton()
+
+30
+00:00:11,962 --> 00:00:14,988
+53. delay(3)
+
+31
+00:00:14,989 --> 00:00:17,653
+57. response = utils.getResponse()
+
+32
+00:00:17,653 --> 00:00:17,654
+61. println(response)
+
+33
+00:00:17,654 --> 00:00:17,655
+65. validation1 = testdata["ContainsValidation"][i]
+
+34
+00:00:17,655 --> 00:00:17,656
+69. println(validation1)
+
+35
+00:00:17,656 --> 00:00:17,657
+73. validation2 = testdata["NotContainsValidation"][i]
+
+36
+00:00:17,657 --> 00:00:17,658
+77. println(validation2)
+
+37
+00:00:17,658 --> 00:00:17,659
+81. println(testdata["TCNumber"][i])
+
+38
+00:00:17,659 --> 00:00:17,660
+85. assert response.contains(validation1)
+
+39
+00:00:17,660 --> 00:00:18,712
+2. takeScreenshot("./screenshots/Failed_Wallet_Delete.png")
+
+40
+00:00:18,715 --> 00:00:18,716
+6. println(Assertion failed: $e.message)
+
+41
+00:00:18,716 --> 00:00:18,718
+10. e.printStackTrace()
+
+42
+00:00:18,718 --> 00:00:20,950
+1. utils.closeBrowser()
+

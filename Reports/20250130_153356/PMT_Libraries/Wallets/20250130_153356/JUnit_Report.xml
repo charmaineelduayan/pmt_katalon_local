@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Wallets" time="19.37" tests="1" failures="0" errors="0">
+   <testsuite name="Wallets" tests="1" failures="0" errors="0" time="19.37" skipped="0" timestamp="30-01-2025T15:33:59" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/Wallets">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250130_153356/PMT_Libraries/Wallets/20250130_153356"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250130_153356/PMT_Libraries/Wallets/20250130_153356/execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 132.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="6394018ffb29ebc7b634d6b05fb07016"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete" time="19.199" classname="Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete" status="PASSED">
+         <system-out><![CDATA[30-01-2025T15:34:00 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete: Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete
+
+30-01-2025T15:34:01 - [TEST_STEP][FAILED] - try: Unable to get element property value (Root cause: groovy.json.JsonException: null not parse properly
+
+The current character read is 'n' with an int value of 110
+null not parse properly
+line number 1
+index number 1
+no healthy upstream
+.^
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeNull(JsonParserCharArray.java:230)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeValueInternal(JsonParserCharArray.java:174)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeValue(JsonParserCharArray.java:153)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeFromChars(JsonParserCharArray.java:43)
+	at org.apache.groovy.json.internal.JsonParserCharArray.parse(JsonParserCharArray.java:380)
+	at org.apache.groovy.json.internal.BaseJsonParser.parse(BaseJsonParser.java:113)
+	at Script1.run(Script1.groovy:1)
+	at com.kms.katalon.core.webservice.helper.WebServiceCommonHelper.parseAndGetPropertyValueForJson(WebServiceCommonHelper.java:243)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$_getElementPropertyValue_closure1.doCall(GetElementPropertyValueKeyword.groovy:42)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$_getElementPropertyValue_closure1.call(GetElementPropertyValueKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword.getElementPropertyValue(GetElementPropertyValueKeyword.groovy:38)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$getElementPropertyValue.callCurrent(Unknown Source)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword.execute(GetElementPropertyValueKeyword.groovy:33)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords.getElementPropertyValue(WSBuiltInKeywords.groovy:161)
+	at TC4_Wallet_Delete.run(TC4_Wallet_Delete:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1738222436165.run(TempTestSuite1738222436165.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+30-01-2025T15:34:01 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+30-01-2025T15:34:02 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+30-01-2025T15:34:02 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+30-01-2025T15:34:05 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+30-01-2025T15:34:06 - [MESSAGE][PASSED] - Current window maximized
+
+30-01-2025T15:34:09 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+30-01-2025T15:34:09 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+30-01-2025T15:34:09 - [TEST_STEP][PASSED] - TAB = "Wallet_Delete": null
+
+30-01-2025T15:34:09 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+30-01-2025T15:34:09 - [TEST_STEP][PASSED] - utils.goToWallets(): null
+
+30-01-2025T15:34:11 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Delete']")).click(): null
+
+30-01-2025T15:34:11 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+30-01-2025T15:34:12 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+30-01-2025T15:34:12 - [TEST_STEP][PASSED] - fetchGuestAccount = sendRequest(findTestObject("GuestAccount")): Send request successfully
+
+30-01-2025T15:34:14 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250130_153356/PMT_Libraries/Wallets/20250130_153356/requests/main/0.har
+
+30-01-2025T15:34:14 - [MESSAGE][PASSED] - Send request successfully
+
+30-01-2025T15:34:14 - [TEST_STEP][FAILED] - accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId"): Unable to get element property value (Root cause: groovy.json.JsonException: null not parse properly
+
+The current character read is 'n' with an int value of 110
+null not parse properly
+line number 1
+index number 1
+no healthy upstream
+.^
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeNull(JsonParserCharArray.java:230)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeValueInternal(JsonParserCharArray.java:174)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeValue(JsonParserCharArray.java:153)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeFromChars(JsonParserCharArray.java:43)
+	at org.apache.groovy.json.internal.JsonParserCharArray.parse(JsonParserCharArray.java:380)
+	at org.apache.groovy.json.internal.BaseJsonParser.parse(BaseJsonParser.java:113)
+	at Script1.run(Script1.groovy:1)
+	at com.kms.katalon.core.webservice.helper.WebServiceCommonHelper.parseAndGetPropertyValueForJson(WebServiceCommonHelper.java:243)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$_getElementPropertyValue_closure1.doCall(GetElementPropertyValueKeyword.groovy:42)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$_getElementPropertyValue_closure1.call(GetElementPropertyValueKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword.getElementPropertyValue(GetElementPropertyValueKeyword.groovy:38)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$getElementPropertyValue.callCurrent(Unknown Source)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword.execute(GetElementPropertyValueKeyword.groovy:33)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords.getElementPropertyValue(WSBuiltInKeywords.groovy:161)
+	at TC4_Wallet_Delete.run(TC4_Wallet_Delete:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1738222436165.run(TempTestSuite1738222436165.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+30-01-2025T15:34:14 - [MESSAGE][FAILED] - Unable to get element property value (Root cause: groovy.json.JsonException: null not parse properly
+
+The current character read is 'n' with an int value of 110
+null not parse properly
+line number 1
+index number 1
+no healthy upstream
+.^
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeNull(JsonParserCharArray.java:230)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeValueInternal(JsonParserCharArray.java:174)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeValue(JsonParserCharArray.java:153)
+	at org.apache.groovy.json.internal.JsonParserCharArray.decodeFromChars(JsonParserCharArray.java:43)
+	at org.apache.groovy.json.internal.JsonParserCharArray.parse(JsonParserCharArray.java:380)
+	at org.apache.groovy.json.internal.BaseJsonParser.parse(BaseJsonParser.java:113)
+	at Script1.run(Script1.groovy:1)
+	at com.kms.katalon.core.webservice.helper.WebServiceCommonHelper.parseAndGetPropertyValueForJson(WebServiceCommonHelper.java:243)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$_getElementPropertyValue_closure1.doCall(GetElementPropertyValueKeyword.groovy:42)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$_getElementPropertyValue_closure1.call(GetElementPropertyValueKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword.getElementPropertyValue(GetElementPropertyValueKeyword.groovy:38)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword$getElementPropertyValue.callCurrent(Unknown Source)
+	at com.kms.katalon.core.webservice.keyword.builtin.GetElementPropertyValueKeyword.execute(GetElementPropertyValueKeyword.groovy:33)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords.getElementPropertyValue(WSBuiltInKeywords.groovy:161)
+	at TC4_Wallet_Delete.run(TC4_Wallet_Delete:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1738222436165.run(TempTestSuite1738222436165.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+30-01-2025T15:34:14 - [TEST_STEP][PASSED] - catch (Exception e): null
+
+30-01-2025T15:34:14 - [TEST_STEP][PASSED] - println(An unexpected error occurred: $e.message): null
+
+30-01-2025T15:34:14 - [TEST_STEP][PASSED] - e.printStackTrace(): null
+
+30-01-2025T15:34:14 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+30-01-2025T15:34:14 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+30-01-2025T15:34:16 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+30-01-2025T15:34:17 - [MESSAGE][PASSED] - Browser is closed
+
+30-01-2025T15:34:19 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete' .
+
+30-01-2025T15:34:19 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[30-01-2025T15:33:59 - [TEST_SUITE][PASSED] - Wallets: Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

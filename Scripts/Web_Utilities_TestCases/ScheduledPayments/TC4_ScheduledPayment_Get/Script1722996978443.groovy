@@ -27,6 +27,7 @@ import groovy.json.*
 import rcclpayment.utils
 import rcclpayment.getdata
 import rcclpayment.CreateAndRetrieveBooking
+import java.text.SimpleDateFormat
 
 try {
 	utils.openBrowserAndNavigateToPMT()
@@ -40,11 +41,11 @@ try {
 	
 	//WebElement clickAuthorizePayment = driver.findElement(By.xpath("//a[normalize-space()='Get']")).click()
 	
-	List<List<Object>> testdataFromExcel = getdata.fromExcel(EXCEL_PATH,TAB)
+	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 	
-	for(int TestScenarioNumber = 0; TestScenarioNumber < testdataFromExcel.size(); TestScenarioNumber++) {
+	for(int i = 0; i < testdata.size(); i++) {
 		
-		String TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+		String TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
 
 		if(TestScenarioRequiresCreateBooking == "Yes") {	
 			WebElement clickADD = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click() // locate Add Schedule Payment Button
@@ -54,14 +55,14 @@ try {
 			
 			
 			//createBooking
-			def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+			def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i)
 			println(getBookingData["BookingId"])
 			println(getBookingData["BookingAccessToken"])
 			
 			WebUI.delay(5)
 			
 			//Get Add Request from Execel and execute
-			String ADDRequestRaw = testdataFromExcel["ADDRequest"][TestScenarioNumber]
+			String ADDRequestRaw = testdata["ADDRequest"][i]
 			String BookingId = getBookingData["BookingId"]
 			String ADDRequest = ADDRequestRaw.replace("BookingId",BookingId)	//this replaces the word "BookingId" in ADDRequest with the value from getBookingData["BookingId"]
 			sendRequestTextBox.sendKeys(ADDRequest)
@@ -72,32 +73,35 @@ try {
 			WebUI.refresh()
 			WebUI.delay(3)
 			
-			// proceed to Get Schedule Paymentß
+			// proceed to Get Schedule Payment
 			WebElement clickGET = driver.findElement(By.xpath("//a[normalize-space()='Get']")).click()
 			WebElement sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']"))
 			sendRequestTextBox2.clear()
 			
-			String BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
+			String BookingIdToBePassedRaw = testdata["BookingId"][i]
 			String BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId",BookingId)
-			sendRequestTextBox2.sendKeys(BookingIdToBePassed) //send to Get TextBox
+			
+			//send to Get TextBox
+			sendRequestTextBox2.sendKeys(BookingIdToBePassed) 
 			println(BookingIdToBePassed)
 			utils.clickSendButton()
 			
 			WebUI.delay(5)
 			
+			String response = utils.getResponse()
+			println(response)
+			   
+		   String validationString = testdata["Validation"][i]
+		   
+		   assert response.contains(validationString)
+		   
+		   println("Test Scenario Number: " + (i + 1)) //for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+			
 			RequestObject cancelBookingRequest = findTestObject('CancelBooking')
 			ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
 			def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
 			println(cancelBookingJsonResponse)
-			
-			WebElement responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
-			String response = responseTextBox.getText()
-				
-			String validationString = testdataFromExcel["Validation"][TestScenarioNumber]
-			
-			assert response.contains(validationString)
-			
-			println("Test Scenario Number: " + (TestScenarioNumber + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+	
 		}
 		else {
 			
@@ -106,26 +110,26 @@ try {
 			WebElement responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
 			sendRequestTextBox.clear()
 			
-			String BookingIdToBePassed = testdataFromExcel["BookingId"][TestScenarioNumber]
+			String BookingIdToBePassed = testdata["BookingId"][i]
 			sendRequestTextBox.sendKeys(BookingIdToBePassed)
 			println(BookingIdToBePassed)
 			utils.clickSendButton()
 			WebUI.delay(2)
 			
 			String response = responseTextBox.getText()
-				
-			String validationString = testdataFromExcel["Validation"][TestScenarioNumber]
-			
+			String validationString = testdata["Validation"][i]
 			assert response.contains(validationString)
 			
-			println("Test Scenario Number: " + (TestScenarioNumber + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+			println("Test Scenario Number: " + (i + 1))		//for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
 		}
 
 	}
 	
 }
 catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_Scheduled_Get.png")
+	String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+	String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
+	WebUI.takeScreenshot(f.toString())
 	println("Assertion failed: ${e.message}")
 	e.printStackTrace()
 }

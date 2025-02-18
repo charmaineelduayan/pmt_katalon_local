@@ -27,7 +27,7 @@ import groovy.json.*
 import rcclpayment.utils
 import rcclpayment.getdata
 import rcclpayment.CreateAndRetrieveBooking
-
+import java.text.SimpleDateFormat
 
 
 WebDriver driver = DriverFactory.getWebDriver()
@@ -77,11 +77,8 @@ WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-sp
 		String total = testdata["total"][TestScenarioNumber]
 		String paymentType = testdata["paymentType"][TestScenarioNumber]	
 		String cardNumber = testdata["token"][TestScenarioNumber]
-		CNumber = cardNumber.replaceAll(/\.0$/,'')
 		String expirationMonth = testdata["expirationMonth"][TestScenarioNumber]
-		xMonth = expirationMonth.replaceAll(/\.0$/,'')
 		String expirationYear = testdata["expirationYear"][TestScenarioNumber]
-		xYear = expirationYear.replaceAll(/\.0$/,'')
 		String cvv = testdata["cvv"][TestScenarioNumber]
 		String cardholderName = testdata["cardholderName"][TestScenarioNumber]
 		String addressOne = testdata["addressOne"][TestScenarioNumber]
@@ -90,38 +87,38 @@ WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-sp
 		String zipCode = testdata["zipCode"][TestScenarioNumber]
 	
 		String request =
-		"""{
-		"paymentChannel": "${paymentChannel}",
-		"orderId": "${orderId}",
-		"type": "${type}",
-		"intent": "${intent}",
-		"items": [
-			{
-            "bookingId": "${replaceBookingId}",
-            "passengerId": "${replacePassengerId}",
-            "officeCode": "${officeCode}",
-            "countryCode": "${countryCode}",
-            "amount": {
-                "currency": "${currency}",
-                "total": ${total}
-           	 	}
-			}
-			],
-			    "paymentMethod": {
-			        "type": "${paymentType}",
-			        "token": "${cardNumber}",
-			        "expirationYear": "${expirationYear}",
-			        "expirationMonth": "${expirationMonth}",
-			        "cvv": "${cvv}",
-			        "cardholder": "${cardholderName}",
-			        "billingAddress": {
-			            "addressOne": "${addressOne}",
-			            "city": "${city}",
-			            "state": "${state}",
-			            "zipCode": "${zipCode}"
-			        }
-			    }
-			}"""
+			"""{
+			"paymentChannel": "${paymentChannel}",
+			"orderId": "${orderId}",
+			"type": "${type}",
+			"intent": "${intent}",
+			"items": [
+				{
+	            "bookingId": "${replaceBookingId}",
+	            "passengerId": "${replacePassengerId}",
+	            "officeCode": "${officeCode}",
+	            "countryCode": "${countryCode}",
+	            "amount": {
+	                "currency": "${currency}",
+	                "total": ${total}
+	           	 	}
+				}
+				],
+				    "paymentMethod": {
+				        "type": "${paymentType}",
+				        "token": "${cardNumber}",
+				        "expirationYear": "${expirationYear}",
+				        "expirationMonth": "${expirationMonth}",
+				        "cvv": "${cvv}",
+				        "cardholder": "${cardholderName}",
+				        "billingAddress": {
+				            "addressOne": "${addressOne}",
+				            "city": "${city}",
+				            "state": "${state}",
+				            "zipCode": "${zipCode}"
+				        }
+				    }
+				}"""
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 		println(prettyJson)
@@ -152,6 +149,13 @@ WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-sp
 		println(testdata["TCNumber"][TestScenarioNumber])
 		assert response.contains(validation1)
 		assert response.contains(validation2) == false
+		
+		if (response.contains(validation1) == false || response.contains(validation2) == true) {
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+			String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
+			WebUI.takeScreenshot(f.toString())
+			println("Assertion failed")
+		}
 		
 		println("Test Scenario Number: " + TestScenarioNumber) //for checking what test scenario number the running stops if failure occurs
 		

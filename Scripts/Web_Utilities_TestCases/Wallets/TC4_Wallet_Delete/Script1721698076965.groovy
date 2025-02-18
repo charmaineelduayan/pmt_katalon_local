@@ -22,6 +22,8 @@ import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
 import com.kms.katalon.core.testobject.RequestObject as RequestObject
 import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
+import com.kms.katalon.core.util.KeywordUtil
+import java.text.SimpleDateFormat
 import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
@@ -61,7 +63,7 @@ try {
 		"expirationMonth": "${expirationMonth}",
 		"expirationYear": "${expirationYear}",
 		"accessToken": "${accessToken}",
-		"accountId": "$accountId}"
+		"accountId": "${accountId}"
 		}"""
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
@@ -84,8 +86,10 @@ try {
 	}
 }
 catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_Wallet_Delete.png")
-	println("Assertion failed: ${e.message}")
+	String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+	String f = "./screenshots/Failed_Wallet_Delete" + timestamp + ".png"
+	WebUI.takeScreenshot(f.toString())
+	KeywordUtil.markFailed("Assertion failed: ${e.message}")
 	e.printStackTrace()
 } 
 catch (org.openqa.selenium.NoSuchElementException e) {

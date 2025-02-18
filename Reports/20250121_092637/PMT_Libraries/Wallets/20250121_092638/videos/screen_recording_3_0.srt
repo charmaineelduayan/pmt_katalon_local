@@ -1,0 +1,228 @@
+1
+00:00:00,238 --> 00:00:00,240
+1. try
+
+2
+00:00:00,241 --> 00:00:05,981
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:06,043 --> 00:00:06,048
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:06,049 --> 00:00:06,053
+9. TAB = "Wallet_Replace"
+
+5
+00:00:06,053 --> 00:00:06,056
+13. driver = getWebDriver()
+
+6
+00:00:06,057 --> 00:00:07,447
+17. utils.goToWallets()
+
+7
+00:00:07,447 --> 00:00:07,940
+21. clickAuthorizePayment = xpath("//a[normalize-space()='Replace']")).click()
+
+8
+00:00:07,941 --> 00:00:08,389
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:08,401 --> 00:00:08,649
+29. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+10
+00:00:08,650 --> 00:00:09,168
+33. fetchGuestAccount = sendRequest(findTestObject("GuestAccount"))
+
+11
+00:00:09,169 --> 00:00:09,192
+37. accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId")
+
+12
+00:00:09,192 --> 00:00:09,213
+41. accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken")
+
+13
+00:00:09,213 --> 00:00:09,215
+45. accountId = accountId
+
+14
+00:00:09,215 --> 00:00:09,218
+49. accessToken = accessToken
+
+15
+00:00:09,218 --> 00:00:09,310
+53. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+16
+00:00:09,311 --> 00:00:09,313
+57. for ([i = 0, i < testdata.size(), (i++)])
+
+17
+00:00:09,313 --> 00:00:09,343
+1. sendRequestTextBox.clear()
+
+18
+00:00:09,344 --> 00:00:09,346
+5. idToBeReplaced = testdata["idToBeReplaced"][i]
+
+19
+00:00:09,346 --> 00:00:09,348
+9. paymentMethod = testdata["paymentMethod"][i]
+
+20
+00:00:09,348 --> 00:00:09,350
+13. cardNumber = testdata["cardNumber"][i]
+
+21
+00:00:09,350 --> 00:00:09,352
+17. CNumber = cardNumber.replaceAll("\.0$", "")
+
+22
+00:00:09,352 --> 00:00:09,354
+21. expirationMonth = testdata["expirationMonth"][i]
+
+23
+00:00:09,354 --> 00:00:09,356
+25. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+24
+00:00:09,357 --> 00:00:09,359
+29. expirationYear = testdata["expirationYear"][i]
+
+25
+00:00:09,359 --> 00:00:09,361
+33. xYear = expirationYear.replaceAll("\.0$", "")
+
+26
+00:00:09,362 --> 00:00:09,364
+37. cardholderName = testdata["cardholderName"][i]
+
+27
+00:00:09,364 --> 00:00:09,366
+41. nickName = testdata["nickName"][i]
+
+28
+00:00:09,367 --> 00:00:09,369
+45. defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
+
+29
+00:00:09,369 --> 00:00:09,371
+49. request = {
+    "idToBeReplaced": "$idToBeReplaced",
+    "paymentMethod": {
+        "type": "$paymentMethod",
+        "cardNumber": "$cardNumber",
+        "expirationMonth": "$expirationMonth",
+        "expirationYear": "$expirationYear",
+        "cardholder": "$cardholderName",
+        "nickname": "$nickName"
+    },
+    "accountId": "$accountId",
+    "accessToken": "$accessToken"
+}
+
+30
+00:00:09,371 --> 00:00:09,373
+53. restRequest = JsonSlurper().parseText(request)
+
+31
+00:00:09,373 --> 00:00:09,376
+57. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+32
+00:00:09,376 --> 00:00:09,378
+61. println(prettyJson)
+
+33
+00:00:09,379 --> 00:00:11,033
+65. sendRequestTextBox.sendKeys(prettyJson)
+
+34
+00:00:11,033 --> 00:00:11,340
+69. utils.clickSendButton()
+
+35
+00:00:11,371 --> 00:00:14,400
+73. delay(3)
+
+36
+00:00:14,401 --> 00:00:17,565
+77. response = utils.getResponse()
+
+37
+00:00:17,566 --> 00:00:17,567
+81. println(response)
+
+38
+00:00:17,568 --> 00:00:17,570
+85. validation1 = testdata["ContainsValidation"][i]
+
+39
+00:00:17,570 --> 00:00:17,571
+89. println(validation1)
+
+40
+00:00:17,572 --> 00:00:17,574
+93. validation2 = testdata["NotContainsValidation"][i]
+
+41
+00:00:17,574 --> 00:00:17,575
+97. println(validation2)
+
+42
+00:00:17,576 --> 00:00:17,577
+101. println(testdata["TCNumber"][i])
+
+43
+00:00:17,577 --> 00:00:17,579
+105. assert response.contains(validation1)
+
+44
+00:00:17,579 --> 00:00:17,587
+109. assert response.contains(validation2) == false
+
+45
+00:00:17,588 --> 00:00:17,637
+1. sendRequestTextBox.clear()
+
+46
+00:00:17,637 --> 00:00:17,639
+5. idToBeReplaced = testdata["idToBeReplaced"][i]
+
+47
+00:00:17,639 --> 00:00:17,640
+9. paymentMethod = testdata["paymentMethod"][i]
+
+48
+00:00:17,641 --> 00:00:17,642
+13. cardNumber = testdata["cardNumber"][i]
+
+49
+00:00:17,642 --> 00:00:17,644
+17. CNumber = cardNumber.replaceAll("\.0$", "")
+
+50
+00:00:17,644 --> 00:00:17,645
+21. expirationMonth = testdata["expirationMonth"][i]
+
+51
+00:00:17,646 --> 00:00:17,651
+25. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+52
+00:00:17,651 --> 00:00:17,661
+2. println(An unexpected error occurred: $e.message)
+
+53
+00:00:17,662 --> 00:00:17,665
+6. e.printStackTrace()
+
+54
+00:00:17,666 --> 00:00:19,796
+1. utils.closeBrowser()
+

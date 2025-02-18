@@ -1,0 +1,16 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Payment,Chrome 131.0.0.0,,,20-01-2025 11:57:56,20-01-2025 11:59:33,1m - 36.373s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/Payments/TC2_Payment_CapturePayment,Chrome 131.0.0.0,,,20-01-2025 11:57:56,20-01-2025 11:58:49,52.846s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 131.0.0.0,,,20-01-2025 11:57:58,20-01-2025 11:58:06,8.147s,PASSED
+try,Chrome 131.0.0.0,,,20-01-2025 11:58:06,20-01-2025 11:58:45,38.359s,FAILED
+catch (Exception e),Chrome 131.0.0.0,,,20-01-2025 11:58:45,20-01-2025 11:58:45,0.035s,PASSED
+Finally,Chrome 131.0.0.0,,,20-01-2025 11:58:45,20-01-2025 11:58:47,2.148s,PASSED
+Video,Chrome 131.0.0.0,,,20-01-2025 11:58:49,20-01-2025 11:58:49,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/Payments/TC1_Payment_AuthorizePayment,Chrome 131.0.0.0,,,20-01-2025 11:58:49,20-01-2025 11:59:33,43.432s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 131.0.0.0,,,20-01-2025 11:58:49,20-01-2025 11:58:55,5.757s,PASSED
+try,Chrome 131.0.0.0,,,20-01-2025 11:58:55,20-01-2025 11:59:28,33.311s,FAILED
+catch (Exception e),Chrome 131.0.0.0,,,20-01-2025 11:59:28,20-01-2025 11:59:28,0.005s,PASSED
+Finally,Chrome 131.0.0.0,,,20-01-2025 11:59:28,20-01-2025 11:59:30,2.131s,PASSED
+Video,Chrome 131.0.0.0,,,20-01-2025 11:59:33,20-01-2025 11:59:33,0.000s,PASSED

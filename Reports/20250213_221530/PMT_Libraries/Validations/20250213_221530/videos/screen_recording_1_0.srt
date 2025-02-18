@@ -1,0 +1,180 @@
+1
+00:00:00,558 --> 00:00:00,575
+1. try
+
+2
+00:00:00,590 --> 00:00:07,398
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:07,417 --> 00:00:07,454
+5. driver = getWebDriver()
+
+4
+00:00:07,455 --> 00:00:07,460
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:07,460 --> 00:00:07,465
+13. TAB = "Validations_Prevalidations&Conf"
+
+6
+00:00:07,466 --> 00:00:08,991
+17. utils.goToValidations()
+
+7
+00:00:08,992 --> 00:00:09,690
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:09,691 --> 00:00:10,391
+25. testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:10,392 --> 00:00:10,689
+29. clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click()
+
+10
+00:00:10,689 --> 00:00:10,693
+33. for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)])
+
+11
+00:00:10,694 --> 00:00:10,700
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+12
+00:00:10,701 --> 00:00:10,796
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+13
+00:00:10,797 --> 00:00:11,090
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+14
+00:00:11,091 --> 00:00:11,324
+5. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+15
+00:00:11,325 --> 00:00:11,367
+9. sendRequestTextBox.clear()
+
+16
+00:00:11,368 --> 00:00:16,398
+13. delay(5)
+
+17
+00:00:16,399 --> 00:00:40,341
+17. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+18
+00:00:40,342 --> 00:00:40,347
+21. println(getBookingData["BookingId"])
+
+19
+00:00:40,347 --> 00:00:40,350
+25. println(getBookingData["BookingAccessToken"])
+
+20
+00:00:40,350 --> 00:00:40,352
+29. BookingId = getBookingData["BookingId"]
+
+21
+00:00:40,353 --> 00:00:40,356
+33. BookingIdToBePassedRaw = testdataFromExcel["BookingId"][TestScenarioNumber]
+
+22
+00:00:40,357 --> 00:00:40,361
+37. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+23
+00:00:40,361 --> 00:00:40,504
+41. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+24
+00:00:40,505 --> 00:00:40,509
+45. println(BookingIdToBePassed)
+
+25
+00:00:40,510 --> 00:00:40,849
+49. utils.clickSendButton()
+
+26
+00:00:40,850 --> 00:00:45,856
+53. delay(5)
+
+27
+00:00:45,857 --> 00:00:45,877
+57. cancelBookingRequest = findTestObject("CancelBooking")
+
+28
+00:00:45,878 --> 00:00:48,037
+61. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+29
+00:00:48,038 --> 00:00:48,042
+65. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+30
+00:00:48,042 --> 00:00:48,044
+69. println(cancelBookingJsonResponse)
+
+31
+00:00:48,045 --> 00:00:48,062
+73. response = responseTextBox.getText()
+
+32
+00:00:48,063 --> 00:00:48,065
+77. validationString = testdataFromExcel["Validation"][TestScenarioNumber]
+
+33
+00:00:48,065 --> 00:00:48,069
+81. assert response.contains(validationString)
+
+34
+00:00:48,069 --> 00:00:48,077
+85. println("Test Scenario Number: " + TestScenarioNumber + 1)
+
+35
+00:00:48,078 --> 00:00:50,432
+89. takeFullPageScreenshotAsCheckpoint("Sample Visual Screenshot")
+
+36
+00:00:50,432 --> 00:00:50,433
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+37
+00:00:50,434 --> 00:00:50,434
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+38
+00:00:50,435 --> 00:00:50,659
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+39
+00:00:50,660 --> 00:00:50,885
+5. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+40
+00:00:50,885 --> 00:00:50,961
+9. sendRequestTextBox.clear()
+
+41
+00:00:50,961 --> 00:00:55,969
+13. delay(5)
+
+42
+00:00:55,970 --> 00:00:59,388
+17. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+43
+00:00:59,389 --> 00:00:59,433
+2. println(An unexpected error occurred: $e.message)
+
+44
+00:00:59,433 --> 00:00:59,439
+6. e.printStackTrace()
+
+45
+00:00:59,439 --> 00:01:01,591
+1. utils.closeBrowser()
+

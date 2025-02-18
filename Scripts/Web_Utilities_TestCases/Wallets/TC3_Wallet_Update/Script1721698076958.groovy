@@ -22,6 +22,8 @@ import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
 import com.kms.katalon.core.testobject.RequestObject as RequestObject
 import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
+import com.kms.katalon.core.util.KeywordUtil
+import java.text.SimpleDateFormat
 import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
@@ -31,12 +33,7 @@ try {
 
     String EXCEL_PATH = './Data Files/TestData.xlsx'
     String TAB = 'Wallet_Update'
-    WebDriver driver = DriverFactory.getWebDriver()
-    utils.goToWallets()
-
-    WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Update\']')).click()
-    utils.selectEnvironment(GlobalVariable.ENV)
-    WebElement sendRequestTextBox = driver.findElement(By.xpath('//textarea[@name=\'req\']'))
+	utils.goToWallets()
 
 	fetchGuestAccount = WS.sendRequest(findTestObject('GuestAccount'))
 	accountId = WS.getElementPropertyValue(fetchGuestAccount,'payload.accountId')
@@ -46,37 +43,47 @@ try {
 	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 	for(int i = 0; i < testdata.size(); i++) {
+		WebDriver driver = DriverFactory.getWebDriver()
+	
+		WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Update\']')).click()
+		utils.selectEnvironment(GlobalVariable.ENV)
+		WebElement sendRequestTextBox = driver.findElement(By.xpath('//textarea[@name=\'req\']'))
 		sendRequestTextBox.clear()
 		
-	String paymentMethod = testdata["paymentMethod"][i]
-	String cardNumber = testdata["cardNumber"][i]
-	CNumber = cardNumber.replaceAll(/\.0$/,'')
-	String expirationMonth = testdata["expirationMonth"][i]
-	xMonth = expirationMonth.replaceAll(/\.0$/,'')
-	String expirationYear = testdata["expirationYear"][i]
-	xYear = expirationYear.replaceAll(/\.0$/,'')
-	String cardholderName = testdata["cardholderName"][i]
-	String nickName = testdata["nickName"][i]
-	String defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
+		// Accessing Excel values correctly
+		String paymentMethod = testdata["paymentMethod"][i]
+		String cardNumber = testdata["cardNumber"][i]
+		String expirationMonth = testdata["expirationMonth"][i]
+		String expirationYear = testdata["expirationYear"][i]
+		String cardholderName = testdata["cardholderName"][i]
+		String nickName = testdata["nickName"][i]
+		String defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
 	
-	String request =
-	"""{
-    "paymentMethod": {
-        "type": "${paymentMethod}",
-        "cardNumber": "${cardNumber}",
-        "cardholder": "${cardholderName}",
-        "nickname": "${nickName}",
-        "expirationMonth": "${expirationMonth}",
-        "expirationYear": "${expirationYear}",
-        "defaultPaymentMethod": "${defaultPaymentMethod}"
-    },
-    "accountId": "${accountId}",
-    "accessToken": "${accessToken}"
-}"""
+			String request =
+			"""{
+			    "type": "${paymentMethod}",
+			    "cardNumber": "${cardNumber}",
+			    "cardholder": "${cardholderName}",
+			    "nickname": "${nickName}",
+			    "expirationMonth": "${expirationMonth}",
+			    "expirationYear": "${expirationYear}",
+			    "defaultPaymentMethod": "${defaultPaymentMethod}"
+			    "accountId": "${accountId}",
+			    "accessToken": "${accessToken}"
+			}"""
 	
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 		println(prettyJson)
+		
+		GlobalVariable.Wallet_cardNumber = cardNumber
+		GlobalVariable.Wallet_expirationMonth = expirationMonth
+		GlobalVariable.Wallet_expirationYear = expirationYear
+		GlobalVariable.Walelt_nickName = nickName
+		GlobalVariable.Wallet_cardholderName = cardholderName
+		GlobalVariable.Wallet_paymentMethod = paymentMethod
+		GlobalVariable.Wallet_defaultPaymentMethod = defaultPaymentMethod
+		
 		sendRequestTextBox.sendKeys(prettyJson)
 		utils.clickSendButton()
 		
@@ -92,13 +99,36 @@ try {
 		println(testdata["TCNumber"][i])
 		assert response.contains(validation1)
 		assert response.contains(validation2) == false
-	}
+		
+        if (response.contains("PY-0402")== false) {
+			String validation1 = testdata["ContainsValidation"][i]
+			println validation1
+			String validation2 = testdata["NotContainsValidation"][i]
+			println validation2
+			
+			println(testdata["TCNumber"][i])
+			assert response.contains(validation1) == true
+			assert response.contains(validation2) == false
+
+			if (response.contains(validation1) == false || response.contains(validation2) == true) {
+				String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+				String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
+				WebUI.takeScreenshot(f.toString())
+				println("Assertion failed")
+            }
+        } 
+		else {
+			println("Existing card detected. Deleting...")
+            WebUI.callTestCase(findTestCase('Re-Usable Script/Wallet_Delete'), [:], FailureHandling.CONTINUE_ON_FAILURE)
+            WebUI.refresh()
+            WebUI.delay(2) 
+			if (i==testdata.size()-1){
+				break
+			}
+            i-- // Re-attempt the addition
+        }
+    }
 }
-catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_Wallet_Update.png")
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
-} 
 catch (org.openqa.selenium.NoSuchElementException e) {
     println("Element not found: $e.message")
 

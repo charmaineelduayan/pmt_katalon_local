@@ -26,6 +26,7 @@ import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
 import rcclpayment.CreateAndRetrieveBooking as CreateAndRetrieveBooking
+import java.text.SimpleDateFormat
 
 utils.openBrowserAndNavigateToPMT()
 
@@ -54,15 +55,15 @@ try {
         String amount = (testdata['amount'])[TestScenarioNumber]
         
 		String request = 
-		"""{
-         "transactionId": "${GlobalVariable.transactionId}",
-          "items": [
-              {
-                  "bookingId": "${GlobalVariable.BKID}",
-                  "amount": 10
-              }
-          ]
-      }"""
+			"""{
+	         "transactionId": "${GlobalVariable.transactionId}",
+	          "items": [
+	              {
+	                  "bookingId": "${GlobalVariable.BKID}",
+	                  "amount": 10
+	              }
+	          ]
+			}"""
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 		println(prettyJson)
@@ -87,6 +88,13 @@ try {
         
 		assert response.contains(validation1)
         assert response.contains(validation2) == false
+		
+		if (response.contains(validation1) == false || response.contains(validation2) == true) {
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+			String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
+			WebUI.takeScreenshot(f.toString())
+			println("Assertion failed")
+		}
 
         println('Test Scenario Number: ' + TestScenarioNumber //for checking what test scenario number the running stops if failure occurs
             )

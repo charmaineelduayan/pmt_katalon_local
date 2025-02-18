@@ -1,0 +1,56 @@
+1
+00:00:01,142 --> 00:00:01,161
+1. try
+
+2
+00:00:01,169 --> 00:00:08,873
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:08,894 --> 00:00:08,949
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:08,969 --> 00:00:08,991
+9. TAB = "Wallet_Delete"
+
+5
+00:00:08,991 --> 00:00:09,002
+13. driver = getWebDriver()
+
+6
+00:00:09,002 --> 00:00:10,312
+17. utils.goToWallets()
+
+7
+00:00:10,324 --> 00:00:10,818
+21. clickAuthorizePayment = xpath("//a[normalize-space()='Delete']")).click()
+
+8
+00:00:10,819 --> 00:00:11,386
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:11,387 --> 00:00:11,613
+29. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+10
+00:00:11,613 --> 00:00:13,825
+33. fetchGuestAccount = sendRequest(findTestObject("GuestAccount"))
+
+11
+00:00:13,826 --> 00:00:13,956
+37. accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId")
+
+12
+00:00:13,975 --> 00:00:14,031
+2. println(An unexpected error occurred: $e.message)
+
+13
+00:00:14,039 --> 00:00:14,138
+6. e.printStackTrace()
+
+14
+00:00:14,159 --> 00:00:16,345
+1. utils.closeBrowser()
+

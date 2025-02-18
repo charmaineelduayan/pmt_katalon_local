@@ -1,0 +1,104 @@
+1
+00:00:00,207 --> 00:00:05,399
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:05,419 --> 00:00:05,440
+5. try
+
+3
+00:00:05,441 --> 00:00:05,443
+1. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:05,443 --> 00:00:05,445
+5. TAB = "ScheduledPayment_Add"
+
+5
+00:00:05,445 --> 00:00:05,512
+9. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+6
+00:00:05,512 --> 00:00:05,515
+13. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+7
+00:00:05,515 --> 00:00:05,740
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_ConfirmWithRequest"), [:], STOP_ON_FAILURE)
+
+8
+00:00:05,741 --> 00:00:11,629
+1. utils.openBrowserAndNavigateToPMT()
+
+9
+00:00:11,670 --> 00:00:11,672
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+10
+00:00:11,673 --> 00:00:11,675
+9. TAB = "ScheduledPayment_ConfirmWithReq"
+
+11
+00:00:11,676 --> 00:00:11,739
+13. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+12
+00:00:11,739 --> 00:00:11,742
+17. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+13
+00:00:11,743 --> 00:00:11,814
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE)
+
+14
+00:00:11,815 --> 00:00:11,816
+1. driver = getWebDriver()
+
+15
+00:00:11,816 --> 00:00:14,435
+5. utils.goToScheduledPayments()
+
+16
+00:00:14,435 --> 00:00:15,608
+9. clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click()
+
+17
+00:00:15,608 --> 00:00:15,610
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+18
+00:00:15,610 --> 00:00:15,611
+17. TAB = "ScheduledPayment_GetEligibility"
+
+19
+00:00:15,611 --> 00:00:16,823
+21. utils.selectEnvironment(ENV)
+
+20
+00:00:16,841 --> 00:00:16,919
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+21
+00:00:16,940 --> 00:00:16,977
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+22
+00:00:16,977 --> 00:00:16,978
+1. println(testdata.size())
+
+23
+00:00:16,978 --> 00:00:22,879
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+24
+00:00:22,880 --> 00:00:22,881
+2. println(An unexpected error occurred: $e.message)
+
+25
+00:00:22,882 --> 00:00:22,885
+6. e.printStackTrace()
+
+26
+00:00:22,886 --> 00:00:25,021
+1. utils.closeBrowser()
+

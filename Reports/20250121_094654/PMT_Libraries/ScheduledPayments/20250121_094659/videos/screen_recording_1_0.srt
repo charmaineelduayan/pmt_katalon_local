@@ -1,0 +1,64 @@
+1
+00:00:00,357 --> 00:00:06,756
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:06,775 --> 00:00:06,780
+5. try
+
+3
+00:00:06,781 --> 00:00:07,255
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE)
+
+4
+00:00:07,256 --> 00:00:07,265
+1. driver = getWebDriver()
+
+5
+00:00:07,265 --> 00:00:09,558
+5. utils.goToScheduledPayments()
+
+6
+00:00:09,559 --> 00:00:10,551
+9. clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click()
+
+7
+00:00:10,552 --> 00:00:10,554
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+8
+00:00:10,555 --> 00:00:10,557
+17. TAB = "ScheduledPayment_GetEligibility"
+
+9
+00:00:10,557 --> 00:00:11,567
+21. utils.selectEnvironment(ENV)
+
+10
+00:00:11,568 --> 00:00:12,038
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+11
+00:00:12,039 --> 00:00:12,041
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+12
+00:00:12,042 --> 00:00:12,045
+1. println(testdata.size())
+
+13
+00:00:12,046 --> 00:00:21,169
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+14
+00:00:21,170 --> 00:00:21,212
+2. println(An unexpected error occurred: $e.message)
+
+15
+00:00:21,212 --> 00:00:21,219
+6. e.printStackTrace()
+
+16
+00:00:21,219 --> 00:00:23,373
+1. utils.closeBrowser()
+

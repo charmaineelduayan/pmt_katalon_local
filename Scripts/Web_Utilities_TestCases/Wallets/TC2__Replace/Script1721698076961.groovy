@@ -23,6 +23,7 @@ import org.openqa.selenium.WebDriver as WebDriver
 import com.kms.katalon.core.testobject.RequestObject as RequestObject
 import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
 import groovy.json.*
+import java.text.SimpleDateFormat
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
 
@@ -31,12 +32,8 @@ try {
 
     String EXCEL_PATH = './Data Files/TestData.xlsx'
     String TAB = 'Wallet_Replace'
-    WebDriver driver = DriverFactory.getWebDriver()
-    utils.goToWallets()
 
-    WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Replace\']')).click()
-    utils.selectEnvironment(GlobalVariable.ENV)
-    WebElement sendRequestTextBox = driver.findElement(By.xpath('//textarea[@name=\'req\']'))
+    utils.goToWallets()
 
 	fetchGuestAccount = WS.sendRequest(findTestObject('GuestAccount'))
 	accountId = WS.getElementPropertyValue(fetchGuestAccount,'payload.accountId')
@@ -46,34 +43,36 @@ try {
 	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
 	for(int i = 0; i < testdata.size(); i++) {
+		WebDriver driver = DriverFactory.getWebDriver()
+		WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Replace\']')).click()
+		utils.selectEnvironment(GlobalVariable.ENV)
+		WebElement sendRequestTextBox = driver.findElement(By.xpath('//textarea[@name=\'req\']'))
 		sendRequestTextBox.clear()
 		
+		// Accessing Excel values correctly
 		String idToBeReplaced = testdata["idToBeReplaced"][i]
 		String paymentMethod = testdata["paymentMethod"][i]
 		String cardNumber = testdata["cardNumber"][i]
-		CNumber = cardNumber.replaceAll(/\.0$/,'')
 		String expirationMonth = testdata["expirationMonth"][i]
-		xMonth = expirationMonth.replaceAll(/\.0$/,'')
 		String expirationYear = testdata["expirationYear"][i]
-		xYear = expirationYear.replaceAll(/\.0$/,'')
 		String cardholderName = testdata["cardholderName"][i]
 		String nickName = testdata["nickName"][i]
 		String defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
 		
 		String request =
-		"""{
-    "idToBeReplaced": "${idToBeReplaced}",
-    "paymentMethod": {
-        "type": "${paymentMethod}",
-        "cardNumber": "${cardNumber}",
-        "expirationMonth": "${expirationMonth}",
-        "expirationYear": "${expirationYear}",
-        "cardholder": "${cardholderName}",
-        "nickname": "${nickName}"
-    },
-    "accountId": "${accountId}",
-    "accessToken": "${accessToken}"
-}"""
+			"""{
+			    "idToBeReplaced": "${idToBeReplaced}",
+			    "paymentMethod": {
+			        "type": "${paymentMethod}",
+			        "cardNumber": "${cardNumber}",
+			        "expirationMonth": "${expirationMonth}",
+			        "expirationYear": "${expirationYear}",
+			        "cardholder": "${cardholderName}",
+			        "nickname": "${nickName}"
+			    },
+			    "accountId": "${accountId}",
+			    "accessToken": "${accessToken}"
+			}"""
 		def restRequest = new JsonSlurper().parseText(request)
 		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
 		println(prettyJson)
@@ -92,13 +91,15 @@ try {
 		println(testdata["TCNumber"][i])
 		assert response.contains(validation1)
 		assert response.contains(validation2) == false
+		
+		if (response.contains(validation1) == false || response.contains(validation2) == true) {
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+			String f = "./screenshots/Failed_Wallet_Replace" + timestamp + ".png"
+			WebUI.takeScreenshot(f.toString())
+			println("Assertion failed")
+		}
 	}
 }
-catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_Wallet_Replace.png")
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
-} 
 catch (org.openqa.selenium.NoSuchElementException e) {
     println("Element not found: $e.message")
 

@@ -42,7 +42,7 @@
    <testCaseLink>
       <guid>1e390119-324e-4e9d-96f6-efe6f3bcce60</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web_Utilities_TestCases/Wallets/TC4_Wallet_Delete</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>

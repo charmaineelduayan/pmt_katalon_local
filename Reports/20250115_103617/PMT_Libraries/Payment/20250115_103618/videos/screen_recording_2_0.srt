@@ -1,0 +1,104 @@
+1
+00:00:00,136 --> 00:00:05,697
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:05,734 --> 00:00:05,800
+5. try
+
+3
+00:00:05,801 --> 00:00:05,896
+1. callTestCase(findTestCase("Re-Usable Script/Payment_AuthorizePayment"), [:], STOP_ON_FAILURE)
+
+4
+00:00:05,896 --> 00:00:05,897
+1. driver = getWebDriver()
+
+5
+00:00:05,898 --> 00:00:08,742
+5. utils.goToPayments()
+
+6
+00:00:08,750 --> 00:00:09,649
+9. clickAuthorizePayment = xpath("//a[normalize-space()='Authorize payment']")).click()
+
+7
+00:00:09,649 --> 00:00:09,650
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+8
+00:00:09,651 --> 00:00:09,652
+17. TAB = "Payment_Authorize"
+
+9
+00:00:09,652 --> 00:00:10,673
+21. utils.selectEnvironment(ENV)
+
+10
+00:00:10,673 --> 00:00:10,717
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+11
+00:00:10,725 --> 00:00:10,726
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+12
+00:00:10,745 --> 00:00:10,746
+1. println(testdata.size())
+
+13
+00:00:10,747 --> 00:00:32,659
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+14
+00:00:32,660 --> 00:00:32,661
+9. println(getBookingData["BookingId"])
+
+15
+00:00:32,661 --> 00:00:32,662
+13. println(getBookingData["BookingAccessToken"])
+
+16
+00:00:32,662 --> 00:00:37,665
+17. delay(5)
+
+17
+00:00:37,665 --> 00:00:37,666
+21. bookingIdCol = testdata["bookingId"][TestScenarioNumber]
+
+18
+00:00:37,666 --> 00:00:37,667
+25. BookingId = getBookingData["BookingId"]
+
+19
+00:00:37,667 --> 00:00:37,667
+29. replaceBookingId = bookingIdCol.replace("BookingId", BookingId)
+
+20
+00:00:37,668 --> 00:00:37,668
+33. println(replaceBookingId)
+
+21
+00:00:37,668 --> 00:00:37,669
+37. passengerIdCol = testdata["passengerId"][TestScenarioNumber]
+
+22
+00:00:37,669 --> 00:00:37,670
+41. PassengerId = getBookingData["PassengerId"]
+
+23
+00:00:37,670 --> 00:00:37,678
+45. replacePassengerId = passengerIdCol.replace("PassengerId", PassengerId)
+
+24
+00:00:37,678 --> 00:00:37,680
+2. println(An unexpected error occurred: $e.message)
+
+25
+00:00:37,680 --> 00:00:37,684
+6. e.printStackTrace()
+
+26
+00:00:37,684 --> 00:00:39,810
+1. utils.closeBrowser()
+

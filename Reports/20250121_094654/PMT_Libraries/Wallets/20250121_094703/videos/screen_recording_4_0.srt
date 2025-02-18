@@ -1,0 +1,192 @@
+1
+00:00:00,181 --> 00:00:00,181
+1. try
+
+2
+00:00:00,182 --> 00:00:04,724
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:04,725 --> 00:00:04,766
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:04,785 --> 00:00:04,788
+9. TAB = "Wallet_Add"
+
+5
+00:00:04,788 --> 00:00:04,790
+13. driver = getWebDriver()
+
+6
+00:00:04,791 --> 00:00:06,215
+17. utils.goToWallets()
+
+7
+00:00:06,216 --> 00:00:06,689
+21. clickAdd = xpath("//a[normalize-space()='Add']")).click()
+
+8
+00:00:06,689 --> 00:00:07,111
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:07,127 --> 00:00:07,380
+29. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+10
+00:00:07,396 --> 00:00:07,977
+33. fetchGuestAccount = sendRequest(findTestObject("GuestAccount"))
+
+11
+00:00:07,977 --> 00:00:07,994
+37. accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId")
+
+12
+00:00:07,995 --> 00:00:08,010
+41. accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken")
+
+13
+00:00:08,010 --> 00:00:08,011
+45. accountId = accountId
+
+14
+00:00:08,011 --> 00:00:08,012
+49. accessToken = accessToken
+
+15
+00:00:08,013 --> 00:00:08,060
+53. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+16
+00:00:08,061 --> 00:00:08,062
+57. for ([i = 0, i < testdata.size(), (i++)])
+
+17
+00:00:08,062 --> 00:00:08,085
+1. sendRequestTextBox.clear()
+
+18
+00:00:08,085 --> 00:00:08,086
+5. paymentMethod = testdata["paymentMethod"][i]
+
+19
+00:00:08,087 --> 00:00:08,088
+9. cardNumber = testdata["cardNumber"][i]
+
+20
+00:00:08,088 --> 00:00:08,089
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+21
+00:00:08,089 --> 00:00:08,091
+17. expirationMonth = testdata["expirationMonth"][i]
+
+22
+00:00:08,091 --> 00:00:08,092
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+23
+00:00:08,092 --> 00:00:08,094
+25. expirationYear = testdata["expirationYear"][i]
+
+24
+00:00:08,094 --> 00:00:08,095
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+25
+00:00:08,095 --> 00:00:08,096
+33. cardholderName = testdata["cardholderName"][i]
+
+26
+00:00:08,097 --> 00:00:08,098
+37. nickName = testdata["nickName"][i]
+
+27
+00:00:08,098 --> 00:00:08,099
+41. defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
+
+28
+00:00:08,100 --> 00:00:08,101
+45. request = {
+    "paymentMethod": {
+        "type": "$paymentMethod",
+        "cardNumber": "$cardNumber",
+        "expirationMonth": "$expirationMonth",
+        "expirationYear": "$expirationYear",
+        "cardholder": "$cardholderName",
+        "nickname": "$nickName",
+        "defaultPaymentMethod": "$defaultPaymentMethod"
+    },
+    "accountId": "$accountId",
+    "accessToken": "$accessToken"
+}
+
+29
+00:00:08,101 --> 00:00:08,103
+49. restRequest = JsonSlurper().parseText(request)
+
+30
+00:00:08,103 --> 00:00:08,105
+53. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+31
+00:00:08,105 --> 00:00:08,107
+57. println(prettyJson)
+
+32
+00:00:08,107 --> 00:00:09,304
+61. sendRequestTextBox.sendKeys(prettyJson)
+
+33
+00:00:09,305 --> 00:00:09,593
+65. utils.clickSendButton()
+
+34
+00:00:09,594 --> 00:00:12,599
+69. delay(3)
+
+35
+00:00:12,600 --> 00:00:15,569
+73. response = utils.getResponse()
+
+36
+00:00:15,569 --> 00:00:15,571
+77. println(response)
+
+37
+00:00:15,571 --> 00:00:15,572
+81. validation1 = testdata["ContainsValidation"][i]
+
+38
+00:00:15,573 --> 00:00:15,574
+85. println(validation1)
+
+39
+00:00:15,574 --> 00:00:15,576
+89. validation2 = testdata["NotContainsValidation"][i]
+
+40
+00:00:15,576 --> 00:00:15,577
+93. println(validation2)
+
+41
+00:00:15,577 --> 00:00:15,579
+97. println(testdata["TCNumber"][i])
+
+42
+00:00:15,579 --> 00:00:15,582
+101. assert response.contains(validation1)
+
+43
+00:00:15,582 --> 00:00:16,552
+2. takeScreenshot("./screenshots/Failed_Wallet_Add.png")
+
+44
+00:00:16,552 --> 00:00:16,554
+6. println(Assertion failed: $e.message)
+
+45
+00:00:16,554 --> 00:00:16,556
+10. e.printStackTrace()
+

@@ -132,6 +132,46 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
+    public static Object Wallet_cardNumber
+     
+    /**
+     * <p></p>
+     */
+    public static Object Wallet_expirationMonth
+     
+    /**
+     * <p></p>
+     */
+    public static Object Wallet_expirationYear
+     
+    /**
+     * <p></p>
+     */
+    public static Object Wallet_Req
+     
+    /**
+     * <p></p>
+     */
+    public static Object Walelt_nickName
+     
+    /**
+     * <p></p>
+     */
+    public static Object Wallet_cardholderName
+     
+    /**
+     * <p></p>
+     */
+    public static Object Wallet_paymentMethod
+     
+    /**
+     * <p></p>
+     */
+    public static Object Wallet_defaultPaymentMethod
+     
+    /**
+     * <p></p>
+     */
     public static Object FirstName
      
     /**
@@ -170,6 +210,14 @@ public class GlobalVariable {
             transactionId = selectedVariables['transactionId']
             BKID = selectedVariables['BKID']
             AuthorizePaymentResponse = selectedVariables['AuthorizePaymentResponse']
+            Wallet_cardNumber = selectedVariables['Wallet_cardNumber']
+            Wallet_expirationMonth = selectedVariables['Wallet_expirationMonth']
+            Wallet_expirationYear = selectedVariables['Wallet_expirationYear']
+            Wallet_Req = selectedVariables['Wallet_Req']
+            Walelt_nickName = selectedVariables['Walelt_nickName']
+            Wallet_cardholderName = selectedVariables['Wallet_cardholderName']
+            Wallet_paymentMethod = selectedVariables['Wallet_paymentMethod']
+            Wallet_defaultPaymentMethod = selectedVariables['Wallet_defaultPaymentMethod']
             FirstName = selectedVariables['FirstName']
             RetrieveBookingRes = selectedVariables['RetrieveBookingRes']
             

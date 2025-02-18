@@ -1,0 +1,188 @@
+1
+00:00:00,131 --> 00:00:00,133
+1. try
+
+2
+00:00:00,133 --> 00:00:05,637
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,674 --> 00:00:05,712
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:05,712 --> 00:00:05,717
+9. TAB = "cardTokenization_Encrypt"
+
+5
+00:00:05,718 --> 00:00:05,720
+13. driver = getWebDriver()
+
+6
+00:00:05,721 --> 00:00:08,498
+17. utils.goToCardTokenization()
+
+7
+00:00:08,498 --> 00:00:09,538
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:09,539 --> 00:00:09,774
+25. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+9
+00:00:09,774 --> 00:00:09,832
+29. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+10
+00:00:09,832 --> 00:00:09,834
+33. for ([i = 0, i < testdata.size(), (i++)])
+
+11
+00:00:09,834 --> 00:00:14,844
+1. delay(5)
+
+12
+00:00:14,845 --> 00:00:14,869
+5. sendRequestTextBox.clear()
+
+13
+00:00:14,870 --> 00:00:14,872
+9. encryptedCard = testdata["encryptedCard"][i]
+
+14
+00:00:14,872 --> 00:00:14,874
+13. CNumber = encryptedCard.replaceAll("\.0$", "")
+
+15
+00:00:14,874 --> 00:00:14,876
+17. request = $encryptedCard
+
+16
+00:00:14,876 --> 00:00:14,879
+21. println(request)
+
+17
+00:00:14,879 --> 00:00:14,939
+25. sendRequestTextBox.sendKeys(request)
+
+18
+00:00:14,940 --> 00:00:15,231
+29. utils.clickSendButton()
+
+19
+00:00:15,232 --> 00:00:18,244
+33. delay(3)
+
+20
+00:00:18,244 --> 00:00:18,587
+37. response = utils.getResponse()
+
+21
+00:00:18,588 --> 00:00:18,589
+41. println(response)
+
+22
+00:00:18,590 --> 00:00:18,591
+45. validation1 = testdata["ContainsValidation"][i]
+
+23
+00:00:18,592 --> 00:00:18,593
+49. println(validation1)
+
+24
+00:00:18,594 --> 00:00:18,596
+53. validation2 = testdata["NotContainsValidation"][i]
+
+25
+00:00:18,596 --> 00:00:18,597
+57. println(validation2)
+
+26
+00:00:18,598 --> 00:00:18,600
+61. println(testdata["TCNumber"][i])
+
+27
+00:00:18,600 --> 00:00:18,602
+65. assert response.contains(validation1)
+
+28
+00:00:18,602 --> 00:00:18,603
+69. assert response.contains(validation2) == false
+
+29
+00:00:18,604 --> 00:00:23,612
+1. delay(5)
+
+30
+00:00:23,613 --> 00:00:23,631
+5. sendRequestTextBox.clear()
+
+31
+00:00:23,632 --> 00:00:23,633
+9. encryptedCard = testdata["encryptedCard"][i]
+
+32
+00:00:23,633 --> 00:00:23,634
+13. CNumber = encryptedCard.replaceAll("\.0$", "")
+
+33
+00:00:23,634 --> 00:00:23,635
+17. request = $encryptedCard
+
+34
+00:00:23,636 --> 00:00:23,636
+21. println(request)
+
+35
+00:00:23,637 --> 00:00:23,684
+25. sendRequestTextBox.sendKeys(request)
+
+36
+00:00:23,684 --> 00:00:23,961
+29. utils.clickSendButton()
+
+37
+00:00:23,961 --> 00:00:26,972
+33. delay(3)
+
+38
+00:00:26,973 --> 00:00:27,208
+37. response = utils.getResponse()
+
+39
+00:00:27,208 --> 00:00:27,209
+41. println(response)
+
+40
+00:00:27,209 --> 00:00:27,210
+45. validation1 = testdata["ContainsValidation"][i]
+
+41
+00:00:27,210 --> 00:00:27,210
+49. println(validation1)
+
+42
+00:00:27,211 --> 00:00:27,211
+53. validation2 = testdata["NotContainsValidation"][i]
+
+43
+00:00:27,211 --> 00:00:27,212
+57. println(validation2)
+
+44
+00:00:27,212 --> 00:00:27,213
+61. println(testdata["TCNumber"][i])
+
+45
+00:00:27,213 --> 00:00:27,214
+65. assert response.contains(validation1)
+
+46
+00:00:27,214 --> 00:00:27,216
+69. assert response.contains(validation2) == false
+
+47
+00:00:27,216 --> 00:00:29,357
+1. utils.closeBrowser()
+

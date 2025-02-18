@@ -1,0 +1,124 @@
+1
+00:00:00,346 --> 00:00:08,457
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:08,498 --> 00:00:08,502
+5. try
+
+3
+00:00:08,503 --> 00:00:08,506
+1. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:08,506 --> 00:00:08,509
+5. TAB = "Payment_Capture"
+
+5
+00:00:08,510 --> 00:00:09,027
+9. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+6
+00:00:09,027 --> 00:00:09,031
+13. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+7
+00:00:09,031 --> 00:00:09,035
+1. println(testdata.size())
+
+8
+00:00:09,035 --> 00:00:09,341
+5. callTestCase(findTestCase("Re-Usable Script/Payment_AuthorizePayment"), [:], STOP_ON_FAILURE)
+
+9
+00:00:09,341 --> 00:00:09,349
+1. driver = getWebDriver()
+
+10
+00:00:09,349 --> 00:00:12,224
+5. utils.goToPayments()
+
+11
+00:00:12,225 --> 00:00:13,220
+9. clickAuthorizePayment = xpath("//a[normalize-space()='Authorize payment']")).click()
+
+12
+00:00:13,226 --> 00:00:13,228
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+13
+00:00:13,229 --> 00:00:13,230
+17. TAB = "Payment_Authorize"
+
+14
+00:00:13,231 --> 00:00:14,272
+21. utils.selectEnvironment(ENV)
+
+15
+00:00:14,272 --> 00:00:14,373
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+16
+00:00:14,374 --> 00:00:14,396
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+17
+00:00:14,396 --> 00:00:14,399
+1. println(testdata.size())
+
+18
+00:00:14,399 --> 00:00:41,806
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+19
+00:00:41,807 --> 00:00:41,809
+9. println(getBookingData["BookingId"])
+
+20
+00:00:41,810 --> 00:00:41,812
+13. println(getBookingData["BookingAccessToken"])
+
+21
+00:00:41,812 --> 00:00:46,818
+17. delay(5)
+
+22
+00:00:46,819 --> 00:00:46,821
+21. bookingIdCol = testdata["bookingId"][TestScenarioNumber]
+
+23
+00:00:46,822 --> 00:00:46,824
+25. BookingId = getBookingData["BookingId"]
+
+24
+00:00:46,824 --> 00:00:46,827
+29. replaceBookingId = bookingIdCol.replace("BookingId", BookingId)
+
+25
+00:00:46,827 --> 00:00:46,829
+33. println(replaceBookingId)
+
+26
+00:00:46,830 --> 00:00:46,832
+37. passengerIdCol = testdata["passengerId"][TestScenarioNumber]
+
+27
+00:00:46,832 --> 00:00:46,834
+41. PassengerId = getBookingData["PassengerId"]
+
+28
+00:00:46,835 --> 00:00:46,859
+45. replacePassengerId = passengerIdCol.replace("PassengerId", PassengerId)
+
+29
+00:00:46,860 --> 00:00:46,891
+2. println(An unexpected error occurred: $e.message)
+
+30
+00:00:46,892 --> 00:00:46,895
+6. e.printStackTrace()
+
+31
+00:00:46,895 --> 00:00:49,043
+1. utils.closeBrowser()
+

@@ -126,9 +126,11 @@ try {
     }
 }
 catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_PreValidationsAndConf.png")
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
+    WebUI.takeScreenshot('./screenshots/Failed_PreValidationsAndConf.png')
+
+    println("Assertion failed: $e.message")
+
+    e.printStackTrace()
 } 
 catch (org.openqa.selenium.NoSuchElementException e) {
     println("Element not found: $e.message")

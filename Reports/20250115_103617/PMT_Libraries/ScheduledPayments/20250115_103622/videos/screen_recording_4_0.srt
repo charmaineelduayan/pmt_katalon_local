@@ -1,0 +1,72 @@
+1
+00:00:00,156 --> 00:00:00,157
+1. try
+
+2
+00:00:00,158 --> 00:00:05,342
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,362 --> 00:00:05,404
+5. driver = getWebDriver()
+
+4
+00:00:05,425 --> 00:00:05,427
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:05,428 --> 00:00:05,429
+13. TAB = "ScheduledPayment_Get"
+
+6
+00:00:05,430 --> 00:00:06,795
+17. utils.goToScheduledPayments()
+
+7
+00:00:06,796 --> 00:00:07,415
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:07,415 --> 00:00:07,445
+25. testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:07,445 --> 00:00:07,447
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)])
+
+10
+00:00:07,447 --> 00:00:07,449
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+11
+00:00:07,449 --> 00:00:07,451
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+12
+00:00:07,451 --> 00:00:07,721
+1. clickADD = xpath("//a[normalize-space()='Add']")).click()
+
+13
+00:00:07,721 --> 00:00:07,970
+5. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+14
+00:00:07,970 --> 00:00:07,994
+9. sendRequestTextBox.clear()
+
+15
+00:00:07,995 --> 00:00:13,277
+13. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+16
+00:00:13,278 --> 00:00:13,282
+2. println(An unexpected error occurred: $e.message)
+
+17
+00:00:13,282 --> 00:00:13,285
+6. e.printStackTrace()
+
+18
+00:00:13,285 --> 00:00:15,413
+1. utils.closeBrowser()
+

@@ -20,6 +20,8 @@ import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import org.openqa.selenium.By as By
 import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
+import com.kms.katalon.core.util.KeywordUtil
+import java.text.SimpleDateFormat
 import org.openqa.selenium.Keys
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
@@ -67,8 +69,10 @@ try {
 	}	
 }
 catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_CardTokenization_EncryptedCard.png")
-	println("Assertion failed: ${e.message}")
+	String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+	String f = "./screenshots/Failed_CardTokenization_EncryptedCard" + timestamp + ".png"
+	WebUI.takeScreenshot(f.toString())
+	KeywordUtil.markFailed("Assertion failed: ${e.message}")
 	e.printStackTrace()
 }
 catch (org.openqa.selenium.NoSuchElementException e) {

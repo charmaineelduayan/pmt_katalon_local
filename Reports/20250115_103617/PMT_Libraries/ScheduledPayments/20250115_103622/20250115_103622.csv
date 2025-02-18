@@ -1,0 +1,29 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+ScheduledPayments,Chrome 131.0.0.0,,,15-01-2025 10:40:05,15-01-2025 10:41:33,1m - 27.338s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility,Chrome 131.0.0.0,,,15-01-2025 10:40:05,15-01-2025 10:40:29,23.180s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 131.0.0.0,,,15-01-2025 10:40:07,15-01-2025 10:40:12,5.432s,PASSED
+try,Chrome 131.0.0.0,,,15-01-2025 10:40:12,15-01-2025 10:40:24,12.157s,FAILED
+catch (Exception e),Chrome 131.0.0.0,,,15-01-2025 10:40:24,15-01-2025 10:40:24,0.036s,PASSED
+Finally,Chrome 131.0.0.0,,,15-01-2025 10:40:24,15-01-2025 10:40:27,2.154s,PASSED
+Video,Chrome 131.0.0.0,,,15-01-2025 10:40:29,15-01-2025 10:40:29,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add,Chrome 131.0.0.0,,,15-01-2025 10:40:29,15-01-2025 10:40:51,21.864s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 131.0.0.0,,,15-01-2025 10:40:29,15-01-2025 10:40:34,4.691s,PASSED
+try,Chrome 131.0.0.0,,,15-01-2025 10:40:34,15-01-2025 10:40:46,12.647s,FAILED
+catch (Exception e),Chrome 131.0.0.0,,,15-01-2025 10:40:46,15-01-2025 10:40:46,0.005s,PASSED
+Finally,Chrome 131.0.0.0,,,15-01-2025 10:40:46,15-01-2025 10:40:48,2.132s,PASSED
+Video,Chrome 131.0.0.0,,,15-01-2025 10:40:51,15-01-2025 10:40:51,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest,Chrome 131.0.0.0,,,15-01-2025 10:40:51,15-01-2025 10:41:15,24.607s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 131.0.0.0,,,15-01-2025 10:40:51,15-01-2025 10:40:55,4.814s,PASSED
+try,Chrome 131.0.0.0,,,15-01-2025 10:40:55,15-01-2025 10:41:11,15.439s,FAILED
+catch (Exception e),Chrome 131.0.0.0,,,15-01-2025 10:41:11,15-01-2025 10:41:11,0.007s,PASSED
+Finally,Chrome 131.0.0.0,,,15-01-2025 10:41:11,15-01-2025 10:41:13,2.133s,PASSED
+Video,Chrome 131.0.0.0,,,15-01-2025 10:41:15,15-01-2025 10:41:15,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get,Chrome 131.0.0.0,,,15-01-2025 10:41:15,15-01-2025 10:41:33,17.565s,PASSED
+try,Chrome 131.0.0.0,,,15-01-2025 10:41:15,15-01-2025 10:41:28,13.121s,PASSED
+catch (Exception e),Chrome 131.0.0.0,,,15-01-2025 10:41:28,15-01-2025 10:41:28,0.007s,PASSED
+Finally,Chrome 131.0.0.0,,,15-01-2025 10:41:28,15-01-2025 10:41:31,2.129s,PASSED
+Video,Chrome 131.0.0.0,,,15-01-2025 10:41:33,15-01-2025 10:41:33,0.001s,PASSED

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="cardTokenization" time="69.186" tests="2" failures="0" errors="0">
+   <testsuite name="cardTokenization" tests="2" failures="0" errors="0" time="69.186" skipped="0" timestamp="22-01-2025T22:30:55" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/cardTokenization">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250122_223050/PMT_Libraries/cardTokenization/20250122_223050"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250122_223050/PMT_Libraries/cardTokenization/20250122_223050/execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 131.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="cadd5bee59cc3c03cf40454d1ff19702"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken" time="35.83" classname="Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken" status="PASSED">
+         <system-out><![CDATA[22-01-2025T22:30:56 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken: Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken
+
+22-01-2025T22:31:00 - [TEST_STEP][PASSED] - try: null
+
+22-01-2025T22:31:00 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+22-01-2025T22:31:01 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+22-01-2025T22:31:01 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+22-01-2025T22:31:04 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+22-01-2025T22:31:05 - [MESSAGE][PASSED] - Current window maximized
+
+22-01-2025T22:31:07 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+22-01-2025T22:31:07 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+22-01-2025T22:31:07 - [TEST_STEP][PASSED] - TAB = "cardTokenization_Generate": null
+
+22-01-2025T22:31:07 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+22-01-2025T22:31:07 - [TEST_STEP][PASSED] - utils.goToCardTokenization(): null
+
+22-01-2025T22:31:09 - [TEST_STEP][PASSED] - clickGenerateToken = xpath("//a[normalize-space()='Generate Token']")).click(): null
+
+22-01-2025T22:31:09 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+22-01-2025T22:31:10 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+22-01-2025T22:31:10 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - encryptedCard = testdata["encryptedCard"][i]: null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - CNumber = encryptedCard.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}: null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+22-01-2025T22:31:11 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+22-01-2025T22:31:12 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+22-01-2025T22:31:15 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+22-01-2025T22:31:15 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - println(response): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - println(validation1): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - println(validation2): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - encryptedCard = testdata["encryptedCard"][i]: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - CNumber = encryptedCard.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}: null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+22-01-2025T22:31:16 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+22-01-2025T22:31:19 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+22-01-2025T22:31:19 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - println(response): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - println(validation1): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - println(validation2): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - encryptedCard = testdata["encryptedCard"][i]: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - CNumber = encryptedCard.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}: null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+22-01-2025T22:31:20 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+22-01-2025T22:31:23 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - println(response): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - println(validation1): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - println(validation2): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+22-01-2025T22:31:23 - [TEST_STEP][PASSED] - encryptedCard = testdata["encryptedCard"][i]: null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - CNumber = encryptedCard.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - xMonth = expirationMonth.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - xYear = expirationYear.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}: null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+22-01-2025T22:31:24 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+22-01-2025T22:31:27 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - println(response): null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - println(validation1): null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - println(validation2): null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+22-01-2025T22:31:27 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+22-01-2025T22:31:29 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+22-01-2025T22:31:29 - [MESSAGE][PASSED] - Browser is closed
+
+22-01-2025T22:31:32 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken' .
+
+22-01-2025T22:31:32 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/cardTokenization/TC2_CardTokenization_GenerateToken' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard" time="33.124" classname="Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard" status="PASSED">
+         <system-out><![CDATA[22-01-2025T22:31:32 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard: Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard
+
+22-01-2025T22:31:32 - [TEST_STEP][PASSED] - try: null
+
+22-01-2025T22:31:32 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+22-01-2025T22:31:32 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+22-01-2025T22:31:32 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+22-01-2025T22:31:33 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+22-01-2025T22:31:34 - [MESSAGE][PASSED] - Current window maximized
+
+22-01-2025T22:31:39 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+22-01-2025T22:31:39 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+22-01-2025T22:31:39 - [TEST_STEP][PASSED] - TAB = "cardTokenization_Encrypt": null
+
+22-01-2025T22:31:39 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+22-01-2025T22:31:39 - [TEST_STEP][PASSED] - utils.goToCardTokenization(): null
+
+22-01-2025T22:31:42 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+22-01-2025T22:31:42 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+22-01-2025T22:31:43 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+22-01-2025T22:31:43 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+22-01-2025T22:31:43 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+22-01-2025T22:31:48 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - encryptedCard = testdata["encryptedCard"][i]: null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - CNumber = encryptedCard.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - request = $encryptedCard: null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - println(request): null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(request): null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+22-01-2025T22:31:48 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+22-01-2025T22:31:51 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+22-01-2025T22:31:51 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - println(response): null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - println(validation1): null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - println(validation2): null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+22-01-2025T22:31:52 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+22-01-2025T22:31:57 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - encryptedCard = testdata["encryptedCard"][i]: null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - CNumber = encryptedCard.replaceAll("\.0$", ""): null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - request = $encryptedCard: null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - println(request): null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(request): null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+22-01-2025T22:31:57 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+22-01-2025T22:32:00 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - println(response): null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - validation1 = testdata["ContainsValidation"][i]: null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - println(validation1): null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - validation2 = testdata["NotContainsValidation"][i]: null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - println(validation2): null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - println(testdata["TCNumber"][i]): null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - assert response.contains(validation1): null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - assert response.contains(validation2) == false: null
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+22-01-2025T22:32:00 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+22-01-2025T22:32:02 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+22-01-2025T22:32:03 - [MESSAGE][PASSED] - Browser is closed
+
+22-01-2025T22:32:05 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard' .
+
+22-01-2025T22:32:05 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[22-01-2025T22:30:55 - [TEST_SUITE][PASSED] - cardTokenization: Test Cases/Web_Utilities_TestCases/cardTokenization/TC1_CardTokenization_EncryptedCard]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

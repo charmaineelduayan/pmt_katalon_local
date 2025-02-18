@@ -1,0 +1,196 @@
+1
+00:00:00,511 --> 00:00:00,522
+1. try
+
+2
+00:00:00,527 --> 00:00:06,867
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:06,887 --> 00:00:06,909
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:06,910 --> 00:00:06,914
+9. TAB = "Wallet_Update"
+
+5
+00:00:06,915 --> 00:00:06,929
+13. driver = getWebDriver()
+
+6
+00:00:06,929 --> 00:00:09,399
+17. utils.goToWallets()
+
+7
+00:00:09,399 --> 00:00:10,281
+21. clickAuthorizePayment = xpath("//a[normalize-space()='Update']")).click()
+
+8
+00:00:10,285 --> 00:00:11,316
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:11,317 --> 00:00:11,546
+29. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+10
+00:00:11,546 --> 00:00:14,226
+33. fetchGuestAccount = sendRequest(findTestObject("GuestAccount"))
+
+11
+00:00:14,227 --> 00:00:14,288
+37. accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId")
+
+12
+00:00:14,288 --> 00:00:14,313
+41. accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken")
+
+13
+00:00:14,314 --> 00:00:14,316
+45. accountId = accountId
+
+14
+00:00:14,317 --> 00:00:14,320
+49. accessToken = accessToken
+
+15
+00:00:14,320 --> 00:00:14,898
+53. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+16
+00:00:14,933 --> 00:00:14,992
+57. for ([i = 0, i < testdata.size(), (i++)])
+
+17
+00:00:15,031 --> 00:00:15,091
+1. sendRequestTextBox.clear()
+
+18
+00:00:15,097 --> 00:00:15,121
+5. paymentMethod = testdata["paymentMethod"][i]
+
+19
+00:00:15,156 --> 00:00:15,195
+9. cardNumber = testdata["cardNumber"][i]
+
+20
+00:00:15,214 --> 00:00:15,239
+13. CNumber = cardNumber.replaceAll("\.0$", "")
+
+21
+00:00:15,256 --> 00:00:15,294
+17. expirationMonth = testdata["expirationMonth"][i]
+
+22
+00:00:15,314 --> 00:00:15,337
+21. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+23
+00:00:15,356 --> 00:00:15,396
+25. expirationYear = testdata["expirationYear"][i]
+
+24
+00:00:15,414 --> 00:00:15,455
+29. xYear = expirationYear.replaceAll("\.0$", "")
+
+25
+00:00:15,455 --> 00:00:15,460
+33. cardholderName = testdata["cardholderName"][i]
+
+26
+00:00:15,497 --> 00:00:15,500
+37. nickName = testdata["nickName"][i]
+
+27
+00:00:15,519 --> 00:00:15,521
+41. defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
+
+28
+00:00:15,522 --> 00:00:15,552
+45. request = {
+    "paymentMethod": {
+        "type": "$paymentMethod",
+        "cardNumber": "$cardNumber",
+        "cardholder": "$cardholderName",
+        "nickname": "$nickName",
+        "expirationMonth": "$expirationMonth",
+        "expirationYear": "$expirationYear",
+        "defaultPaymentMethod": "$defaultPaymentMethod"
+    },
+    "accountId": "$accountId",
+    "accessToken": "$accessToken"
+}
+
+29
+00:00:15,552 --> 00:00:15,555
+49. restRequest = JsonSlurper().parseText(request)
+
+30
+00:00:15,555 --> 00:00:15,580
+53. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+31
+00:00:15,580 --> 00:00:15,585
+57. println(prettyJson)
+
+32
+00:00:15,585 --> 00:00:16,821
+61. sendRequestTextBox.sendKeys(prettyJson)
+
+33
+00:00:16,822 --> 00:00:17,117
+65. utils.clickSendButton()
+
+34
+00:00:17,117 --> 00:00:20,139
+69. delay(3)
+
+35
+00:00:20,139 --> 00:00:20,377
+73. response = utils.getResponse()
+
+36
+00:00:20,378 --> 00:00:20,379
+77. println(response)
+
+37
+00:00:20,380 --> 00:00:20,381
+81. validation1 = testdata["ContainsValidation"][i]
+
+38
+00:00:20,382 --> 00:00:20,383
+85. println(validation1)
+
+39
+00:00:20,383 --> 00:00:20,385
+89. validation2 = testdata["NotContainsValidation"][i]
+
+40
+00:00:20,385 --> 00:00:20,387
+93. println(validation2)
+
+41
+00:00:20,387 --> 00:00:20,389
+97. println(testdata["TCNumber"][i])
+
+42
+00:00:20,389 --> 00:00:20,399
+101. assert response.contains(validation1)
+
+43
+00:00:20,399 --> 00:00:21,356
+2. takeScreenshot("./screenshots/Failed_Wallet_Update.png")
+
+44
+00:00:21,357 --> 00:00:21,388
+6. println(Assertion failed: $e.message)
+
+45
+00:00:21,388 --> 00:00:21,392
+10. e.printStackTrace()
+
+46
+00:00:21,392 --> 00:00:23,546
+1. utils.closeBrowser()
+

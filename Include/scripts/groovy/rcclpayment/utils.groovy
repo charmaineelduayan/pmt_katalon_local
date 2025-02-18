@@ -31,6 +31,7 @@ import com.kms.katalon.core.testobject.RequestObject
 import com.kms.katalon.core.testobject.ResponseObject
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObjectProperty
+import java.text.SimpleDateFormat
 
 import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
@@ -128,5 +129,5 @@ class utils {
 		WebElement response = driver.findElement(By.xpath('//textarea[@class=\'text-dark form-control\']'))
 		String responseContent = response.getText()
 		return responseContent
-	} 
+	}
 }

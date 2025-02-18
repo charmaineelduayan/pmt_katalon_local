@@ -1,0 +1,80 @@
+1
+00:00:00,362 --> 00:00:00,371
+1. try
+
+2
+00:00:00,377 --> 00:00:16,797
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:16,818 --> 00:00:16,831
+5. driver = getWebDriver()
+
+4
+00:00:16,831 --> 00:00:16,835
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:16,836 --> 00:00:16,839
+13. TAB = "Validations_Prevalidations&Conf"
+
+6
+00:00:16,839 --> 00:00:19,230
+17. utils.goToValidations()
+
+7
+00:00:19,231 --> 00:00:19,966
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:19,976 --> 00:00:20,494
+25. testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:20,495 --> 00:00:20,782
+29. clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click()
+
+10
+00:00:20,783 --> 00:00:20,785
+33. for ([TestScenarioNumber = 0, TestScenarioNumber < testdataFromExcel.size(), (TestScenarioNumber++)])
+
+11
+00:00:20,786 --> 00:00:20,788
+1. TestScenarioRequiresCreateBooking = testdataFromExcel["ExecuteBookingCreationFlag"][TestScenarioNumber]
+
+12
+00:00:20,788 --> 00:00:20,790
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+13
+00:00:20,790 --> 00:00:21,434
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+14
+00:00:21,434 --> 00:00:21,666
+5. responseTextBox = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]"))
+
+15
+00:00:21,667 --> 00:00:21,697
+9. sendRequestTextBox.clear()
+
+16
+00:00:21,697 --> 00:00:26,721
+13. delay(5)
+
+17
+00:00:26,722 --> 00:01:05,114
+17. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+18
+00:01:05,115 --> 00:01:05,152
+2. println(An unexpected error occurred: $e.message)
+
+19
+00:01:05,152 --> 00:01:05,157
+6. e.printStackTrace()
+
+20
+00:01:05,157 --> 00:01:07,313
+1. utils.closeBrowser()
+

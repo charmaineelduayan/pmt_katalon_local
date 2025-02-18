@@ -22,91 +22,105 @@ import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.WebDriver as WebDriver
 import com.kms.katalon.core.testobject.RequestObject as RequestObject
 import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
+import java.text.SimpleDateFormat
 import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
 try {
-	utils.openBrowserAndNavigateToPMT()
-	
-	final String EXCEL_PATH = "./Data Files/TestData.xlsx"
-	final String TAB = "Wallet_Add"
+    utils.openBrowserAndNavigateToPMT()
 
-	WebDriver driver = DriverFactory.getWebDriver()
-	utils.goToWallets()
-	
-	WebElement clickAdd = driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
-	
-	utils.selectEnvironment(GlobalVariable.ENV)
-	WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+    final String EXCEL_PATH = "./Data Files/TestData.xlsx"
+    final String TAB = "Wallet_Add"
+    utils.goToWallets()
 
-	fetchGuestAccount = WS.sendRequest(findTestObject('GuestAccount'))
-	accountId = WS.getElementPropertyValue(fetchGuestAccount,'payload.accountId')
-	accessToken = WS.getElementPropertyValue(fetchGuestAccount,'payload.accessToken')
-	GlobalVariable.accountId = accountId
-	GlobalVariable.accessToken = accessToken
+    def fetchGuestAccount = WS.sendRequest(findTestObject('GuestAccount'))
+    def accountId = WS.getElementPropertyValue(fetchGuestAccount, 'payload.accountId')
+    def accessToken = WS.getElementPropertyValue(fetchGuestAccount, 'payload.accessToken')
+    GlobalVariable.accountId = accountId
+    GlobalVariable.accessToken = accessToken
 
-List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
-for(int i = 0; i < testdata.size(); i++) {
-	sendRequestTextBox.clear()
-	
-	String paymentMethod = testdata["paymentMethod"][i]
-	String cardNumber = testdata["cardNumber"][i]
-	CNumber = cardNumber.replaceAll(/\.0$/,'')
-	String expirationMonth = testdata["expirationMonth"][i]
-	xMonth = expirationMonth.replaceAll(/\.0$/,'')
-	String expirationYear = testdata["expirationYear"][i]
-	xYear = expirationYear.replaceAll(/\.0$/,'')
-	String cardholderName = testdata["cardholderName"][i]
-	String nickName = testdata["nickName"][i]
-	String defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
-	
-	String request =
-	"""{
-    "paymentMethod": {
-        "type": "${paymentMethod}",
-        "cardNumber": "${cardNumber}",
-        "expirationMonth": "${expirationMonth}",
-        "expirationYear": "${expirationYear}",
-        "cardholder": "${cardholderName}",
-        "nickname": "${nickName}",
-        "defaultPaymentMethod": "${defaultPaymentMethod}"
-    },
-    "accountId": "${accountId}",
-    "accessToken": "${accessToken}"
-}"""
-	def restRequest = new JsonSlurper().parseText(request)
-	def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
-	println(prettyJson)
-	sendRequestTextBox.sendKeys(prettyJson)
-	utils.clickSendButton()
-	
-	
-	WebUI.delay(3)
-	String response = utils.getResponse()
-	println response
+    List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH, TAB)
 
-	String validation1 = testdata["ContainsValidation"][i]
-	println validation1
-	String validation2 = testdata["NotContainsValidation"][i]
-	println validation2
-	println(testdata["TCNumber"][i])
-	assert response.contains(validation1)
-	assert response.contains(validation2) == false
-}
-}
-catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_Wallet_Add.png")
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
-}
-catch (org.openqa.selenium.NoSuchElementException e) {
-println("Element not found: ${e.message}")
-e.printStackTrace()
-}
-catch (Exception e) {
-println("An unexpected error occurred: ${e.message}")
-e.printStackTrace()
-}
-finally {
-utils.closeBrowser()
+    for (int i = 0; i < testdata.size(); i++) {
+        WebDriver driver = DriverFactory.getWebDriver()
+        driver.findElement(By.xpath("//a[normalize-space()='Add']")).click()
+        utils.selectEnvironment(GlobalVariable.ENV)
+        WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+        sendRequestTextBox.clear()
+
+        // Accessing Excel values correctly
+		String paymentMethod = testdata["paymentMethod"][i]
+		String cardNumber = testdata["cardNumber"][i]
+		String expirationMonth = testdata["expirationMonth"][i]
+		String expirationYear = testdata["expirationYear"][i]
+		String cardholderName = testdata["cardholderName"][i]
+		String nickName = testdata["nickName"][i]
+		String defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
+
+        String request =
+            """{
+                "paymentMethod": {
+                    "type": "${paymentMethod}",
+                    "cardNumber": "${cardNumber}",
+                    "expirationMonth": "${expirationMonth}",
+                    "expirationYear": "${expirationYear}",
+                    "cardholder": "${cardholderName}",
+                    "nickname": "${nickName}",
+                    "defaultPaymentMethod": "${defaultPaymentMethod}"
+                },
+                "accountId": "${accountId}",
+                "accessToken": "${accessToken}"
+            }"""
+
+        def restRequest = new JsonSlurper().parseText(request)
+        def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
+        println(prettyJson)
+
+        GlobalVariable.Wallet_cardNumber = cardNumber
+        GlobalVariable.Wallet_expirationMonth = expirationMonth
+        GlobalVariable.Wallet_expirationYear = expirationYear
+
+        sendRequestTextBox.sendKeys(prettyJson)
+        utils.clickSendButton()
+
+        WebUI.delay(3)
+        String response = utils.getResponse()
+        println response
+
+        if (response.contains("PY-0402")== false) {
+			String validation1 = testdata["ContainsValidation"][i]
+			println validation1
+			String validation2 = testdata["NotContainsValidation"][i]
+			println validation2
+			
+			println(testdata["TCNumber"][i])
+			assert response.contains(validation1) == true
+			assert response.contains(validation2) == false
+
+			if (response.contains(validation1) == false || response.contains(validation2) == true) {
+				String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+				String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
+				WebUI.takeScreenshot(f.toString())
+				println("Assertion failed")
+            }
+        } 
+		else {
+			println("Existing card detected. Deleting...")
+            WebUI.callTestCase(findTestCase('Re-Usable Script/Wallet_Delete'), [:], FailureHandling.CONTINUE_ON_FAILURE)
+            WebUI.refresh()
+            WebUI.delay(2)
+			if (i==testdata.size()-1){
+				break
+			}
+            i-- // Re-attempt the addition
+        }
+    }
+} catch (org.openqa.selenium.NoSuchElementException e) {
+    println("Element not found: ${e.message}")
+    e.printStackTrace()
+} catch (Exception e) {
+    println("An unexpected error occurred: ${e.message}")
+    e.printStackTrace()
+} finally {
+    utils.closeBrowser()
 }
