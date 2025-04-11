@@ -27,6 +27,7 @@ import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
 import rcclpayment.CreateAndRetrieveBooking as CreateAndRetrieveBooking
 import java.text.SimpleDateFormat
+import com.kms.katalon.core.util.KeywordUtil
 
 utils.openBrowserAndNavigateToPMT()
 
@@ -38,21 +39,21 @@ try {
 
     List<List> testdata = getdata.fromExcel(EXCEL_PATH, TAB)
 
-    for (int TestScenarioNumber = 0; TestScenarioNumber < testdata.size(); TestScenarioNumber++) {
+    for (int i = 0; i < testdata.size(); i++) {
         println(testdata.size())
 
 		WebUI.callTestCase(findTestCase('Re-Usable Script/Payment_AuthorizePayment'), [:], FailureHandling.STOP_ON_FAILURE)
 		
 		WebDriver driver = DriverFactory.getWebDriver()
 		WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Capture payment\']')).click()
+		
 		utils.selectEnvironment(GlobalVariable.ENV)
-        //createBooking to get the bookingId and passengerId
 		
 		WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
 		sendRequestTextBox.clear()
 
         //get testData from excel to pass in Request
-        String amount = (testdata['amount'])[TestScenarioNumber]
+        String amount = (testdata['amount'])[i]
         
 		String request = 
 			"""{
@@ -74,37 +75,28 @@ try {
 
         String response = utils.getResponse()
         println(response)
+		
+		String validation = (testdata['Validation'])[i]
+		if (response.contains(validation) == true) {
+			println validation
+			
+			} else {
+				//Mark Failed status after this step
+				KeywordUtil.markFailed("Expected response does not meet" + "Actual: " + response)
+				String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+				String f = "./screenshots/Failed_CapturePayment" + timestamp + ".png"
+				WebUI.takeScreenshot(f.toString())
+			}
+	
+			println('Test Scenario Number: ' + (i + 1))
 
         //to cancel the bookingId after it runs
         RequestObject cancelBookingRequest = findTestObject('CancelBooking')
         ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
         def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
-        println(cancelBookingJsonResponse)
-        String validation1 = (testdata['ContainsValidation'])[TestScenarioNumber]
-        println(validation1)
-        String validation2 = (testdata['NotContainsValidation'])[TestScenarioNumber]
-        println(validation2)
-        println((testdata['TCNumber'])[TestScenarioNumber])
-        
-		assert response.contains(validation1)
-        assert response.contains(validation2) == false
-		
-		if (response.contains(validation1) == false || response.contains(validation2) == true) {
-			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
-			String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
-			WebUI.takeScreenshot(f.toString())
-			println("Assertion failed")
-		}
-
-        println('Test Scenario Number: ' + TestScenarioNumber //for checking what test scenario number the running stops if failure occurs
-            )
-    }
+ 
+	}
 }
-catch (AssertionError e) {
-	WebUI.takeScreenshot("./screenshots/Failed_Payment_CapturePayment.png")
-	println("Assertion failed: ${e.message}")
-	e.printStackTrace()
-} 
 catch (org.openqa.selenium.NoSuchElementException e) {
     println("Element not found: $e.message")
 

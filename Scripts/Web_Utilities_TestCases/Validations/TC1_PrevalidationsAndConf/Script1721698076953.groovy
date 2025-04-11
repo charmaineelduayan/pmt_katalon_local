@@ -26,112 +26,90 @@ import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
 import rcclpayment.CreateAndRetrieveBooking as CreateAndRetrieveBooking
+import java.text.SimpleDateFormat
+import com.kms.katalon.core.util.KeywordUtil
 
 try {
     utils.openBrowserAndNavigateToPMT()
-
     WebDriver driver = DriverFactory.getWebDriver()
-
     String EXCEL_PATH = './Data Files/TestData.xlsx'
-
     String TAB = 'Validations_Prevalidations&Conf'
-
     utils.goToValidations()
-
     utils.selectEnvironment(GlobalVariable.ENV)
 
-    List<List> testdataFromExcel = getdata.fromExcel(EXCEL_PATH, TAB)
+    List<List> testdata = getdata.fromExcel(EXCEL_PATH, TAB)
 
     WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Prevalidations and Conf\']')).click()
 
-    for (int TestScenarioNumber = 0; TestScenarioNumber < testdataFromExcel.size(); TestScenarioNumber++) {
-        String TestScenarioRequiresCreateBooking = (testdataFromExcel['ExecuteBookingCreationFlag'])[TestScenarioNumber]
+    for (int i = 0; i < testdata.size(); i++) {
+        String TestScenarioRequiresCreateBooking = (testdata['ExecuteBookingCreationFlag'])[i]
 
         if (TestScenarioRequiresCreateBooking == 'Yes') {
             WebElement sendRequestTextBox = driver.findElement(By.xpath('//input[@id=\'1\']'))
-
-            WebElement responseTextBox = driver.findElement(By.xpath('/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]'))
-
             sendRequestTextBox.clear()
-
             WebUI.delay(5)
 
-            def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
-
+            def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i)
             println(getBookingData['BookingId'])
-
             println(getBookingData['BookingAccessToken'])
-
             String BookingId = getBookingData['BookingId']
+			// for test scenarios that requires booking. (test data is from the bookingId column in excel)
+            String BookingIdToBePassedRaw = (testdata['BookingId'])[i] 
 
-            String BookingIdToBePassedRaw = (testdataFromExcel['BookingId'])[TestScenarioNumber // for test scenarios that requires booking. (it gets its value in BookingId column in
-            ]
-
-            String BookingIdToBePassed = BookingIdToBePassedRaw.replace('BookingId', BookingId // which is a string "BookingId" and it is replaced with the bookingId from the create booking)
-                )
-
+			// BookingIdToBePassed which is a string "BookingId" and it is replaced with the bookingId from the create booking)
+            String BookingIdToBePassed = BookingIdToBePassedRaw.replace('BookingId', BookingId) 
             sendRequestTextBox.sendKeys(BookingIdToBePassed)
-
             println(BookingIdToBePassed)
-
             utils.clickSendButton()
-
             WebUI.delay(5)
+			
+			String response = utils.getResponse()
+            String validation = (testdata['Validation'])[i]
+				if (response.contains(validation) == true) {
+					println validation
+					
+				} else {
+					//Mark Failed status after this step
+					KeywordUtil.markFailed("Expected response does not meet" + "Actual: " + response)
+					String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+					String f = "./screenshots/Failed_PreValidationsAndConf" + timestamp + ".png"
+					WebUI.takeScreenshot(f.toString())
+				}
 
-            RequestObject cancelBookingRequest = findTestObject('CancelBooking')
-
-            ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
-
-            def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
-
-            println(cancelBookingJsonResponse)
-
-            String response = responseTextBox.getText()
-
-            String validationString = (testdataFromExcel['Validation'])[TestScenarioNumber]
-
-            assert response.contains(validationString)
-
-            println('Test Scenario Number: ' + (TestScenarioNumber + 1 //for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
-                ))
-
-            WebUI.takeFullPageScreenshotAsCheckpoint('Sample Visual Screenshot')
+            println('Test Scenario Number: ' + (i + 1)) //for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+        
         } else {
             WebElement sendRequestTextBox = driver.findElement(By.xpath('//input[@id=\'1\']'))
-
-            WebElement responseTextBox = driver.findElement(By.xpath('/html[1]/body[1]/div[1]/main[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/textarea[1]'))
-
             sendRequestTextBox.clear()
 
-            String BookingIdToBePassed = (testdataFromExcel['BookingId'])[TestScenarioNumber]
-
+            String BookingIdToBePassed = (testdata['BookingId'])[i]
             sendRequestTextBox.sendKeys(BookingIdToBePassed)
-
             println(BookingIdToBePassed)
-
             utils.clickSendButton()
 
             WebUI.delay(2)
 
-            String response = responseTextBox.getText()
-
-            String validationString = (testdataFromExcel['Validation'])[TestScenarioNumber]
-
-            assert response.contains(validationString)
-
-            println('Test Scenario Number: ' + (TestScenarioNumber + 1))
-
-            WebUI.takeFullPageScreenshotAsCheckpoint('Sample Visual Screenshot')
+			String response = utils.getResponse()
+            String validation = (testdata['Validation'])[i]
+				if (response.contains(validation) == true) {
+					println validation
+					
+				} else {
+					//Mark Failed status after this step
+					KeywordUtil.markFailed("Expected response does not meet" + "Actual: " + response)
+					String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+					String f = "./screenshots/Failed_PreValidationsAndConf" + timestamp + ".png"
+					WebUI.takeScreenshot(f.toString())
+				}
+            println('Test Scenario Number: ' + (i))
         }
-    }
+    
+		RequestObject cancelBookingRequest = findTestObject('CancelBooking')
+		ResponseObject cancelBookingResponse = WS.sendRequest(cancelBookingRequest)
+		def cancelBookingJsonResponse = new JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+		println(cancelBookingJsonResponse)
+	}
 }
-catch (AssertionError e) {
-    WebUI.takeScreenshot('./screenshots/Failed_PreValidationsAndConf.png')
-
-    println("Assertion failed: $e.message")
-
-    e.printStackTrace()
-} 
 catch (org.openqa.selenium.NoSuchElementException e) {
     println("Element not found: $e.message")
 

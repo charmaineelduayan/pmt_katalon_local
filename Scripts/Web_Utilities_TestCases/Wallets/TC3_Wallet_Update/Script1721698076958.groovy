@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat
 import groovy.json.*
 import rcclpayment.utils as utils
 import rcclpayment.getdata as getdata
+import com.kms.katalon.core.util.KeywordUtil
 
 try {
     utils.openBrowserAndNavigateToPMT()
@@ -92,15 +93,7 @@ try {
 		String response = utils.getResponse()
 		println response
 	
-		String validation1 = testdata["ContainsValidation"][i]
-		println validation1
-		String validation2 = testdata["NotContainsValidation"][i]
-		println validation2
-		println(testdata["TCNumber"][i])
-		assert response.contains(validation1)
-		assert response.contains(validation2) == false
-		
-        if (response.contains("PY-0402")== false) {
+        if (response.contains("PY-0404")== false) {
 			String validation1 = testdata["ContainsValidation"][i]
 			println validation1
 			String validation2 = testdata["NotContainsValidation"][i]
@@ -121,7 +114,7 @@ try {
 			println("Existing card detected. Deleting...")
             WebUI.callTestCase(findTestCase('Re-Usable Script/Wallet_Delete'), [:], FailureHandling.CONTINUE_ON_FAILURE)
             WebUI.refresh()
-            WebUI.delay(2) 
+            WebUI.delay(2)
 			if (i==testdata.size()-1){
 				break
 			}

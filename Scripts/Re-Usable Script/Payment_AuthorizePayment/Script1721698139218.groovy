@@ -28,8 +28,9 @@ import rcclpayment.utils
 import rcclpayment.getdata
 import rcclpayment.CreateAndRetrieveBooking
 import java.text.SimpleDateFormat
+import com.kms.katalon.core.util.KeywordUtil
 
-
+utils.openBrowserAndNavigateToPMT()
 WebDriver driver = DriverFactory.getWebDriver()
 utils.goToPayments()
 WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-space()=\'Authorize payment\']')).click()
@@ -41,125 +42,146 @@ WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-sp
 	utils.selectEnvironment(GlobalVariable.ENV)
 	
 	List<List<Object>> testdata = getdata.fromExcel(EXCEL_PATH,TAB)
-	for(int TestScenarioNumber = 0; TestScenarioNumber < testdata.size(); TestScenarioNumber++) { 
-		println(testdata.size())
-
-		//createBooking to get the bookingId and passengerId
-		def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
-		println(getBookingData["BookingId"])
-		println(getBookingData["BookingAccessToken"])
-	
-		WebUI.delay(5)
+	for(int i = 0; i < testdata.size(); i++) { 
+		String TestScenarioRequiresCreateBooking = (testdata['ExecuteBookingCreationFlag'])[i]
 		
-		//Replace "BookingId" value from bookingId column in excel sheet
-		String bookingIdCol = testdata["bookingId"][TestScenarioNumber]
-		String BookingId = getBookingData["BookingId"]
-		String replaceBookingId = bookingIdCol.replace("BookingId",BookingId)
-		println(replaceBookingId)
+		if (TestScenarioRequiresCreateBooking == 'Yes') {
+			WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+			sendRequestTextBox.clear()
+			
+			//createBooking to get the bookingId and passengerId
+			def getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i)
+			println(getBookingData["BookingId"])
+			println(getBookingData["BookingAccessToken"])
 		
-		//Replace "PassengerId" value from passengerId in excel sheet
-		String passengerIdCol = testdata["passengerId"][TestScenarioNumber]
-		String PassengerId = getBookingData["PassengerId"]
-		String replacePassengerId = passengerIdCol.replace("PassengerId",PassengerId)
-		println(replacePassengerId)
+			WebUI.delay(5)
+			
+			//Replace "BookingId" value from bookingId column in excel sheet
+			String bookingIdCol = testdata["bookingId"][i]
+			String BookingId = getBookingData["BookingId"]
+			String replaceBookingId = bookingIdCol.replace("BookingId",BookingId)
+			println(replaceBookingId)
+			
+			//Replace "PassengerId" value from passengerId in excel sheet
+			String passengerIdCol = testdata["passengerId"][i]
+			String PassengerId = getBookingData["PassengerId"]
+			String replacePassengerId = passengerIdCol.replace("PassengerId",PassengerId)
+			println(replacePassengerId)
+			
+			//get testData from excel to pass in Request
+			String paymentChannel = testdata["paymentChannel"][i]
+			String orderId = testdata["orderId"][i]
+			String type = testdata["type"][i]
+			String intent = testdata["intent"][i]
+			String officeCode = testdata["officeCode"][i]
+			String countryCode = testdata["countryCode"][i]
+			String currency = testdata["currency"][i]
+			String total = testdata["total"][i]
+			String paymentType = testdata["paymentType"][i]	
+			String cardNumber = testdata["token"][i]
+			String expirationMonth = testdata["expirationMonth"][i]
+			String expirationYear = testdata["expirationYear"][i]
+			String cvv = testdata["cvv"][i]
+			String cardholderName = testdata["cardholderName"][i]
+			String addressOne = testdata["addressOne"][i]
+			String city = testdata["city"][i]
+			String state = testdata["state"][i]
+			String zipCode = testdata["zipCode"][i]
 		
-		WebElement sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
-		sendRequestTextBox.clear()
+			String request =
+				"""{
+				"paymentChannel": "${paymentChannel}",
+				"orderId": "${orderId}",
+				"type": "${type}",
+				"intent": "${intent}",
+				"items": [
+					{
+		            "bookingId": "${replaceBookingId}",
+		            "passengerId": "${replacePassengerId}",
+		            "officeCode": "${officeCode}",
+		            "countryCode": "${countryCode}",
+		            "amount": {
+		                "currency": "${currency}",
+		                "total": ${total}
+		           	 	}
+					}
+					],
+					    "paymentMethod": {
+					        "type": "${paymentType}",
+					        "token": "${cardNumber}",
+					        "expirationYear": "${expirationYear}",
+					        "expirationMonth": "${expirationMonth}",
+					        "cvv": "${cvv}",
+					        "cardholder": "${cardholderName}",
+					        "billingAddress": {
+					            "addressOne": "${addressOne}",
+					            "city": "${city}",
+					            "state": "${state}",
+					            "zipCode": "${zipCode}"
+					        }
+					    }
+					}"""
+			def restRequest = new JsonSlurper().parseText(request)
+			def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
+			println(prettyJson)
+			sendRequestTextBox.sendKeys(prettyJson)
+			utils.clickSendButton()
+			
+			WebUI.delay(3)
+			String response = utils.getResponse()
+			println response
+			
+			def res = new JsonSlurper().parseText(response)
+			def resJson = new groovy.json.JsonBuilder(res).toPrettyString()
+			println(resJson)
+			
+			GlobalVariable.AuthorizePaymentResponse = res
+			String transactionId = res.transactionId
+			println(transactionId)
+			String BKID = res.bookingIds[0]
+			
+			GlobalVariable.transactionId = transactionId
+			GlobalVariable.BKID = BKID
 		
-		//get testData from excel to pass in Request
-		String paymentChannel = testdata["paymentChannel"][TestScenarioNumber]
-		String orderId = testdata["orderId"][TestScenarioNumber]
-		String type = testdata["type"][TestScenarioNumber]
-		String intent = testdata["intent"][TestScenarioNumber]
-		String officeCode = testdata["officeCode"][TestScenarioNumber]
-		String countryCode = testdata["countryCode"][TestScenarioNumber]
-		String currency = testdata["currency"][TestScenarioNumber]
-		String total = testdata["total"][TestScenarioNumber]
-		String paymentType = testdata["paymentType"][TestScenarioNumber]	
-		String cardNumber = testdata["token"][TestScenarioNumber]
-		String expirationMonth = testdata["expirationMonth"][TestScenarioNumber]
-		String expirationYear = testdata["expirationYear"][TestScenarioNumber]
-		String cvv = testdata["cvv"][TestScenarioNumber]
-		String cardholderName = testdata["cardholderName"][TestScenarioNumber]
-		String addressOne = testdata["addressOne"][TestScenarioNumber]
-		String city = testdata["city"][TestScenarioNumber]
-		String state = testdata["state"][TestScenarioNumber]
-		String zipCode = testdata["zipCode"][TestScenarioNumber]
-	
-		String request =
-			"""{
-			"paymentChannel": "${paymentChannel}",
-			"orderId": "${orderId}",
-			"type": "${type}",
-			"intent": "${intent}",
-			"items": [
-				{
-	            "bookingId": "${replaceBookingId}",
-	            "passengerId": "${replacePassengerId}",
-	            "officeCode": "${officeCode}",
-	            "countryCode": "${countryCode}",
-	            "amount": {
-	                "currency": "${currency}",
-	                "total": ${total}
-	           	 	}
+            String validation = (testdata['Validation'])[i]
+				if (response.contains(validation) == true) {
+					println validation
+					
+				} else {
+					//Mark Failed status after this step
+					KeywordUtil.markFailed("Expected response does not meet" + "Actual: " + response)
+					String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+					String f = "./screenshots/Failed_AuthorizePayment" + timestamp + ".png"
+					WebUI.takeScreenshot(f.toString())
 				}
-				],
-				    "paymentMethod": {
-				        "type": "${paymentType}",
-				        "token": "${cardNumber}",
-				        "expirationYear": "${expirationYear}",
-				        "expirationMonth": "${expirationMonth}",
-				        "cvv": "${cvv}",
-				        "cardholder": "${cardholderName}",
-				        "billingAddress": {
-				            "addressOne": "${addressOne}",
-				            "city": "${city}",
-				            "state": "${state}",
-				            "zipCode": "${zipCode}"
-				        }
-				    }
-				}"""
-		def restRequest = new JsonSlurper().parseText(request)
-		def prettyJson = new groovy.json.JsonBuilder(restRequest).toPrettyString()
-		println(prettyJson)
-		sendRequestTextBox.sendKeys(prettyJson)
-		utils.clickSendButton()
-		
-		WebUI.delay(3)
-		String response = utils.getResponse()
-		println response
-		
-		def res = new JsonSlurper().parseText(response)
-		def resJson = new groovy.json.JsonBuilder(res).toPrettyString()
-		println(resJson)
-		
-		GlobalVariable.AuthorizePaymentResponse = res
-		String transactionId = res.transactionId
-		println(transactionId)
-		String BKID = res.bookingIds[0]
-		
-		GlobalVariable.transactionId = transactionId
-		GlobalVariable.BKID = BKID
-		
-	
-		String validation1 = testdata["ContainsValidation"][TestScenarioNumber]
-		println validation1
-		String validation2 = testdata["NotContainsValidation"][TestScenarioNumber]
-		println validation2
-		println(testdata["TCNumber"][TestScenarioNumber])
-		assert response.contains(validation1)
-		assert response.contains(validation2) == false
-		
-		if (response.contains(validation1) == false || response.contains(validation2) == true) {
-			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
-			String f = "./screenshots/Failed_Wallet_Add" + timestamp + ".png"
-			WebUI.takeScreenshot(f.toString())
-			println("Assertion failed")
+			
+            println('Test Scenario Number: ' + (i + 1)) //for checking what test scenario number the running stops if failure occurs (+ 1 because the for loop index starts with 0)
+			
 		}
-		
-		println("Test Scenario Number: " + TestScenarioNumber) //for checking what test scenario number the running stops if failure occurs
-		
+		else {
+
+			String BookingIdToBePassed = (testdata['BookingId'])[i]
+			sendRequestTextBox.sendKeys(BookingIdToBePassed)
+			println(BookingIdToBePassed)
+			utils.clickSendButton()
+
+			WebUI.delay(2)
+
+			String response = utils.getResponse()
+			String validation = (testdata['Validation'])[i]
+				if (response.contains(validation) == true) {
+					println validation
+					
+				} else {
+					//Mark Failed status after this step
+					KeywordUtil.markFailed("Expected response does not meet" + "Actual: " + response)
+					String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+					String f = "./screenshots/Failed_AuthorizePayment" + timestamp + ".png"
+					WebUI.takeScreenshot(f.toString())
+				}
+			println('Test Scenario Number: ' + (i))
 		}
+	}
 
 
 

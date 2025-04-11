@@ -27,6 +27,8 @@ import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import rcclpayment.utils
 import rcclpayment.getdata
+import java.text.SimpleDateFormat
+import com.kms.katalon.core.util.KeywordUtil
 
 try {
 	utils.openBrowserAndNavigateToPMT()
@@ -47,7 +49,6 @@ try {
 		sendRequestTextBox.clear()
 		
 		String encryptedCard = testdata["encryptedCard"][i]
-		CNumber = encryptedCard.replaceAll(/\.0$/,'')
 		
 		String request =  "${encryptedCard}"
 		println(request)
@@ -59,21 +60,20 @@ try {
 		String response = utils.getResponse()
 		println response
 
-		String validation1 = testdata["ContainsValidation"][i]
-		println validation1
-		String validation2 = testdata["NotContainsValidation"][i]
-		println validation2
-		println(testdata["TCNumber"][i])
-		assert response.contains(validation1) 
-		assert response.contains(validation2) == false
+		String validation = testdata["Validation"][i]
+		
+		if (response.contains(validation) == true) {
+			println validation
+			
+		} else {
+			//Mark Failed status after this step
+			KeywordUtil.markFailed("Expected response does not meet" + "Actual: " + response)
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
+			String f = "./screenshots/Failed_CardTokenization_EncryptedCard" + timestamp + ".png"
+			WebUI.takeScreenshot(f.toString())
+			}
+		println('Test Scenario Number: ' + (i + 1))
 	}	
-}
-catch (AssertionError e) {
-	String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())
-	String f = "./screenshots/Failed_CardTokenization_EncryptedCard" + timestamp + ".png"
-	WebUI.takeScreenshot(f.toString())
-	KeywordUtil.markFailed("Assertion failed: ${e.message}")
-	e.printStackTrace()
 }
 catch (org.openqa.selenium.NoSuchElementException e) {
 	println("Element not found: ${e.message}")
