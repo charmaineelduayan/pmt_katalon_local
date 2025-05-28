@@ -1,0 +1,336 @@
+1
+00:00:00,250 --> 00:00:00,259
+1. try
+
+2
+00:00:00,264 --> 00:00:05,663
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,683 --> 00:00:05,706
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:05,706 --> 00:00:05,710
+9. TAB = "cardTokenization_Generate"
+
+5
+00:00:05,711 --> 00:00:05,723
+13. driver = getWebDriver()
+
+6
+00:00:05,723 --> 00:00:09,109
+17. utils.goToCardTokenization()
+
+7
+00:00:09,110 --> 00:00:10,001
+21. clickGenerateToken = xpath("//a[normalize-space()='Generate Token']")).click()
+
+8
+00:00:10,001 --> 00:00:12,072
+25. utils.selectEnvironment(ENV)
+
+9
+00:00:12,073 --> 00:00:12,303
+29. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+10
+00:00:12,304 --> 00:00:12,878
+33. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+11
+00:00:12,879 --> 00:00:12,882
+37. for ([i = 0, i < testdata.size(), (i++)])
+
+12
+00:00:12,883 --> 00:00:12,913
+1. sendRequestTextBox.clear()
+
+13
+00:00:12,914 --> 00:00:12,919
+5. encryptedCard = testdata["encryptedCard"][i]
+
+14
+00:00:12,920 --> 00:00:12,924
+9. expirationMonth = testdata["expirationMonth"][i]
+
+15
+00:00:12,924 --> 00:00:12,930
+13. expirationYear = testdata["expirationYear"][i]
+
+16
+00:00:12,930 --> 00:00:12,963
+17. request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}
+
+17
+00:00:12,964 --> 00:00:12,980
+21. restRequest = JsonSlurper().parseText(request)
+
+18
+00:00:12,980 --> 00:00:13,013
+25. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+19
+00:00:13,013 --> 00:00:13,019
+29. println(prettyJson)
+
+20
+00:00:13,019 --> 00:00:13,183
+33. sendRequestTextBox.sendKeys(prettyJson)
+
+21
+00:00:13,184 --> 00:00:14,985
+37. utils.clickSendButton()
+
+22
+00:00:14,985 --> 00:00:18,008
+41. delay(3)
+
+23
+00:00:18,008 --> 00:00:18,358
+45. response = utils.getResponse()
+
+24
+00:00:18,359 --> 00:00:18,361
+49. println(response)
+
+25
+00:00:18,361 --> 00:00:18,364
+53. validation = testdata["Validation"][i]
+
+26
+00:00:18,364 --> 00:00:18,366
+57. if (response.contains(validation) == true)
+
+27
+00:00:18,366 --> 00:00:18,368
+1. println(validation)
+
+28
+00:00:18,368 --> 00:00:18,378
+61. println("Test Scenario Number: " + i + 1)
+
+29
+00:00:18,378 --> 00:00:18,397
+1. sendRequestTextBox.clear()
+
+30
+00:00:18,397 --> 00:00:18,399
+5. encryptedCard = testdata["encryptedCard"][i]
+
+31
+00:00:18,399 --> 00:00:18,400
+9. expirationMonth = testdata["expirationMonth"][i]
+
+32
+00:00:18,400 --> 00:00:18,401
+13. expirationYear = testdata["expirationYear"][i]
+
+33
+00:00:18,402 --> 00:00:18,403
+17. request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}
+
+34
+00:00:18,403 --> 00:00:18,405
+21. restRequest = JsonSlurper().parseText(request)
+
+35
+00:00:18,405 --> 00:00:18,406
+25. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+36
+00:00:18,407 --> 00:00:18,408
+29. println(prettyJson)
+
+37
+00:00:18,408 --> 00:00:18,510
+33. sendRequestTextBox.sendKeys(prettyJson)
+
+38
+00:00:18,510 --> 00:00:18,792
+37. utils.clickSendButton()
+
+39
+00:00:18,793 --> 00:00:21,798
+41. delay(3)
+
+40
+00:00:21,798 --> 00:00:22,029
+45. response = utils.getResponse()
+
+41
+00:00:22,030 --> 00:00:22,031
+49. println(response)
+
+42
+00:00:22,031 --> 00:00:22,032
+53. validation = testdata["Validation"][i]
+
+43
+00:00:22,032 --> 00:00:22,033
+57. if (response.contains(validation) == true)
+
+44
+00:00:22,033 --> 00:00:22,033
+1. println(validation)
+
+45
+00:00:22,034 --> 00:00:22,035
+61. println("Test Scenario Number: " + i + 1)
+
+46
+00:00:22,035 --> 00:00:22,053
+1. sendRequestTextBox.clear()
+
+47
+00:00:22,053 --> 00:00:22,054
+5. encryptedCard = testdata["encryptedCard"][i]
+
+48
+00:00:22,055 --> 00:00:22,056
+9. expirationMonth = testdata["expirationMonth"][i]
+
+49
+00:00:22,056 --> 00:00:22,057
+13. expirationYear = testdata["expirationYear"][i]
+
+50
+00:00:22,058 --> 00:00:22,058
+17. request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}
+
+51
+00:00:22,059 --> 00:00:22,060
+21. restRequest = JsonSlurper().parseText(request)
+
+52
+00:00:22,060 --> 00:00:22,062
+25. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+53
+00:00:22,062 --> 00:00:22,064
+29. println(prettyJson)
+
+54
+00:00:22,065 --> 00:00:22,164
+33. sendRequestTextBox.sendKeys(prettyJson)
+
+55
+00:00:22,164 --> 00:00:22,438
+37. utils.clickSendButton()
+
+56
+00:00:22,439 --> 00:00:25,446
+41. delay(3)
+
+57
+00:00:25,446 --> 00:00:25,680
+45. response = utils.getResponse()
+
+58
+00:00:25,680 --> 00:00:25,681
+49. println(response)
+
+59
+00:00:25,681 --> 00:00:25,682
+53. validation = testdata["Validation"][i]
+
+60
+00:00:25,682 --> 00:00:25,683
+57. if (response.contains(validation) == true)
+
+61
+00:00:25,683 --> 00:00:25,684
+1. println(validation)
+
+62
+00:00:25,684 --> 00:00:25,685
+61. println("Test Scenario Number: " + i + 1)
+
+63
+00:00:25,685 --> 00:00:25,705
+1. sendRequestTextBox.clear()
+
+64
+00:00:25,706 --> 00:00:25,707
+5. encryptedCard = testdata["encryptedCard"][i]
+
+65
+00:00:25,707 --> 00:00:25,708
+9. expirationMonth = testdata["expirationMonth"][i]
+
+66
+00:00:25,708 --> 00:00:25,709
+13. expirationYear = testdata["expirationYear"][i]
+
+67
+00:00:25,710 --> 00:00:25,710
+17. request = {
+			"cardNumber": "$encryptedCard",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear"
+			}
+
+68
+00:00:25,711 --> 00:00:25,712
+21. restRequest = JsonSlurper().parseText(request)
+
+69
+00:00:25,712 --> 00:00:25,713
+25. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+70
+00:00:25,713 --> 00:00:25,714
+29. println(prettyJson)
+
+71
+00:00:25,714 --> 00:00:25,807
+33. sendRequestTextBox.sendKeys(prettyJson)
+
+72
+00:00:25,807 --> 00:00:26,076
+37. utils.clickSendButton()
+
+73
+00:00:26,076 --> 00:00:29,079
+41. delay(3)
+
+74
+00:00:29,080 --> 00:00:29,312
+45. response = utils.getResponse()
+
+75
+00:00:29,312 --> 00:00:29,313
+49. println(response)
+
+76
+00:00:29,313 --> 00:00:29,314
+53. validation = testdata["Validation"][i]
+
+77
+00:00:29,314 --> 00:00:29,315
+57. if (response.contains(validation) == true)
+
+78
+00:00:29,315 --> 00:00:29,315
+1. println(validation)
+
+79
+00:00:29,316 --> 00:00:29,319
+61. println("Test Scenario Number: " + i + 1)
+
+80
+00:00:29,319 --> 00:00:31,473
+1. utils.closeBrowser()
+

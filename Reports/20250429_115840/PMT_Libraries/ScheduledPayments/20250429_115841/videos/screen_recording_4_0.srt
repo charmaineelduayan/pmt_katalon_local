@@ -1,0 +1,172 @@
+1
+00:00:00,250 --> 00:00:00,251
+1. try
+
+2
+00:00:00,251 --> 00:00:05,910
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,931 --> 00:00:05,933
+5. driver = getWebDriver()
+
+4
+00:00:05,933 --> 00:00:05,934
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:05,934 --> 00:00:05,935
+13. TAB = "ScheduledPayment_Get"
+
+6
+00:00:05,936 --> 00:00:09,596
+17. utils.goToScheduledPayments()
+
+7
+00:00:09,596 --> 00:00:11,052
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:11,052 --> 00:00:11,091
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:11,092 --> 00:00:11,093
+29. for ([i = 0, i < testdata.size(), (i++)])
+
+10
+00:00:11,093 --> 00:00:11,094
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+11
+00:00:11,095 --> 00:00:11,096
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+12
+00:00:11,096 --> 00:00:11,392
+1. clickADD = xpath("//a[normalize-space()='Add']")).click()
+
+13
+00:00:11,393 --> 00:00:12,231
+5. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+14
+00:00:12,231 --> 00:00:12,257
+9. sendRequestTextBox.clear()
+
+15
+00:00:12,257 --> 00:00:35,718
+13. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i)
+
+16
+00:00:35,718 --> 00:00:35,720
+17. println(getBookingData["BookingId"])
+
+17
+00:00:35,720 --> 00:00:35,721
+21. println(getBookingData["BookingAccessToken"])
+
+18
+00:00:35,722 --> 00:00:40,729
+25. delay(5)
+
+19
+00:00:40,729 --> 00:00:40,731
+29. ADDRequestRaw = testdata["ADDRequest"][i]
+
+20
+00:00:40,732 --> 00:00:40,733
+33. BookingId = getBookingData["BookingId"]
+
+21
+00:00:40,734 --> 00:00:40,735
+37. ADDRequest = ADDRequestRaw.replace("BookingId", BookingId)
+
+22
+00:00:40,735 --> 00:00:41,483
+41. sendRequestTextBox.sendKeys(ADDRequest)
+
+23
+00:00:41,484 --> 00:00:41,486
+45. println(ADDRequest)
+
+24
+00:00:41,487 --> 00:00:42,811
+49. utils.clickSendButton()
+
+25
+00:00:42,811 --> 00:00:47,818
+53. delay(5)
+
+26
+00:00:47,819 --> 00:00:48,365
+57. refresh()
+
+27
+00:00:48,366 --> 00:00:51,372
+61. delay(3)
+
+28
+00:00:51,372 --> 00:00:51,653
+65. clickGET = xpath("//a[normalize-space()='Get']")).click()
+
+29
+00:00:51,654 --> 00:00:51,879
+69. sendRequestTextBox2 = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+30
+00:00:51,879 --> 00:00:51,899
+73. sendRequestTextBox2.clear()
+
+31
+00:00:51,899 --> 00:00:51,901
+77. BookingIdToBePassedRaw = testdata["BookingId"][i]
+
+32
+00:00:51,902 --> 00:00:51,903
+81. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+33
+00:00:51,903 --> 00:00:51,976
+85. sendRequestTextBox2.sendKeys(BookingIdToBePassed)
+
+34
+00:00:51,976 --> 00:00:51,978
+89. println(BookingIdToBePassed)
+
+35
+00:00:51,979 --> 00:00:52,267
+93. utils.clickSendButton()
+
+36
+00:00:52,267 --> 00:00:57,275
+97. delay(5)
+
+37
+00:00:57,276 --> 00:00:57,518
+101. response = utils.getResponse()
+
+38
+00:00:57,519 --> 00:00:57,520
+105. println(response)
+
+39
+00:00:57,520 --> 00:00:57,521
+109. validationString = testdata["Validation"][i]
+
+40
+00:00:57,521 --> 00:00:57,523
+113. assert response.contains(validationString)
+
+41
+00:00:57,524 --> 00:00:57,527
+2. println(An unexpected error occurred: $e.message)
+
+42
+00:00:57,527 --> 00:00:57,529
+6. e.printStackTrace()
+
+43
+00:00:57,529 --> 00:00:59,671
+1. utils.closeBrowser()
+

@@ -1,0 +1,28 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+ScheduledPayments,Chrome 135.0.0.0,,,29-04-2025 11:58:44,29-04-2025 12:03:31,4m - 46.368s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC1_ScheduledPayment_GetEligibility,Chrome 135.0.0.0,,,29-04-2025 11:58:44,29-04-2025 12:00:22,1m - 37.550s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 135.0.0.0,,,29-04-2025 11:58:45,29-04-2025 11:58:50,5.244s,PASSED
+try,Chrome 135.0.0.0,,,29-04-2025 11:58:50,29-04-2025 12:00:18,1m - 27.297s,PASSED
+Finally,Chrome 135.0.0.0,,,29-04-2025 12:00:18,29-04-2025 12:00:20,2.191s,PASSED
+Video,Chrome 135.0.0.0,,,29-04-2025 12:00:22,29-04-2025 12:00:22,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC3_ScheduledPayment_Add,Chrome 135.0.0.0,,,29-04-2025 12:00:22,29-04-2025 12:02:11,1m - 49.073s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 135.0.0.0,,,29-04-2025 12:00:22,29-04-2025 12:00:28,6.082s,PASSED
+try,Chrome 135.0.0.0,,,29-04-2025 12:00:28,29-04-2025 12:02:05,1m - 37.036s,PASSED
+catch (AssertionError e),Chrome 135.0.0.0,,,29-04-2025 12:02:05,29-04-2025 12:02:07,1.213s,PASSED
+Finally,Chrome 135.0.0.0,,,29-04-2025 12:02:07,29-04-2025 12:02:09,2.328s,PASSED
+Video,Chrome 135.0.0.0,,,29-04-2025 12:02:11,29-04-2025 12:02:11,0.001s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC2_ScheduledPayment_ConfirmWithRequest,Chrome 135.0.0.0,,,29-04-2025 12:02:11,29-04-2025 12:02:29,17.730s,PASSED
+utils.openBrowserAndNavigateToPMT(),Chrome 135.0.0.0,,,29-04-2025 12:02:11,29-04-2025 12:02:16,4.877s,PASSED
+try,Chrome 135.0.0.0,,,29-04-2025 12:02:16,29-04-2025 12:02:24,8.476s,FAILED
+catch (Exception e),Chrome 135.0.0.0,,,29-04-2025 12:02:24,29-04-2025 12:02:25,0.017s,PASSED
+Finally,Chrome 135.0.0.0,,,29-04-2025 12:02:25,29-04-2025 12:02:27,2.123s,PASSED
+Video,Chrome 135.0.0.0,,,29-04-2025 12:02:29,29-04-2025 12:02:29,0.000s,PASSED
+,,,,,,,
+Test Cases/Web_Utilities_TestCases/ScheduledPayments/TC4_ScheduledPayment_Get,Chrome 135.0.0.0,,,29-04-2025 12:02:29,29-04-2025 12:03:31,1m - 1.876s,PASSED
+try,Chrome 135.0.0.0,,,29-04-2025 12:02:29,29-04-2025 12:03:26,57.273s,PASSED
+catch (Exception e),Chrome 135.0.0.0,,,29-04-2025 12:03:26,29-04-2025 12:03:26,0.006s,PASSED
+Finally,Chrome 135.0.0.0,,,29-04-2025 12:03:26,29-04-2025 12:03:29,2.141s,PASSED
+Video,Chrome 135.0.0.0,,,29-04-2025 12:03:31,29-04-2025 12:03:31,0.000s,PASSED

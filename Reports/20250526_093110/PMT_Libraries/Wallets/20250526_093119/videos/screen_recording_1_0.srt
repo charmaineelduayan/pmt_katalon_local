@@ -1,0 +1,126 @@
+1
+00:00:00,346 --> 00:00:00,355
+1. try
+
+2
+00:00:00,359 --> 00:00:06,219
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:06,259 --> 00:00:06,282
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:06,283 --> 00:00:06,290
+9. TAB = "Wallet_Update"
+
+5
+00:00:06,291 --> 00:00:09,791
+13. utils.goToWallets()
+
+6
+00:00:09,792 --> 00:00:12,011
+17. fetchGuestAccount = sendRequest(findTestObject("GuestAccount"))
+
+7
+00:00:12,012 --> 00:00:12,073
+21. accountId = getElementPropertyValue(fetchGuestAccount, "payload.accountId")
+
+8
+00:00:12,073 --> 00:00:12,102
+25. accessToken = getElementPropertyValue(fetchGuestAccount, "payload.accessToken")
+
+9
+00:00:12,102 --> 00:00:12,106
+29. accountId = accountId
+
+10
+00:00:12,106 --> 00:00:12,108
+33. accessToken = accessToken
+
+11
+00:00:12,109 --> 00:00:12,690
+37. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+12
+00:00:12,690 --> 00:00:12,693
+41. for ([i = 0, i < testdata.size(), (i++)])
+
+13
+00:00:12,693 --> 00:00:12,696
+1. driver = getWebDriver()
+
+14
+00:00:12,696 --> 00:00:12,985
+5. clickAuthorizePayment = xpath("//a[normalize-space()='Update']")).click()
+
+15
+00:00:12,986 --> 00:00:14,606
+9. utils.selectEnvironment(ENV)
+
+16
+00:00:14,607 --> 00:00:14,835
+13. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+17
+00:00:14,836 --> 00:00:14,858
+17. sendRequestTextBox.clear()
+
+18
+00:00:14,859 --> 00:00:14,862
+21. paymentMethod = testdata["paymentMethod"][i]
+
+19
+00:00:14,862 --> 00:00:14,864
+25. cardNumber = testdata["cardNumber"][i]
+
+20
+00:00:14,864 --> 00:00:14,866
+29. expirationMonth = testdata["expirationMonth"][i]
+
+21
+00:00:14,866 --> 00:00:14,868
+33. expirationYear = testdata["expirationYear"][i]
+
+22
+00:00:14,868 --> 00:00:14,871
+37. cardholderName = testdata["cardholderName"][i]
+
+23
+00:00:14,871 --> 00:00:14,873
+41. nickName = testdata["nickName"][i]
+
+24
+00:00:14,874 --> 00:00:14,875
+45. defaultPaymentMethod = testdata["defaultPaymentMethod"][i]
+
+25
+00:00:14,876 --> 00:00:14,896
+49. request = {
+			    "type": "$paymentMethod",
+			    "cardNumber": "$cardNumber",
+			    "cardholder": "$cardholderName",
+			    "nickname": "$nickName",
+			    "expirationMonth": "$expirationMonth",
+			    "expirationYear": "$expirationYear",
+			    "defaultPaymentMethod": "$defaultPaymentMethod"
+			    "accountId": "$accountId",
+			    "accessToken": "$accessToken"
+			}
+
+26
+00:00:14,896 --> 00:00:14,900
+53. restRequest = JsonSlurper().parseText(request)
+
+27
+00:00:14,900 --> 00:00:14,910
+2. println(An unexpected error occurred: $e.message)
+
+28
+00:00:14,911 --> 00:00:14,915
+6. e.printStackTrace()
+
+29
+00:00:14,915 --> 00:00:17,071
+1. utils.closeBrowser()
+

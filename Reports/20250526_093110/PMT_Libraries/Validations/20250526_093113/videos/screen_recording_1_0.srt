@@ -1,0 +1,740 @@
+1
+00:00:00,385 --> 00:00:00,396
+1. try
+
+2
+00:00:00,401 --> 00:00:05,793
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:05,815 --> 00:00:05,854
+5. driver = getWebDriver()
+
+4
+00:00:05,854 --> 00:00:05,859
+9. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+5
+00:00:05,859 --> 00:00:05,865
+13. TAB = "Validations_Prevalidations&Conf"
+
+6
+00:00:05,866 --> 00:00:09,081
+17. utils.goToValidations()
+
+7
+00:00:09,082 --> 00:00:09,905
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:09,905 --> 00:00:10,361
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+9
+00:00:10,361 --> 00:00:10,646
+29. clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click()
+
+10
+00:00:10,647 --> 00:00:10,650
+33. for ([i = 0, i < testdata.size(), (i++)])
+
+11
+00:00:10,651 --> 00:00:10,654
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+12
+00:00:10,654 --> 00:00:10,656
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+13
+00:00:10,656 --> 00:00:12,298
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+14
+00:00:12,298 --> 00:00:12,333
+5. sendRequestTextBox.clear()
+
+15
+00:00:12,334 --> 00:00:17,364
+9. delay(5)
+
+16
+00:00:17,365 --> 00:00:41,387
+13. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i)
+
+17
+00:00:41,388 --> 00:00:41,393
+17. println(getBookingData["BookingId"])
+
+18
+00:00:41,393 --> 00:00:41,395
+21. println(getBookingData["BookingAccessToken"])
+
+19
+00:00:41,396 --> 00:00:41,398
+25. BookingId = getBookingData["BookingId"]
+
+20
+00:00:41,398 --> 00:00:41,400
+29. BookingIdToBePassedRaw = testdata["BookingId"][i]
+
+21
+00:00:41,401 --> 00:00:41,404
+33. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+22
+00:00:41,404 --> 00:00:41,542
+37. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+23
+00:00:41,543 --> 00:00:41,551
+41. println(BookingIdToBePassed)
+
+24
+00:00:41,551 --> 00:00:41,874
+45. utils.clickSendButton()
+
+25
+00:00:41,874 --> 00:00:46,881
+49. delay(5)
+
+26
+00:00:46,881 --> 00:00:47,127
+53. response = utils.getResponse()
+
+27
+00:00:47,127 --> 00:00:47,129
+57. validation = testdata["Validation"][i]
+
+28
+00:00:47,130 --> 00:00:47,132
+61. if (response.contains(validation) == true)
+
+29
+00:00:47,132 --> 00:00:47,134
+1. println(validation)
+
+30
+00:00:47,134 --> 00:00:47,140
+65. println("Test Scenario Number: " + i + 1)
+
+31
+00:00:47,140 --> 00:00:47,161
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+32
+00:00:47,161 --> 00:00:47,939
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+33
+00:00:47,939 --> 00:00:47,942
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+34
+00:00:47,943 --> 00:00:47,946
+21. println(cancelBookingJsonResponse)
+
+35
+00:00:47,947 --> 00:00:47,948
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+36
+00:00:47,949 --> 00:00:47,949
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+37
+00:00:47,950 --> 00:00:48,170
+1. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+38
+00:00:48,170 --> 00:00:48,215
+5. sendRequestTextBox.clear()
+
+39
+00:00:48,215 --> 00:00:53,222
+9. delay(5)
+
+40
+00:00:53,222 --> 00:01:14,181
+13. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i)
+
+41
+00:01:14,182 --> 00:01:14,183
+17. println(getBookingData["BookingId"])
+
+42
+00:01:14,184 --> 00:01:14,185
+21. println(getBookingData["BookingAccessToken"])
+
+43
+00:01:14,185 --> 00:01:14,186
+25. BookingId = getBookingData["BookingId"]
+
+44
+00:01:14,186 --> 00:01:14,188
+29. BookingIdToBePassedRaw = testdata["BookingId"][i]
+
+45
+00:01:14,188 --> 00:01:14,189
+33. BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId)
+
+46
+00:01:14,190 --> 00:01:14,268
+37. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+47
+00:01:14,269 --> 00:01:14,271
+41. println(BookingIdToBePassed)
+
+48
+00:01:14,272 --> 00:01:14,568
+45. utils.clickSendButton()
+
+49
+00:01:14,568 --> 00:01:19,575
+49. delay(5)
+
+50
+00:01:19,576 --> 00:01:19,811
+53. response = utils.getResponse()
+
+51
+00:01:19,811 --> 00:01:19,813
+57. validation = testdata["Validation"][i]
+
+52
+00:01:19,814 --> 00:01:19,815
+61. if (response.contains(validation) == true)
+
+53
+00:01:19,815 --> 00:01:19,816
+1. println(validation)
+
+54
+00:01:19,816 --> 00:01:19,818
+65. println("Test Scenario Number: " + i + 1)
+
+55
+00:01:19,818 --> 00:01:19,823
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+56
+00:01:19,823 --> 00:01:20,812
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+57
+00:01:20,813 --> 00:01:20,814
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+58
+00:01:20,814 --> 00:01:20,816
+21. println(cancelBookingJsonResponse)
+
+59
+00:01:20,816 --> 00:01:20,817
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+60
+00:01:20,817 --> 00:01:20,820
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+61
+00:01:20,820 --> 00:01:21,046
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+62
+00:01:21,046 --> 00:01:21,077
+6. sendRequestTextBox.clear()
+
+63
+00:01:21,078 --> 00:01:21,082
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+64
+00:01:21,082 --> 00:01:21,139
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+65
+00:01:21,139 --> 00:01:21,143
+18. println(BookingIdToBePassed)
+
+66
+00:01:21,144 --> 00:01:21,420
+22. utils.clickSendButton()
+
+67
+00:01:21,420 --> 00:01:23,428
+26. delay(2)
+
+68
+00:01:23,429 --> 00:01:23,664
+30. response = utils.getResponse()
+
+69
+00:01:23,665 --> 00:01:23,666
+34. validation = testdata["Validation"][i]
+
+70
+00:01:23,666 --> 00:01:23,668
+38. if (response.contains(validation) == true)
+
+71
+00:01:23,668 --> 00:01:23,669
+1. println(validation)
+
+72
+00:01:23,669 --> 00:01:23,671
+42. println("Test Scenario Number: " + i)
+
+73
+00:01:23,671 --> 00:01:23,675
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+74
+00:01:23,675 --> 00:01:24,017
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+75
+00:01:24,017 --> 00:01:24,018
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+76
+00:01:24,018 --> 00:01:24,019
+21. println(cancelBookingJsonResponse)
+
+77
+00:01:24,019 --> 00:01:24,020
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+78
+00:01:24,020 --> 00:01:24,021
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+79
+00:01:24,022 --> 00:01:24,247
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+80
+00:01:24,247 --> 00:01:24,273
+6. sendRequestTextBox.clear()
+
+81
+00:01:24,274 --> 00:01:24,275
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+82
+00:01:24,275 --> 00:01:24,320
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+83
+00:01:24,320 --> 00:01:24,322
+18. println(BookingIdToBePassed)
+
+84
+00:01:24,322 --> 00:01:24,597
+22. utils.clickSendButton()
+
+85
+00:01:24,597 --> 00:01:26,604
+26. delay(2)
+
+86
+00:01:26,605 --> 00:01:26,916
+30. response = utils.getResponse()
+
+87
+00:01:26,916 --> 00:01:26,917
+34. validation = testdata["Validation"][i]
+
+88
+00:01:26,917 --> 00:01:26,918
+38. if (response.contains(validation) == true)
+
+89
+00:01:26,918 --> 00:01:26,919
+1. println(validation)
+
+90
+00:01:26,919 --> 00:01:26,920
+42. println("Test Scenario Number: " + i)
+
+91
+00:01:26,920 --> 00:01:26,924
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+92
+00:01:26,925 --> 00:01:27,271
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+93
+00:01:27,272 --> 00:01:27,273
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+94
+00:01:27,273 --> 00:01:27,275
+21. println(cancelBookingJsonResponse)
+
+95
+00:01:27,275 --> 00:01:27,276
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+96
+00:01:27,276 --> 00:01:27,278
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+97
+00:01:27,278 --> 00:01:27,505
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+98
+00:01:27,505 --> 00:01:27,562
+6. sendRequestTextBox.clear()
+
+99
+00:01:27,563 --> 00:01:27,564
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+100
+00:01:27,564 --> 00:01:27,677
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+101
+00:01:27,679 --> 00:01:27,681
+18. println(BookingIdToBePassed)
+
+102
+00:01:27,684 --> 00:01:28,136
+22. utils.clickSendButton()
+
+103
+00:01:28,137 --> 00:01:30,143
+26. delay(2)
+
+104
+00:01:30,143 --> 00:01:30,374
+30. response = utils.getResponse()
+
+105
+00:01:30,374 --> 00:01:30,375
+34. validation = testdata["Validation"][i]
+
+106
+00:01:30,376 --> 00:01:30,377
+38. if (response.contains(validation) == true)
+
+107
+00:01:30,377 --> 00:01:30,378
+1. println(validation)
+
+108
+00:01:30,378 --> 00:01:30,380
+42. println("Test Scenario Number: " + i)
+
+109
+00:01:30,380 --> 00:01:30,384
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+110
+00:01:30,384 --> 00:01:30,738
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+111
+00:01:30,738 --> 00:01:30,739
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+112
+00:01:30,739 --> 00:01:30,740
+21. println(cancelBookingJsonResponse)
+
+113
+00:01:30,741 --> 00:01:30,741
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+114
+00:01:30,742 --> 00:01:30,744
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+115
+00:01:30,744 --> 00:01:30,969
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+116
+00:01:30,969 --> 00:01:31,008
+6. sendRequestTextBox.clear()
+
+117
+00:01:31,008 --> 00:01:31,009
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+118
+00:01:31,010 --> 00:01:31,087
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+119
+00:01:31,087 --> 00:01:31,089
+18. println(BookingIdToBePassed)
+
+120
+00:01:31,089 --> 00:01:31,361
+22. utils.clickSendButton()
+
+121
+00:01:31,362 --> 00:01:33,367
+26. delay(2)
+
+122
+00:01:33,368 --> 00:01:33,598
+30. response = utils.getResponse()
+
+123
+00:01:33,598 --> 00:01:33,599
+34. validation = testdata["Validation"][i]
+
+124
+00:01:33,600 --> 00:01:33,601
+38. if (response.contains(validation) == true)
+
+125
+00:01:33,601 --> 00:01:33,603
+1. println(validation)
+
+126
+00:01:33,603 --> 00:01:33,605
+42. println("Test Scenario Number: " + i)
+
+127
+00:01:33,605 --> 00:01:33,609
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+128
+00:01:33,609 --> 00:01:33,946
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+129
+00:01:33,946 --> 00:01:33,947
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+130
+00:01:33,948 --> 00:01:33,949
+21. println(cancelBookingJsonResponse)
+
+131
+00:01:33,950 --> 00:01:33,951
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+132
+00:01:33,951 --> 00:01:33,954
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+133
+00:01:33,955 --> 00:01:34,179
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+134
+00:01:34,180 --> 00:01:34,237
+6. sendRequestTextBox.clear()
+
+135
+00:01:34,238 --> 00:01:34,240
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+136
+00:01:34,241 --> 00:01:34,357
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+137
+00:01:34,358 --> 00:01:34,359
+18. println(BookingIdToBePassed)
+
+138
+00:01:34,360 --> 00:01:34,717
+22. utils.clickSendButton()
+
+139
+00:01:34,718 --> 00:01:36,726
+26. delay(2)
+
+140
+00:01:36,727 --> 00:01:37,187
+30. response = utils.getResponse()
+
+141
+00:01:37,187 --> 00:01:37,189
+34. validation = testdata["Validation"][i]
+
+142
+00:01:37,190 --> 00:01:37,192
+38. if (response.contains(validation) == true)
+
+143
+00:01:37,192 --> 00:01:37,193
+1. println(validation)
+
+144
+00:01:37,193 --> 00:01:37,194
+42. println("Test Scenario Number: " + i)
+
+145
+00:01:37,195 --> 00:01:37,199
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+146
+00:01:37,199 --> 00:01:37,556
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+147
+00:01:37,557 --> 00:01:37,562
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+148
+00:01:37,562 --> 00:01:37,564
+21. println(cancelBookingJsonResponse)
+
+149
+00:01:37,565 --> 00:01:37,566
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+150
+00:01:37,567 --> 00:01:37,568
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+151
+00:01:37,569 --> 00:01:37,802
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+152
+00:01:37,802 --> 00:01:37,876
+6. sendRequestTextBox.clear()
+
+153
+00:01:37,877 --> 00:01:37,878
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+154
+00:01:37,879 --> 00:01:38,049
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+155
+00:01:38,050 --> 00:01:38,054
+18. println(BookingIdToBePassed)
+
+156
+00:01:38,055 --> 00:01:38,856
+22. utils.clickSendButton()
+
+157
+00:01:38,860 --> 00:01:40,875
+26. delay(2)
+
+158
+00:01:40,877 --> 00:01:41,147
+30. response = utils.getResponse()
+
+159
+00:01:41,151 --> 00:01:41,153
+34. validation = testdata["Validation"][i]
+
+160
+00:01:41,154 --> 00:01:41,170
+38. if (response.contains(validation) == true)
+
+161
+00:01:41,171 --> 00:01:41,176
+1. println(validation)
+
+162
+00:01:41,182 --> 00:01:41,187
+42. println("Test Scenario Number: " + i)
+
+163
+00:01:41,188 --> 00:01:41,203
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+164
+00:01:41,204 --> 00:01:41,557
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+165
+00:01:41,560 --> 00:01:41,564
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+166
+00:01:41,565 --> 00:01:41,566
+21. println(cancelBookingJsonResponse)
+
+167
+00:01:41,567 --> 00:01:41,568
+1. TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]
+
+168
+00:01:41,569 --> 00:01:41,575
+5. if (TestScenarioRequiresCreateBooking == "Yes")
+
+169
+00:01:41,576 --> 00:01:41,823
+2. sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']"))
+
+170
+00:01:41,824 --> 00:01:41,907
+6. sendRequestTextBox.clear()
+
+171
+00:01:41,908 --> 00:01:41,910
+10. BookingIdToBePassed = testdata["BookingId"][i]
+
+172
+00:01:41,911 --> 00:01:42,068
+14. sendRequestTextBox.sendKeys(BookingIdToBePassed)
+
+173
+00:01:42,069 --> 00:01:42,070
+18. println(BookingIdToBePassed)
+
+174
+00:01:42,071 --> 00:01:42,421
+22. utils.clickSendButton()
+
+175
+00:01:42,421 --> 00:01:44,432
+26. delay(2)
+
+176
+00:01:44,433 --> 00:01:44,717
+30. response = utils.getResponse()
+
+177
+00:01:44,718 --> 00:01:44,719
+34. validation = testdata["Validation"][i]
+
+178
+00:01:44,720 --> 00:01:44,721
+38. if (response.contains(validation) == true)
+
+179
+00:01:44,721 --> 00:01:44,722
+1. println(validation)
+
+180
+00:01:44,723 --> 00:01:44,725
+42. println("Test Scenario Number: " + i)
+
+181
+00:01:44,725 --> 00:01:44,732
+9. cancelBookingRequest = findTestObject("CancelBooking")
+
+182
+00:01:44,734 --> 00:01:45,105
+13. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+183
+00:01:45,106 --> 00:01:45,107
+17. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+184
+00:01:45,108 --> 00:01:45,112
+21. println(cancelBookingJsonResponse)
+
+185
+00:01:45,113 --> 00:01:47,711
+1. utils.closeBrowser()
+

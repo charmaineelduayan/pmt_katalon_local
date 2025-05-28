@@ -1,0 +1,468 @@
+1
+00:00:00,128 --> 00:00:04,582
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:04,603 --> 00:00:04,624
+5. try
+
+3
+00:00:04,624 --> 00:00:04,701
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_ConfirmWithRequest"), [:], STOP_ON_FAILURE)
+
+4
+00:00:04,702 --> 00:00:09,126
+1. utils.openBrowserAndNavigateToPMT()
+
+5
+00:00:09,127 --> 00:00:09,147
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+6
+00:00:09,183 --> 00:00:09,185
+9. TAB = "ScheduledPayment_ConfirmWithReq"
+
+7
+00:00:09,187 --> 00:00:09,225
+13. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+8
+00:00:09,225 --> 00:00:09,225
+17. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+9
+00:00:09,226 --> 00:00:09,298
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE)
+
+10
+00:00:09,298 --> 00:00:09,299
+1. driver = getWebDriver()
+
+11
+00:00:09,299 --> 00:00:12,400
+5. utils.goToScheduledPayments()
+
+12
+00:00:12,401 --> 00:00:13,079
+9. clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click()
+
+13
+00:00:13,079 --> 00:00:13,080
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+14
+00:00:13,080 --> 00:00:13,080
+17. TAB = "ScheduledPayment_GetEligibility"
+
+15
+00:00:13,081 --> 00:00:14,697
+21. utils.selectEnvironment(ENV)
+
+16
+00:00:14,698 --> 00:00:14,720
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+17
+00:00:14,721 --> 00:00:14,721
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+18
+00:00:14,721 --> 00:00:14,722
+1. println(testdata.size())
+
+19
+00:00:14,722 --> 00:00:35,418
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+20
+00:00:35,418 --> 00:00:35,419
+9. println(getBookingData["BookingId"])
+
+21
+00:00:35,420 --> 00:00:35,421
+13. println(getBookingData["BookingAccessToken"])
+
+22
+00:00:35,421 --> 00:00:35,422
+17. println(getBookingData["PassengerId1"])
+
+23
+00:00:35,422 --> 00:00:35,423
+21. println(getBookingData["PassengerId2"])
+
+24
+00:00:35,423 --> 00:00:40,429
+25. delay(5)
+
+25
+00:00:40,430 --> 00:00:40,430
+29. bookingIdCol = testdata["BookingId"][TestScenarioNumber]
+
+26
+00:00:40,431 --> 00:00:40,432
+33. BookingId = getBookingData["BookingId"]
+
+27
+00:00:40,432 --> 00:00:40,432
+37. replaceBookingId = bookingIdCol.replace("BookingId", BookingId)
+
+28
+00:00:40,433 --> 00:00:40,433
+41. println(replaceBookingId)
+
+29
+00:00:40,434 --> 00:00:40,663
+45. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+30
+00:00:40,663 --> 00:00:40,685
+49. sendRequestTextBox.clear()
+
+31
+00:00:40,685 --> 00:00:40,686
+53. request = BookingId
+
+32
+00:00:40,686 --> 00:00:40,725
+57. sendRequestTextBox.sendKeys(request)
+
+33
+00:00:40,726 --> 00:00:40,726
+61. println(request)
+
+34
+00:00:40,726 --> 00:00:41,013
+65. utils.clickSendButton()
+
+35
+00:00:41,014 --> 00:00:44,016
+69. delay(3)
+
+36
+00:00:44,017 --> 00:00:44,258
+73. response = utils.getResponse()
+
+37
+00:00:44,259 --> 00:00:44,259
+77. println(response)
+
+38
+00:00:44,259 --> 00:00:44,260
+81. validation1 = testdata["ContainsValidation"][TestScenarioNumber]
+
+39
+00:00:44,260 --> 00:00:44,261
+85. println(validation1)
+
+40
+00:00:44,261 --> 00:00:44,261
+89. validation2 = testdata["NotContainsValidation"][TestScenarioNumber]
+
+41
+00:00:44,261 --> 00:00:44,262
+93. println(validation2)
+
+42
+00:00:44,262 --> 00:00:44,263
+97. println(testdata["TCNumber"][TestScenarioNumber])
+
+43
+00:00:44,263 --> 00:00:44,264
+101. assert response.contains(validation1)
+
+44
+00:00:44,264 --> 00:00:44,264
+105. assert response.contains(validation2) == false
+
+45
+00:00:44,265 --> 00:00:44,265
+109. println("Test Scenario Number: " + TestScenarioNumber)
+
+46
+00:00:44,265 --> 00:00:44,266
+1. println(testdata.size())
+
+47
+00:00:44,267 --> 00:01:04,753
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+48
+00:01:04,754 --> 00:01:04,755
+9. println(getBookingData["BookingId"])
+
+49
+00:01:04,755 --> 00:01:04,756
+13. println(getBookingData["BookingAccessToken"])
+
+50
+00:01:04,756 --> 00:01:04,757
+17. println(getBookingData["PassengerId1"])
+
+51
+00:01:04,757 --> 00:01:04,758
+21. println(getBookingData["PassengerId2"])
+
+52
+00:01:04,758 --> 00:01:09,762
+25. delay(5)
+
+53
+00:01:09,762 --> 00:01:09,763
+29. bookingIdCol = testdata["BookingId"][TestScenarioNumber]
+
+54
+00:01:09,763 --> 00:01:09,764
+33. BookingId = getBookingData["BookingId"]
+
+55
+00:01:09,764 --> 00:01:09,765
+37. replaceBookingId = bookingIdCol.replace("BookingId", BookingId)
+
+56
+00:01:09,765 --> 00:01:09,766
+41. println(replaceBookingId)
+
+57
+00:01:09,766 --> 00:01:09,993
+45. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+58
+00:01:09,993 --> 00:01:10,015
+49. sendRequestTextBox.clear()
+
+59
+00:01:10,015 --> 00:01:10,016
+53. request = BookingId
+
+60
+00:01:10,016 --> 00:01:10,061
+57. sendRequestTextBox.sendKeys(request)
+
+61
+00:01:10,062 --> 00:01:10,062
+61. println(request)
+
+62
+00:01:10,063 --> 00:01:10,337
+65. utils.clickSendButton()
+
+63
+00:01:10,337 --> 00:01:13,342
+69. delay(3)
+
+64
+00:01:13,343 --> 00:01:13,569
+73. response = utils.getResponse()
+
+65
+00:01:13,569 --> 00:01:13,570
+77. println(response)
+
+66
+00:01:13,570 --> 00:01:13,571
+81. validation1 = testdata["ContainsValidation"][TestScenarioNumber]
+
+67
+00:01:13,571 --> 00:01:13,572
+85. println(validation1)
+
+68
+00:01:13,572 --> 00:01:13,572
+89. validation2 = testdata["NotContainsValidation"][TestScenarioNumber]
+
+69
+00:01:13,573 --> 00:01:13,573
+93. println(validation2)
+
+70
+00:01:13,573 --> 00:01:13,574
+97. println(testdata["TCNumber"][TestScenarioNumber])
+
+71
+00:01:13,574 --> 00:01:13,575
+101. assert response.contains(validation1)
+
+72
+00:01:13,575 --> 00:01:13,576
+105. assert response.contains(validation2) == false
+
+73
+00:01:13,576 --> 00:01:13,578
+109. println("Test Scenario Number: " + TestScenarioNumber)
+
+74
+00:01:13,578 --> 00:01:13,579
+5. driver = getWebDriver()
+
+75
+00:01:13,579 --> 00:01:13,854
+9. getConfrimWithReq = xpath("//a[normalize-space()='Confirm with Request']")).click()
+
+76
+00:01:13,855 --> 00:01:14,511
+13. utils.selectEnvironment(ENV)
+
+77
+00:01:14,512 --> 00:01:14,736
+17. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+78
+00:01:14,736 --> 00:01:14,758
+21. sendRequestTextBox.clear()
+
+79
+00:01:14,759 --> 00:01:14,759
+25. cardNumber = testdata["cardNumber"][TestScenarioNumber]
+
+80
+00:01:14,759 --> 00:01:14,760
+29. CNumber = cardNumber.replaceAll("\.0$", "")
+
+81
+00:01:14,760 --> 00:01:14,761
+33. expirationMonth = testdata["expirationMonth"][TestScenarioNumber]
+
+82
+00:01:14,761 --> 00:01:14,761
+37. xMonth = expirationMonth.replaceAll("\.0$", "")
+
+83
+00:01:14,761 --> 00:01:14,762
+41. expirationYear = testdata["expirationYear"][TestScenarioNumber]
+
+84
+00:01:14,762 --> 00:01:14,763
+45. xYear = expirationYear.replaceAll("\.0$", "")
+
+85
+00:01:14,763 --> 00:01:14,763
+49. cardholderName = testdata["cardholderName"][TestScenarioNumber]
+
+86
+00:01:14,764 --> 00:01:14,764
+53. addressOne = testdata["addressOne"][TestScenarioNumber]
+
+87
+00:01:14,764 --> 00:01:14,765
+57. addressTwo = testdata["addressTwo"][TestScenarioNumber]
+
+88
+00:01:14,765 --> 00:01:14,765
+61. city = testdata["city"][TestScenarioNumber]
+
+89
+00:01:14,765 --> 00:01:14,766
+65. state = testdata["state"][TestScenarioNumber]
+
+90
+00:01:14,766 --> 00:01:14,767
+69. zipCode = testdata["zipCode"][TestScenarioNumber]
+
+91
+00:01:14,767 --> 00:01:14,767
+73. countryCode = testdata["countryCode"][TestScenarioNumber]
+
+92
+00:01:14,768 --> 00:01:14,768
+77. action = testdata["action"][TestScenarioNumber]
+
+93
+00:01:14,768 --> 00:01:14,769
+81. scheduledDate = testdata["scheduledDate"][TestScenarioNumber]
+
+94
+00:01:14,769 --> 00:01:14,770
+85. xscheduledDate = scheduledDate.replaceAll("\.0$", "")
+
+95
+00:01:14,770 --> 00:01:14,770
+89. totalAmount = testdata["totalAmount"][TestScenarioNumber]
+
+96
+00:01:14,771 --> 00:01:14,771
+93. amount1 = testdata["amount1"][TestScenarioNumber]
+
+97
+00:01:14,771 --> 00:01:14,771
+97. amount2 = testdata["amount2"][TestScenarioNumber]
+
+98
+00:01:14,772 --> 00:01:14,772
+101. request = {
+				  "payments": [
+				    {
+				      "cardInfo": {
+				        "cardNumber": "$cardNumber",
+				        "expirationMonth": "$expirationMonth",
+				        "expirationYear": "$expirationYear",
+				        "cardholderName": "$cardholderName",
+				        "billingAddress": {
+				          "lineOne": "$addressOne",
+				          "lineTwo": "$addressTwo",
+				          "city": "$city",
+				          "state": "$state",
+				          "zipCode": "$zipCode",
+				          "countryCode": "$countryCode"
+				        }
+				      },
+				      "scheduledPayments": [
+				        {
+				          "action": "$action",
+				          "scheduledDate": "$scheduledDate",
+				          "totalAmount": $totalAmount,
+				          "passengerAmountAllocation": [
+				            {
+				              "passengerId": "$GlobalVariable.GuestRefNumber1",
+				              "amount": $amount1
+				            },
+				            {
+				              "passengerId": "$GlobalVariable.GuestRefNumber2",
+				              "amount": $amount2
+				            }
+				          ]
+				        }
+				      ]
+				    }
+				  ]
+				}
+
+99
+00:01:14,772 --> 00:01:14,773
+105. restRequest = JsonSlurper().parseText(request)
+
+100
+00:01:14,773 --> 00:01:14,775
+109. prettyJson = JsonBuilder(restRequest).toPrettyString()
+
+101
+00:01:14,775 --> 00:01:14,776
+113. println(prettyJson)
+
+102
+00:01:14,776 --> 00:01:15,781
+117. sendRequestTextBox.sendKeys(prettyJson)
+
+103
+00:01:15,781 --> 00:01:16,081
+121. utils.clickSendButton()
+
+104
+00:01:16,082 --> 00:01:16,086
+5. cancelBookingRequest = findTestObject("CancelBooking")
+
+105
+00:01:16,086 --> 00:01:17,193
+9. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+106
+00:01:17,193 --> 00:01:17,195
+13. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+107
+00:01:17,195 --> 00:01:17,197
+17. println(cancelBookingJsonResponse)
+
+108
+00:01:17,197 --> 00:01:19,344
+1. utils.closeBrowser()
+

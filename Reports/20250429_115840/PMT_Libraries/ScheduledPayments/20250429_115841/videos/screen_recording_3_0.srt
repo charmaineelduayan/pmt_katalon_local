@@ -1,0 +1,56 @@
+1
+00:00:00,143 --> 00:00:04,999
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:05,020 --> 00:00:05,022
+5. try
+
+3
+00:00:05,023 --> 00:00:05,128
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_ConfirmWithRequest"), [:], STOP_ON_FAILURE)
+
+4
+00:00:05,129 --> 00:00:10,365
+1. utils.openBrowserAndNavigateToPMT()
+
+5
+00:00:10,366 --> 00:00:10,387
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+6
+00:00:10,388 --> 00:00:10,409
+9. TAB = "ScheduledPayment_ConfirmWithReq"
+
+7
+00:00:10,409 --> 00:00:10,470
+13. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+8
+00:00:10,471 --> 00:00:10,473
+17. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+9
+00:00:10,473 --> 00:00:10,570
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE)
+
+10
+00:00:10,570 --> 00:00:10,571
+1. driver = getWebDriver()
+
+11
+00:00:10,571 --> 00:00:13,497
+5. utils.goToScheduledPayments()
+
+12
+00:00:13,498 --> 00:00:13,510
+2. println(An unexpected error occurred: $e.message)
+
+13
+00:00:13,510 --> 00:00:13,515
+6. e.printStackTrace()
+
+14
+00:00:13,515 --> 00:00:15,637
+1. utils.closeBrowser()
+
