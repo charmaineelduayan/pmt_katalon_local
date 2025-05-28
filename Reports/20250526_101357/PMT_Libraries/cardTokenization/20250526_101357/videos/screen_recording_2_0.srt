@@ -1,0 +1,156 @@
+1
+00:00:00,181 --> 00:00:00,182
+1. try
+
+2
+00:00:00,183 --> 00:00:04,326
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:04,347 --> 00:00:04,369
+5. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+4
+00:00:04,369 --> 00:00:04,371
+9. TAB = "cardTokenization_Encrypt"
+
+5
+00:00:04,371 --> 00:00:04,374
+13. driver = getWebDriver()
+
+6
+00:00:04,374 --> 00:00:05,848
+17. utils.goToCardTokenization()
+
+7
+00:00:05,849 --> 00:00:06,475
+21. utils.selectEnvironment(ENV)
+
+8
+00:00:06,476 --> 00:00:06,711
+25. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+9
+00:00:06,711 --> 00:00:06,788
+29. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+10
+00:00:06,789 --> 00:00:06,790
+33. for ([i = 0, i < testdata.size(), (i++)])
+
+11
+00:00:06,791 --> 00:00:11,798
+1. delay(5)
+
+12
+00:00:11,799 --> 00:00:11,828
+5. sendRequestTextBox.clear()
+
+13
+00:00:11,829 --> 00:00:11,831
+9. encryptedCard = testdata["encryptedCard"][i]
+
+14
+00:00:11,832 --> 00:00:11,834
+13. request = $encryptedCard
+
+15
+00:00:11,834 --> 00:00:11,836
+17. println(request)
+
+16
+00:00:11,836 --> 00:00:11,895
+21. sendRequestTextBox.sendKeys(request)
+
+17
+00:00:11,896 --> 00:00:12,173
+25. utils.clickSendButton()
+
+18
+00:00:12,174 --> 00:00:15,179
+29. delay(3)
+
+19
+00:00:15,179 --> 00:00:15,421
+33. response = utils.getResponse()
+
+20
+00:00:15,421 --> 00:00:15,422
+37. println(response)
+
+21
+00:00:15,422 --> 00:00:15,424
+41. validation = testdata["Validation"][i]
+
+22
+00:00:15,424 --> 00:00:15,425
+45. if (response.contains(validation) == true)
+
+23
+00:00:15,426 --> 00:00:15,427
+1. println(validation)
+
+24
+00:00:15,427 --> 00:00:15,429
+49. println("Test Scenario Number: " + i + 1)
+
+25
+00:00:15,430 --> 00:00:20,436
+1. delay(5)
+
+26
+00:00:20,437 --> 00:00:20,459
+5. sendRequestTextBox.clear()
+
+27
+00:00:20,460 --> 00:00:20,461
+9. encryptedCard = testdata["encryptedCard"][i]
+
+28
+00:00:20,461 --> 00:00:20,462
+13. request = $encryptedCard
+
+29
+00:00:20,463 --> 00:00:20,464
+17. println(request)
+
+30
+00:00:20,465 --> 00:00:20,522
+21. sendRequestTextBox.sendKeys(request)
+
+31
+00:00:20,522 --> 00:00:20,800
+25. utils.clickSendButton()
+
+32
+00:00:20,800 --> 00:00:23,803
+29. delay(3)
+
+33
+00:00:23,803 --> 00:00:24,030
+33. response = utils.getResponse()
+
+34
+00:00:24,030 --> 00:00:24,031
+37. println(response)
+
+35
+00:00:24,031 --> 00:00:24,032
+41. validation = testdata["Validation"][i]
+
+36
+00:00:24,032 --> 00:00:24,033
+45. if (response.contains(validation) == true)
+
+37
+00:00:24,033 --> 00:00:24,034
+1. println(validation)
+
+38
+00:00:24,034 --> 00:00:24,036
+49. println("Test Scenario Number: " + i + 1)
+
+39
+00:00:24,036 --> 00:00:26,156
+1. utils.closeBrowser()
+

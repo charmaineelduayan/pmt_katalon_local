@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GiftCard" time="67.895" tests="1" failures="0" errors="0">
+   <testsuite name="GiftCard" tests="1" failures="0" errors="0" time="67.895" skipped="0" timestamp="29-04-2025T11:55:04" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/GiftCard">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250429_115458/PMT_Libraries/GiftCard/20250429_115459"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250429_115458/PMT_Libraries/GiftCard/20250429_115459/execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 135.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="cdf3a9536e8856e74e7f5fbbc1fb272b"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance" time="67.756" classname="Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance" status="PASSED">
+         <system-out><![CDATA[29-04-2025T11:55:04 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance: Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance
+
+29-04-2025T11:55:05 - [TEST_STEP][PASSED] - try: null
+
+29-04-2025T11:55:05 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+29-04-2025T11:55:05 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+29-04-2025T11:55:05 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+29-04-2025T11:55:08 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+29-04-2025T11:55:08 - [MESSAGE][PASSED] - Current window maximized
+
+29-04-2025T11:55:13 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+29-04-2025T11:55:13 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+29-04-2025T11:55:13 - [TEST_STEP][PASSED] - TAB = "GiftCards": null
+
+29-04-2025T11:55:13 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+29-04-2025T11:55:13 - [TEST_STEP][PASSED] - utils.goToGiftCards(): null
+
+29-04-2025T11:55:18 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+29-04-2025T11:55:19 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+29-04-2025T11:55:19 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, "GiftCards"): null
+
+29-04-2025T11:55:20 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+29-04-2025T11:55:20 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+29-04-2025T11:55:25 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+29-04-2025T11:55:25 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+29-04-2025T11:55:27 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+29-04-2025T11:55:30 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+29-04-2025T11:55:30 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+29-04-2025T11:55:32 - [TEST_STEP][PASSED] - println(response): null
+
+29-04-2025T11:55:32 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+29-04-2025T11:55:32 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+29-04-2025T11:55:32 - [TEST_STEP][PASSED] - println(validation): null
+
+29-04-2025T11:55:32 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+29-04-2025T11:55:32 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+29-04-2025T11:55:37 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+29-04-2025T11:55:37 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+29-04-2025T11:55:38 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+29-04-2025T11:55:41 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - println(response): null
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - println(validation): null
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+29-04-2025T11:55:41 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+29-04-2025T11:55:46 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+29-04-2025T11:55:46 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+29-04-2025T11:55:49 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+29-04-2025T11:55:49 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+29-04-2025T11:55:50 - [TEST_STEP][PASSED] - println(response): null
+
+29-04-2025T11:55:50 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+29-04-2025T11:55:50 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+29-04-2025T11:55:50 - [TEST_STEP][PASSED] - println(validation): null
+
+29-04-2025T11:55:50 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+29-04-2025T11:55:50 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+29-04-2025T11:55:55 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+29-04-2025T11:55:55 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+29-04-2025T11:55:58 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - println(response): null
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - println(validation): null
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+29-04-2025T11:55:58 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+29-04-2025T11:56:03 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+29-04-2025T11:56:03 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+29-04-2025T11:56:04 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+29-04-2025T11:56:04 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+29-04-2025T11:56:07 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - println(response): null
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - println(validation): null
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+29-04-2025T11:56:07 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+29-04-2025T11:56:09 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+29-04-2025T11:56:09 - [MESSAGE][PASSED] - Browser is closed
+
+29-04-2025T11:56:11 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance' .
+
+29-04-2025T11:56:11 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[29-04-2025T11:55:04 - [TEST_SUITE][PASSED] - GiftCard: Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GiftCard" time="65.6" tests="1" failures="1" errors="0">
+   <testsuite name="GiftCard" tests="1" failures="1" errors="0" time="65.6" skipped="0" timestamp="26-05-2025T09:41:38" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/GiftCard">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/GiftCard/20250526_093117"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/GiftCard/20250526_093117/execution0.log"/>
+         <property name="attachments" value="./screenshots/Failed_GC_GetBalance20250526_094202.png"/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 136.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="4d5f3aed45341dad85e172098e345360"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance" time="65.472" classname="Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance" status="FAILED">
+         <failure type="FAILED" message="Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: Expected response does not meetActual: &#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at TC1_GiftCard_GetBalance.run(TC1_GiftCard_GetBalance:78)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1748223077495.run(TempTestSuite1748223077495.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[26-05-2025T09:41:38 - [TEST_CASE][FAILED] - Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance: Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: Expected response does not meetActual: 
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at TC1_GiftCard_GetBalance.run(TC1_GiftCard_GetBalance:78)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1748223077495.run(TempTestSuite1748223077495.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+26-05-2025T09:41:40 - [TEST_STEP][FAILED] - try: null
+
+26-05-2025T09:41:40 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+26-05-2025T09:41:40 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+26-05-2025T09:41:40 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+26-05-2025T09:41:42 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+26-05-2025T09:41:42 - [MESSAGE][PASSED] - Current window maximized
+
+26-05-2025T09:41:45 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+26-05-2025T09:41:45 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+26-05-2025T09:41:45 - [TEST_STEP][PASSED] - TAB = "GiftCards": null
+
+26-05-2025T09:41:45 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+26-05-2025T09:41:45 - [TEST_STEP][PASSED] - utils.goToGiftCards(): null
+
+26-05-2025T09:41:46 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+26-05-2025T09:41:47 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']")): null
+
+26-05-2025T09:41:47 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, "GiftCards"): null
+
+26-05-2025T09:41:48 - [TEST_STEP][FAILED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+26-05-2025T09:41:48 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:41:53 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:41:53 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+26-05-2025T09:41:56 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+26-05-2025T09:41:56 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:42:02 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:42:02 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:42:02 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:42:02 - [TEST_STEP][FAILED] - else: null
+
+26-05-2025T09:42:02 - [TEST_STEP][FAILED] - markFailed("Expected response does not meet" + "Actual: " + response): Expected response does not meetActual: 
+
+26-05-2025T09:42:02 - [MESSAGE][FAILED] - Expected response does not meetActual: 
+
+26-05-2025T09:42:02 - [TEST_STEP][PASSED] - timestamp = SimpleDateFormat(yyyyMMdd_HHmmss).format(new java.util.Date()): null
+
+26-05-2025T09:42:02 - [TEST_STEP][PASSED] - f = "./screenshots/Failed_GC_GetBalance" + timestamp + ".png": null
+
+26-05-2025T09:42:02 - [TEST_STEP][PASSED] - takeScreenshot(f.toString()): Taking screenshot successfully
+
+26-05-2025T09:42:04 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|./screenshots/Failed_GC_GetBalance20250526_094202.png]]
+
+26-05-2025T09:42:04 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:42:04 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:42:09 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:42:09 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+26-05-2025T09:42:12 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:42:13 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:42:18 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:42:18 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+26-05-2025T09:42:21 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:42:21 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:42:26 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:42:26 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:42:27 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+26-05-2025T09:42:30 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:42:30 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:42:35 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - cardNumber = testdata["cardNumber"][i]: null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - expirationMonth = testdata["expirationMonth"][i]: null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - expirationYear = testdata["expirationYear"][i]: null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - securityCode = testdata["securityCode"][i]: null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - request = {
+			"cardNumber": "$cardNumber",
+			"expirationMonth": "$expirationMonth",
+			"expirationYear": "$expirationYear",
+			"securityCode": "$securityCode"
+			}: null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - restRequest = JsonSlurper().parseText(request): null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - prettyJson = JsonBuilder(restRequest).toPrettyString(): null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - println(prettyJson): null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(prettyJson): null
+
+26-05-2025T09:42:35 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:42:36 - [TEST_STEP][PASSED] - delay(3): Delayed 3 second(s)
+
+26-05-2025T09:42:39 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+26-05-2025T09:42:39 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+26-05-2025T09:42:41 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:42:41 - [MESSAGE][PASSED] - Browser is closed
+
+26-05-2025T09:42:43 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance' .
+
+26-05-2025T09:42:43 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance' .]]></system-out>
+         <system-err><![CDATA[26-05-2025T09:41:38 - [TEST_CASE][FAILED] - Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance: Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: Expected response does not meetActual: 
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at TC1_GiftCard_GetBalance.run(TC1_GiftCard_GetBalance:78)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1748223077495.run(TempTestSuite1748223077495.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <system-out><![CDATA[26-05-2025T09:41:38 - [TEST_SUITE][FAILED] - GiftCard: Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: Expected response does not meetActual: 
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at TC1_GiftCard_GetBalance.run(TC1_GiftCard_GetBalance:78)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1748223077495.run(TempTestSuite1748223077495.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-out>
+      <system-err><![CDATA[26-05-2025T09:41:38 - [TEST_SUITE][FAILED] - GiftCard: Test Cases/Web_Utilities_TestCases/GiftCard/TC1_GiftCard_GetBalance FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: Expected response does not meetActual: 
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at TC1_GiftCard_GetBalance.run(TC1_GiftCard_GetBalance:78)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1748223077495.run(TempTestSuite1748223077495.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+   </testsuite>
+</testsuites>

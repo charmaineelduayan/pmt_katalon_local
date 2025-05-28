@@ -1,0 +1,28 @@
+1
+00:00:00,069 --> 00:00:00,072
+1. try
+
+2
+00:00:00,073 --> 00:00:04,613
+1. utils.openBrowserAndNavigateToPMT()
+
+3
+00:00:04,633 --> 00:00:04,674
+5. driver = getWebDriver()
+
+4
+00:00:04,675 --> 00:00:07,104
+9. utils.goToWallets()
+
+5
+00:00:07,105 --> 00:00:07,689
+13. clickAuthorizePayment = xpath("//a[normalize-space()='Get']")).click()
+
+6
+00:00:07,690 --> 00:00:08,613
+17. utils.selectEnvironment(ENV)
+
+7
+00:00:08,614 --> 00:00:10,745
+1. utils.closeBrowser()
+

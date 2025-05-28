@@ -1,0 +1,288 @@
+1
+00:00:00,274 --> 00:00:05,058
+1. utils.openBrowserAndNavigateToPMT()
+
+2
+00:00:05,080 --> 00:00:05,102
+5. try
+
+3
+00:00:05,103 --> 00:00:05,549
+1. callTestCase(findTestCase("Re-Usable Script/SchedulePayment_GetEligibility"), [:], STOP_ON_FAILURE)
+
+4
+00:00:05,550 --> 00:00:05,559
+1. driver = getWebDriver()
+
+5
+00:00:05,559 --> 00:00:06,956
+5. utils.goToScheduledPayments()
+
+6
+00:00:06,957 --> 00:00:07,443
+9. clickGetEligibility = xpath("//a[normalize-space()='Get Eligibility']")).click()
+
+7
+00:00:07,443 --> 00:00:07,446
+13. EXCEL_PATH = "./Data Files/TestData.xlsx"
+
+8
+00:00:07,446 --> 00:00:07,448
+17. TAB = "ScheduledPayment_GetEligibility"
+
+9
+00:00:07,449 --> 00:00:08,018
+21. utils.selectEnvironment(ENV)
+
+10
+00:00:08,018 --> 00:00:08,531
+25. testdata = getdata.fromExcel(EXCEL_PATH, TAB)
+
+11
+00:00:08,532 --> 00:00:08,535
+29. for ([TestScenarioNumber = 0, TestScenarioNumber < testdata.size(), (TestScenarioNumber++)])
+
+12
+00:00:08,535 --> 00:00:08,539
+1. println(testdata.size())
+
+13
+00:00:08,539 --> 00:00:32,550
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+14
+00:00:32,550 --> 00:00:32,553
+9. println(getBookingData["BookingId"])
+
+15
+00:00:32,554 --> 00:00:32,556
+13. println(getBookingData["BookingAccessToken"])
+
+16
+00:00:32,556 --> 00:00:32,559
+17. println(getBookingData["PassengerId1"])
+
+17
+00:00:32,559 --> 00:00:32,561
+21. println(getBookingData["PassengerId2"])
+
+18
+00:00:32,562 --> 00:00:37,568
+25. delay(5)
+
+19
+00:00:37,568 --> 00:00:37,571
+29. bookingIdCol = testdata["BookingId"][TestScenarioNumber]
+
+20
+00:00:37,571 --> 00:00:37,573
+33. BookingId = getBookingData["BookingId"]
+
+21
+00:00:37,574 --> 00:00:37,577
+37. replaceBookingId = bookingIdCol.replace("BookingId", BookingId)
+
+22
+00:00:37,577 --> 00:00:37,580
+41. println(replaceBookingId)
+
+23
+00:00:37,580 --> 00:00:37,809
+45. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+24
+00:00:37,810 --> 00:00:37,835
+49. sendRequestTextBox.clear()
+
+25
+00:00:37,835 --> 00:00:37,837
+53. request = BookingId
+
+26
+00:00:37,837 --> 00:00:37,911
+57. sendRequestTextBox.sendKeys(request)
+
+27
+00:00:37,911 --> 00:00:37,914
+61. println(request)
+
+28
+00:00:37,915 --> 00:00:38,205
+65. utils.clickSendButton()
+
+29
+00:00:38,206 --> 00:00:41,214
+69. delay(3)
+
+30
+00:00:41,215 --> 00:00:41,455
+73. response = utils.getResponse()
+
+31
+00:00:41,455 --> 00:00:41,457
+77. println(response)
+
+32
+00:00:41,457 --> 00:00:41,460
+81. validation1 = testdata["ContainsValidation"][TestScenarioNumber]
+
+33
+00:00:41,460 --> 00:00:41,462
+85. println(validation1)
+
+34
+00:00:41,462 --> 00:00:41,464
+89. validation2 = testdata["NotContainsValidation"][TestScenarioNumber]
+
+35
+00:00:41,464 --> 00:00:41,466
+93. println(validation2)
+
+36
+00:00:41,466 --> 00:00:41,469
+97. println(testdata["TCNumber"][TestScenarioNumber])
+
+37
+00:00:41,469 --> 00:00:41,472
+101. assert response.contains(validation1)
+
+38
+00:00:41,472 --> 00:00:41,473
+105. assert response.contains(validation2) == false
+
+39
+00:00:41,474 --> 00:00:41,477
+109. println("Test Scenario Number: " + TestScenarioNumber)
+
+40
+00:00:41,477 --> 00:00:41,479
+1. println(testdata.size())
+
+41
+00:00:41,479 --> 00:01:02,238
+5. getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, TestScenarioNumber)
+
+42
+00:01:02,239 --> 00:01:02,240
+9. println(getBookingData["BookingId"])
+
+43
+00:01:02,241 --> 00:01:02,242
+13. println(getBookingData["BookingAccessToken"])
+
+44
+00:01:02,242 --> 00:01:02,244
+17. println(getBookingData["PassengerId1"])
+
+45
+00:01:02,244 --> 00:01:02,245
+21. println(getBookingData["PassengerId2"])
+
+46
+00:01:02,245 --> 00:01:07,249
+25. delay(5)
+
+47
+00:01:07,250 --> 00:01:07,251
+29. bookingIdCol = testdata["BookingId"][TestScenarioNumber]
+
+48
+00:01:07,252 --> 00:01:07,253
+33. BookingId = getBookingData["BookingId"]
+
+49
+00:01:07,253 --> 00:01:07,254
+37. replaceBookingId = bookingIdCol.replace("BookingId", BookingId)
+
+50
+00:01:07,254 --> 00:01:07,255
+41. println(replaceBookingId)
+
+51
+00:01:07,255 --> 00:01:07,484
+45. sendRequestTextBox = driver.findElement(By.xpath("//textarea[@name='req']"))
+
+52
+00:01:07,484 --> 00:01:07,510
+49. sendRequestTextBox.clear()
+
+53
+00:01:07,511 --> 00:01:07,512
+53. request = BookingId
+
+54
+00:01:07,512 --> 00:01:07,562
+57. sendRequestTextBox.sendKeys(request)
+
+55
+00:01:07,562 --> 00:01:07,563
+61. println(request)
+
+56
+00:01:07,563 --> 00:01:07,831
+65. utils.clickSendButton()
+
+57
+00:01:07,831 --> 00:01:10,836
+69. delay(3)
+
+58
+00:01:10,837 --> 00:01:11,069
+73. response = utils.getResponse()
+
+59
+00:01:11,069 --> 00:01:11,070
+77. println(response)
+
+60
+00:01:11,070 --> 00:01:11,071
+81. validation1 = testdata["ContainsValidation"][TestScenarioNumber]
+
+61
+00:01:11,071 --> 00:01:11,072
+85. println(validation1)
+
+62
+00:01:11,072 --> 00:01:11,073
+89. validation2 = testdata["NotContainsValidation"][TestScenarioNumber]
+
+63
+00:01:11,073 --> 00:01:11,074
+93. println(validation2)
+
+64
+00:01:11,074 --> 00:01:11,075
+97. println(testdata["TCNumber"][TestScenarioNumber])
+
+65
+00:01:11,075 --> 00:01:11,076
+101. assert response.contains(validation1)
+
+66
+00:01:11,077 --> 00:01:11,077
+105. assert response.contains(validation2) == false
+
+67
+00:01:11,078 --> 00:01:11,085
+109. println("Test Scenario Number: " + TestScenarioNumber)
+
+68
+00:01:11,085 --> 00:01:11,107
+5. cancelBookingRequest = findTestObject("CancelBooking")
+
+69
+00:01:11,107 --> 00:01:11,443
+9. cancelBookingResponse = sendRequest(cancelBookingRequest)
+
+70
+00:01:11,443 --> 00:01:11,445
+13. cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText())
+
+71
+00:01:11,446 --> 00:01:11,448
+17. println(cancelBookingJsonResponse)
+
+72
+00:01:11,448 --> 00:01:13,616
+1. utils.closeBrowser()
+

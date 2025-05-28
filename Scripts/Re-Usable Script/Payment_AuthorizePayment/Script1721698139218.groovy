@@ -64,8 +64,8 @@ WebElement clickAuthorizePayment = driver.findElement(By.xpath('//a[normalize-sp
 			
 			//Replace "PassengerId" value from passengerId in excel sheet
 			String passengerIdCol = testdata["passengerId"][i]
-			String PassengerId = getBookingData["PassengerId"]
-			String replacePassengerId = passengerIdCol.replace("PassengerId",PassengerId)
+			String PassengerId = getBookingData["PassengerId1"]
+			String replacePassengerId = passengerIdCol.replace("PassengerId1",PassengerId)
 			println(replacePassengerId)
 			
 			//get testData from excel to pass in Request

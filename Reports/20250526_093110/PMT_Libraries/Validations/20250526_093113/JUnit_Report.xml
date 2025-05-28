@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Validations" time="162.504" tests="2" failures="0" errors="0">
+   <testsuite name="Validations" tests="2" failures="0" errors="0" time="162.504" skipped="0" timestamp="26-05-2025T09:33:27" hostname="manilacel - localhost" id="Test Suites/PMT_Libraries/Validations">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113"/>
+         <property name="logFiles" value="/Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="manilacel - localhost"/>
+         <property name="os" value="Mac OS X 64bit"/>
+         <property name="katalonVersion" value="9.5.0.217"/>
+         <property name="browser" value="Chrome 136.0.0.0"/>
+         <property name="hostAddress" value="127.0.0.1"/>
+         <property name="sessionId" value="bc5e357ed9bdcf9df2be73e92a2c3c74"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Mac OS X"/>
+      </properties>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf" time="111.284" classname="Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf" status="PASSED">
+         <system-out><![CDATA[26-05-2025T09:33:27 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf: Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf
+
+26-05-2025T09:33:29 - [TEST_STEP][PASSED] - try: null
+
+26-05-2025T09:33:29 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+26-05-2025T09:33:29 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+26-05-2025T09:33:29 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+26-05-2025T09:33:31 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+26-05-2025T09:33:31 - [MESSAGE][PASSED] - Current window maximized
+
+26-05-2025T09:33:34 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+26-05-2025T09:33:34 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+26-05-2025T09:33:34 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+26-05-2025T09:33:34 - [TEST_STEP][PASSED] - TAB = "Validations_Prevalidations&Conf": null
+
+26-05-2025T09:33:34 - [TEST_STEP][PASSED] - utils.goToValidations(): null
+
+26-05-2025T09:33:37 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+26-05-2025T09:33:38 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+26-05-2025T09:33:39 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations and Conf']")).click(): null
+
+26-05-2025T09:33:39 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+26-05-2025T09:33:39 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:33:39 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:33:39 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:33:41 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:33:41 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:33:46 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:33:46 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i): Delayed 5 second(s)
+
+26-05-2025T09:33:54 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/0.har
+
+26-05-2025T09:33:54 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:04 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+26-05-2025T09:34:05 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/1.har
+
+26-05-2025T09:34:05 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:10 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - BookingIdToBePassedRaw = testdata["BookingId"][i]: null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId): null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:34:10 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:34:15 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:34:15 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:34:16 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/2.har
+
+26-05-2025T09:34:16 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:34:16 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:34:17 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:34:17 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:34:22 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:34:22 - [TEST_STEP][PASSED] - getBookingData = CreateAndRetrieveBooking.Data(EXCEL_PATH, TAB, i): Delayed 5 second(s)
+
+26-05-2025T09:34:26 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/3.har
+
+26-05-2025T09:34:26 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:36 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+26-05-2025T09:34:38 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/4.har
+
+26-05-2025T09:34:38 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:43 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - println(getBookingData["BookingId"]): null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - println(getBookingData["BookingAccessToken"]): null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - BookingId = getBookingData["BookingId"]: null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - BookingIdToBePassedRaw = testdata["BookingId"][i]: null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - BookingIdToBePassed = BookingIdToBePassedRaw.replace("BookingId", BookingId): null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:34:43 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:34:48 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:34:48 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:34:49 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/5.har
+
+26-05-2025T09:34:49 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:34:49 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:34:50 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:34:50 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:34:50 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:34:52 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:34:52 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/6.har
+
+26-05-2025T09:34:52 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:34:52 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:34:53 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:34:53 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:34:53 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:34:53 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:34:53 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:34:53 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:34:55 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:34:55 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:34:56 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/7.har
+
+26-05-2025T09:34:56 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:34:56 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:34:57 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:34:59 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:34:59 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/8.har
+
+26-05-2025T09:34:59 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:34:59 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:35:00 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:35:02 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:35:02 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/9.har
+
+26-05-2025T09:35:02 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:35:02 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:35:03 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:35:03 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:35:03 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:35:03 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:35:03 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:35:03 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:35:05 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:35:05 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:35:06 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/10.har
+
+26-05-2025T09:35:06 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:35:06 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:35:07 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:35:09 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:35:09 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:35:10 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/11.har
+
+26-05-2025T09:35:10 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - TestScenarioRequiresCreateBooking = testdata["ExecuteBookingCreationFlag"][i]: null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - if (TestScenarioRequiresCreateBooking == "Yes"): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - else: null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - sendRequestTextBox = driver.findElement(By.xpath("//input[@id='1']")): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - sendRequestTextBox.clear(): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - BookingIdToBePassed = testdata["BookingId"][i]: null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - sendRequestTextBox.sendKeys(BookingIdToBePassed): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - println(BookingIdToBePassed): null
+
+26-05-2025T09:35:10 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:35:11 - [TEST_STEP][PASSED] - delay(2): Delayed 2 second(s)
+
+26-05-2025T09:35:13 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i): null
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - cancelBookingRequest = findTestObject("CancelBooking"): null
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - cancelBookingResponse = sendRequest(cancelBookingRequest): Send request successfully
+
+26-05-2025T09:35:13 - [MESSAGE][INFO] - HAR: /Users/manilacel/Library/CloudStorage/OneDrive-RoyalCaribbeanGroup/PMT/Git/payment.web-utility-automation/payment.web-utility-automation/Reports/20250526_093110/PMT_Libraries/Validations/20250526_093113/requests/main/12.har
+
+26-05-2025T09:35:13 - [MESSAGE][PASSED] - Send request successfully
+
+26-05-2025T09:35:13 - [TEST_STEP][PASSED] - cancelBookingJsonResponse = JsonSlurper().parseText(cancelBookingResponse.getResponseText()): null
+
+26-05-2025T09:35:14 - [TEST_STEP][PASSED] - println(cancelBookingJsonResponse): null
+
+26-05-2025T09:35:14 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+26-05-2025T09:35:14 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+26-05-2025T09:35:16 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:35:16 - [MESSAGE][PASSED] - Browser is closed
+
+26-05-2025T09:35:18 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf' .
+
+26-05-2025T09:35:18 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC1_PrevalidationsAndConf' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr" time="51.105" classname="Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr" status="PASSED">
+         <system-out><![CDATA[26-05-2025T09:35:18 - [TEST_CASE][PASSED] - Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr: Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr
+
+26-05-2025T09:35:19 - [TEST_STEP][PASSED] - try: null
+
+26-05-2025T09:35:19 - [TEST_STEP][PASSED] - utils.openBrowserAndNavigateToPMT(): Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+26-05-2025T09:35:19 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+26-05-2025T09:35:19 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+26-05-2025T09:35:22 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+26-05-2025T09:35:22 - [MESSAGE][PASSED] - Current window maximized
+
+26-05-2025T09:35:26 - [MESSAGE][PASSED] - Navigate to 'https://dev1.payment.rccl.com/payment/utilities' successfully
+
+26-05-2025T09:35:26 - [TEST_STEP][PASSED] - driver = getWebDriver(): null
+
+26-05-2025T09:35:26 - [TEST_STEP][PASSED] - EXCEL_PATH = "./Data Files/TestData.xlsx": null
+
+26-05-2025T09:35:26 - [TEST_STEP][PASSED] - TAB = "Validations_ByCtryOrCurr": null
+
+26-05-2025T09:35:26 - [TEST_STEP][PASSED] - testdata = getdata.fromExcel(EXCEL_PATH, TAB): null
+
+26-05-2025T09:35:26 - [TEST_STEP][PASSED] - utils.goToValidations(): null
+
+26-05-2025T09:35:30 - [TEST_STEP][PASSED] - utils.selectEnvironment(ENV): null
+
+26-05-2025T09:35:31 - [TEST_STEP][PASSED] - clickAuthorizePayment = xpath("//a[normalize-space()='Prevalidations by Ctry/Curr']")).click(): null
+
+26-05-2025T09:35:31 - [TEST_STEP][PASSED] - countryInput = driver.findElement(By.xpath("//input[@id='country']")): null
+
+26-05-2025T09:35:33 - [TEST_STEP][PASSED] - currencyInput = driver.findElement(By.xpath("//input[@id='currency']")): null
+
+26-05-2025T09:35:33 - [TEST_STEP][PASSED] - for ([i = 0, i < testdata.size(), (i++)]): null
+
+26-05-2025T09:35:33 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:35:38 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - countryData = testdata["Country"][i]: null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - currencyData = testdata["Currency"][i]: null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - println(countryData): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - println(currencyData): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:35:38 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:35:43 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:35:43 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:35:44 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:35:44 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:35:44 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:35:44 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:35:44 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:35:44 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:35:49 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - countryData = testdata["Country"][i]: null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - currencyData = testdata["Currency"][i]: null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - println(countryData): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - println(currencyData): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:35:49 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:35:54 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:35:54 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:35:59 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - countryInput.clear(): null
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - currencyInput.clear(): null
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - countryData = testdata["Country"][i]: null
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - currencyData = testdata["Currency"][i]: null
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - println(countryData): null
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - println(currencyData): null
+
+26-05-2025T09:35:59 - [TEST_STEP][PASSED] - countryInput.sendKeys(countryData): null
+
+26-05-2025T09:36:00 - [TEST_STEP][PASSED] - currencyInput.sendKeys(currencyData): null
+
+26-05-2025T09:36:00 - [TEST_STEP][PASSED] - utils.clickSendButton(): null
+
+26-05-2025T09:36:00 - [TEST_STEP][PASSED] - delay(5): Delayed 5 second(s)
+
+26-05-2025T09:36:05 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - response = utils.getResponse(): null
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - println(response): null
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - validation = testdata["Validation"][i]: null
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - if (response.contains(validation) == true): null
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - println(validation): null
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - println("Test Scenario Number: " + i + 1): null
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - Finally: Browser is closed
+
+26-05-2025T09:36:05 - [TEST_STEP][PASSED] - utils.closeBrowser(): Browser is closed
+
+26-05-2025T09:36:07 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+26-05-2025T09:36:07 - [MESSAGE][PASSED] - Browser is closed
+
+26-05-2025T09:36:09 - [TEST_STEP][PASSED] - Video: Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr' .
+
+26-05-2025T09:36:09 - [MESSAGE][INFO] - Video recording for test case 'Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr' .]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[26-05-2025T09:33:27 - [TEST_SUITE][PASSED] - Validations: Test Cases/Web_Utilities_TestCases/Validations/TC2_PrevalidationsByCtryOrCurr]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
